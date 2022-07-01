@@ -1,14 +1,10 @@
 <html>
     <head>
         <style>
-            .div0 {
-                display: inline;
-                width: 100px;
-                background-color:burlywood;
-            }
             .div1 {
                 display: inline-block;
-                width:auto;
+                width:100px;
+                height:10PX;
                 background-color: tomato;
             }
             .div2 {
@@ -16,10 +12,27 @@
                 width: auto;
                 background-color: aqua;
             }
+
+            .div-flex {
+                display: flex;
+                width:100%;
+                height:100%;
+                background-color: pink;
+                justify-content: center;
+                align-items:center;
+            }
         </style>
     </head>
 
     <body>
+        <div class="div-flex">
+			<div style="background-color: yellow">
+				<div>1</div>
+				<div>2</div>
+			</div>
+			<div style="background-color: blue; color: white;">3</div>
+			<div>4</div>
+        </div>
         <div class="div0">일반 div입니다.</div>
         <div class="div1">div1</div>
         <div class="div2">div2</div>
