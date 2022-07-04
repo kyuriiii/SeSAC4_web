@@ -1,0 +1,48 @@
+<html>
+    <script>
+        var cat = {
+            name: "나비",
+            age: 1,
+            mew: function(){
+                return "야옹";
+            }
+        };
+        console.log( "cat : " + cat );
+        console.log( "cat : ", cat );
+        console.log( cat );
+        console.log( cat.name );
+        console.log( cat.mew() );
+
+        var arr1 = [1, 2, 3, "안녕", "반가워"];
+        console.log( arr1.length );
+        arr1.push("내이름");
+        console.log(arr1);
+        arr1.pop();
+        console.log(arr1);
+
+        console.log(arr1.indexOf("안녕"));
+
+        var me = {
+            name: 'kyuri',
+            birth: '1115'
+        };
+        me['gender']='F';
+        console.log( me['gender'] );
+
+        var a = 1;
+        var b = a;
+        console.log( "a : ", a );
+        console.log( "b : ", b );
+        a = 10;
+        console.log( "a : ", a );
+        console.log( "b : ", b );
+
+        var a1 = [ 1, 2, 3, 4, 5 ];
+        var a2 = a1;
+        console.log( "a1 : ", a1 );
+        console.log( "a2 : ", a2 );
+        a1.pop();
+        console.log( "a1 : ", a1 );
+        console.log( "a2 : ", a2 );
+    </script>
+</html>
