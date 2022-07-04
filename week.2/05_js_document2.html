@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            div { background-color: pink; }
+            p { background-color: skyblue; }
+            .text { color: red; }
+        </style>
+        <script>
+            function addNode(){
+                var p1 = document.createElement("p");
+                var div1 = document.getElementById("div1");
+
+                p1.innerText = "p태그입니다.";
+                p1.className = "text";
+                p1.style = "text-align:center;";
+                var img = document.createElement("img");
+                img.src = "../img/ocean.png";
+                img.width = 100;
+                div1.appendChild(img);
+                div1.appendChild(p1);
+            }
+            function change(){
+                var input = document.getElementById("value1");
+                input.value = "input창";
+            }
+            function removeNode(){
+                var div1 = document.getElementById("div1");
+                var child = document.getElementsByClassName("text");
+                child[0].remove();
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="value1">
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <button type="button" onclick="addNode();">삽입</button>
+        <button type="button" onclick="change();">변경</button>
+        <button type="button" onclick="removeNode();">삭제</button>
+    </body>
+</html>
