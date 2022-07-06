@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js" ></script>
+    <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+    <link href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+
+    <style>
+      div {
+        width: 100;
+        height: 100;
+      }
+      div:hover{
+        cursor: pointer;
+      }
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .purple {
+        background-color: purple;
+      }
+    </style>
+    <script>
+        var colors = ['red','orange','yellow','green','blue','purple'];
+        function changeColor(){
+            var now = $("div").attr("class");
+            var i = colors.indexOf(now);
+            
+            if ( i == colors.length - 1 ) $("div").switchClass(now, colors[0]);
+            else $("div").switchClass(now, colors[i+1]);
+            // if ( $("div").hasClass("red") ) $("div").switchClass("red","orange");
+            // else if ( $("div").hasClass("orange") )$("div").switchClass("orange","yellow");
+            // else if ( $("div").hasClass("yellow") )$("div").switchClass("yellow","green");
+            // else if ( $("div").hasClass("green") )$("div").switchClass("green","blue");
+        }
+    </script>
+  </head>
+  <body>
+    <div id="div1" class="red" onclick="changeColor();"></div>
+  </body>
+</html>

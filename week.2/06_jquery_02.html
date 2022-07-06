@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+        <script>
+            function append(){
+                var li = document.createElement("li");
+                li.innerText="append";
+                // document.querySelector("ul").appendChild(li);
+                $("ul").append(li);
+            }
+            function prepend(){
+                var li = document.createElement("li");
+                li.innerText="prepend";
+                $("ul").prepend(li);
+            }
+            function before(){
+                var li = document.createElement("li");
+                li.innerText="before";
+                $("#li2").before(li);
+            }
+            function after(){
+                var li = document.createElement("li");
+                li.innerText="after";
+                $("#li2").after(li);
+            }
+            function search(){
+                console.log($("#li2").parent() );
+                console.log($("#li2").next() );
+                console.log($("ul").children() );
+            }
+            function removeElement(){
+                $("#li2").remove();
+            }
+            function emptyElement(){
+                $("ul").empty();
+            }
+            function addClass(){
+                $("div").addClass("css1");
+            }
+            function removeClass(){
+                $("div").removeClass("css1");
+            }
+            function hasClass(){
+                if ( $("div").hasClass("css1") ) {
+                    alert( "css1!!!!");
+                } else if ( !$("div").hasClass("css1") ){
+                    alert( "no!!!!" );
+                }
+            }
+            function switchClass(){
+                if ( $("div").hasClass("css1") ) {
+                    $("div").switchClass("css1","css2",3000);
+                } else if ( $("div").hasClass("css2") ) {
+                    $("div").switchClass("css2","css1",3000);
+
+                }
+            }
+        </script>
+        <style>
+            .css1 {
+                width: 100px;
+                height: 100px;
+                background-color: brown;
+            }
+            .css2 {
+                width: 200px;
+                height: 200px;
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <button type="button" onclick="addClass()">addClass()</button>
+        <button type="button" onclick="removeClass()">removeClass()</button>
+        <button type="button" onclick="hasClass()">hasClass</button>
+        <button type="button" onclick="switchClass()">switchClass</button>
+        <ul>
+            <li>1</li>
+            <li id="li2">2</li>
+            <li id="li3">3</li>
+        </ul>
+        <button type="button" onclick="append()">append</button>
+        <button type="button" onclick="prepend()">prepend</button>
+        <button type="button" onclick="before()">before</button>
+        <button type="button" onclick="after()">after</button>
+        <button type="button" onclick="search()">search</button>
+        <button type="button" onclick="removeElement()">remove</button>
+        <button type="button" onclick="emptyElement()">empty</button>
+    </body>
+</html>

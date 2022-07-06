@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <script>
+            var cnt = 1;
+            function writeNote(){
+                var name = document.getElementById("name").value;
+                var content = document.getElementById("content").value;
+
+                var table = document.getElementById("table");
+                var garo = document.createElement("tr");
+
+                var kan1 = document.createElement("td");
+                kan1.innerText = cnt;
+                cnt = cnt + 1;
+                //kan1.innerText = document.querySelectorAll("#table > tr").length;
+                var kan2 = document.createElement("td");
+                kan2.innerText = name;
+                var kan3 = document.createElement("td");
+                kan3.innerText = content;
+
+                var kan4 = document.createElement("td");
+                
+                var date = new Date();
+                console.log( date );
+
+                kan4.innerText = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+
+                garo.appendChild(kan1);
+                garo.appendChild(kan2);
+                garo.appendChild(kan3);
+                garo.appendChild(kan4);
+                table.appendChild(garo);
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <p>방명록입니다.</p>
+            
+            <div>
+                 <table class="tbl">
+                 <tr>
+                     <th>작성자</th>
+                     <td>
+                         <input type="text" id="name" style="width: 150px;">
+                     </td>
+                 </tr>
+                 <tr>
+                     <th>내용</th>
+                     <td>
+                         <input type="text" id="content" style="width: 560px;">
+                     </td>
+                 </tr>
+                 </table>
+                 
+                 <br>
+                 <button type="button" onclick="writeNote();">작성</button>
+                 
+                 <br><br>
+         
+                 <table id="table" border="1" cellpadding="10" cellspacing="1">
+                     <tr>
+                         <th>번호</th>
+                         <th>작성자</th>
+                         <th>내용</th>
+                         <th>작성일</th>
+                     </tr>
+                     <tr>
+                        <th>번호</th>
+                        <th>작성자</th>
+                        <th>내용</th>
+                        <th>작성일</th>
+                    </tr>
+                    <tr>
+                        <th>번호</th>
+                        <th>작성자</th>
+                        <th>내용</th>
+                        <th>작성일</th>
+                    </tr>
+                 </table>
+            </div>
+         </div>
+    </body>
+</html>

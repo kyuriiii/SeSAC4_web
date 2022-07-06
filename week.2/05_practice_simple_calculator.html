@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <script>
+            function cal() {
+                var num1 = document.getElementById("v1").value;
+                var num2 = document.getElementById("v2").value;
+                var op = document.getElementById("op").value;
+                
+                num1 = parseInt(num1);
+                num2 = parseInt(num2); //Number(num2)
+
+                var number = 0;
+                switch ( op ) {
+                    case "+":
+                        number = num1 + num2;
+                    break;
+                    case "-":
+                        number = num1 - num2;
+                    break;
+                    // * /
+                }
+                var result = document.getElementById("res");
+                result.value = number;
+
+                // document.getElementById("res").value = number;
+            }
+            function reset(){
+                // document.getElementById("v1").value = "";
+                // document.getElementById("v2").value = "";
+                // document.getElementById("op").value = "";
+                // document.getElementById("res").value = "";
+                var inputs = document.querySelectorAll("input");
+                console.log(inputs);
+                for ( var i = 0; i < inputs.length; i++ ){
+                    var selected = inputs[i];
+                    console.log( selected );
+                    selected.value = "";
+                    // inputs[i].value = "";
+                }
+
+            }
+        </script>
+    </head>
+
+    <body>
+
+        값1: 
+        <input type="text" id="v1"><br>
+        값2: 
+        <input type="text" id="v2"><br>
+        연산자: 
+        <input type="text" id="op"><br>
+        결과: 
+        <input type="text" id="res">
+        <br><br>
+        <button type="button" onclick="cal();">계산하기</button>
+        <button type="button" onclick="reset();">초기화</button>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
+        <script>
+            function setValue(){
+                //document.getElementById("input1").value = "~~~";
+                $( "#input1" ).val( "setting" );
+            }   
+            function getValue(){
+                alert( $( "#input1" ).val() );
+            }
+            function changeStyle(){
+                // var span = document.querySelector("span");
+                // span.style = "font-size: 20px; color: red;";
+                $("span").css("font-size", "28px");
+                $("span").css("color", "orange");
+            }
+            function changeText(){
+                // var span = document.querySelector("span");
+                // span.innerText = "javascript!!!";
+                $("span").text("jQuery~~~~");
+            }
+            function changeAttribute(){
+                // var img = document.querySelector("img");
+                // img.width = "100";/
+                $("img").attr("width", "100");
+            }
+            function changeHTML(){
+                // var p = document.querySelector("p");
+                // p.innerHTML = "<h1>ㅂㅏㄴㄱㅏㅇㅜㅓㅇㅛ</h1>";
+                $("p").html("<h3>~~</h3>");
+            }
+    </script>
+    </head>
+    <body>
+        <input type="text" id="input1">
+        <button type="button" onclick="setValue();">setValue</button>
+        <button type="button" onclick="getValue();">getValue</button>
+        <br>
+        <span style="width: 100px;">안녕</span>
+        <img src="">
+        <button type="button" onclick="changeStyle();">changeStyle</button>
+        <button type="button" onclick="changeText();">changeText</button>
+        <button type="button" onclick="changeAttribute();">changeAttribute</button>
+        <p style="background-color: orange">pㅌㅐㄱㅡ</p>
+        <button type="button" onclick="changeHTML();">changeHTML</button>
+    </body>
+</html>
