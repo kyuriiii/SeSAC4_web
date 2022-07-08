@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js" ></script>
+
+        <title> 내 스케줄 </title>
+
+        <style>
+            td {
+                width: 100px;
+                height: 100px;
+                color:yellow;
+            }
+            tr > td:first-child > p,
+            tr > th:first-child > p {
+                color: red
+            }
+            tr > td:last-child > p,
+            tr > th:last-child > p {
+                color: blue;
+            }
+            td > p:hover {
+                transform: scale(1.2);
+                cursor:pointer;
+            }
+        </style>
+    </head>
+
+    <body > 
+        <div>
+            날짜 : <input type="text" id="date" readonly> <br>
+            내용 : <input type="text" id="content"> <br>
+            <button type="button" onclick="writeSchedule();">작성</button> <br>
+        </div> 
+        <div style="font-size:2em; color:green; text-align:center;">
+            2022년 7월        
+        </div> 
+
+        <br>
+        
+        <table align="center" width=500 style="text-align:center;">
+            <tr>
+                <th>日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+            </tr>
+            <tr>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p>1</p></td>
+                <td><p>2</p></td>
+            <tr>
+                <td><p>3</p></td>
+                <td><p>4</p></td>
+                <td><p>5</p></td>
+                <td><p>6</p></td>
+                <td><p>7</p></td>
+                <td><p>8</p></td>
+                <td><p>9</p></td>
+            </tr>
+            <tr>
+                <td><p>10</p></td>
+                <td><p>11</p></td>
+                <td><p>12</p></td>
+                <td><p>13</p></td>
+                <td><p>14</p></td>
+                <td><p>15</p></td>
+                <td><p>16</p></td>
+            </tr>
+            <tr>
+                <td><p>17</p></td>
+                <td><p>18</p></td>
+                <td><p>19</p></td>
+                <td><p>20</p></td>
+                <td><p>21</p></td>
+                <td><p>22</p></td>
+                <td><p>23</p></td>
+            </tr>
+            <tr>
+                <td><p>24</p></td>
+                <td><p>25</p></td>
+                <td><p>26</p></td>
+                <td><p>27</p></td>
+                <td><p>28</p></td>
+                <td><p>29</p></td>
+                <td><p>30</p></td>
+            </tr>
+            <tr>
+                <td><p>31</p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+            </tr>
+        </table>
+
+        <script>
+            var target;
+            
+            $("td").on("click", function( obj ){
+                console.log( obj );
+                target = obj.currentTarget; // 현재 선택한 태그 target 변수에 담기 지금, td가 console.log로 나온다.
+                console.log( target );
+                $("#date").val( $(obj.currentTarget).text() );
+                // alert( $(obj.currentTarget).text() );
+            });
+
+            function writeSchedule(){
+                // 이 함수를 채워주세요.
+                var content = $("#content").val();
+
+                // $(target).append("<p>" + content + "</p>");
+
+                var ps = document.querySelectorAll("p");
+                for ( var i = 0; i < ps.length; i++ ){
+                    console.log(ps[i]);
+                    if ( $(ps[i]).text() == $("#date").val() ){
+                        $(ps[i]).after(
+                            "<h1>adf</h1>"
+                        );
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
