@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아스날 팬페이지</title>
+    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script scr="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var boardArray = new Array();
+      const logo = new Image();
+         logo.src = "C:\Users\tkdgn\OneDrive\바탕 화면\새싹\Sesac4-\실습이미지\ars_logo2.png";
+      function Board(uName, uContent)
+      {
+         this.userName=uName;
+         this.content=uContent;
+         this.writeDay=new Date();
+      }
+      Board.prototype.userLocalString = function()
+      {
+         return this.writeDay.getFullYear() + "-"
+             + (this.writeDay.getMonth()+1) + "-"
+             + this.writeDay.getDate() + "-"
+             + this.writeDay.getHours() + ":"
+             + this.writeDay.getSeconds();
+      }
+      function main()
+      {
+         var uName = document.getElementById("uName").value;
+         var uContent = document.getElementById("uContent").value;
+         var len = boardArray.length;
+         boardArray[len] = new Board(uName, uContent);
+         print(len);
+         clear();
+      }
+      function print(idx)
+      {
+         var tableNode = document.getElementById("bbsTable");
+         var trNode = document.createElement("tr");
+         trNode.appendChild(createTdNode(boardArray[idx].userName));
+         trNode.appendChild(createTdNode(boardArray[idx].content));
+         trNode.appendChild(createTdNode(boardArray[idx].userLocalString()));
+         tableNode.appendChild(trNode);
+      }
+      function createTdNode(val)
+      {
+         var textNode = document.createTextNode(val);
+         var tdNode = document.createElement("td");
+         tdNode.appendChild(textNode);
+         return tdNode;
+      }
+      function clear()
+      {
+          document.getElementById("uName").value="";
+          document.getElementById("uContent").value="";
+          document.getElementById("uName").focus();
+      }
+    </script>
+    <style>
+       .carousel-inner > .carousel-item > img{
+       width: 600px;
+      height: 650px; }
+      #news {
+      border-color: #C41111;
+      border-top-width: thick;
+      min-height: auto;
+      height: 450px;
+      }
+      #news > a > img {
+        width: 100%;
+        height: 300px;
+      }
+      #footer {
+        height: 150px;
+        padding-top: 30px;
+        bottom: 0;
+      }
+      #bbsTable {
+        width: 100%;
+        border: 1px solid #C41111;
+      }
+      #bbsTable > td {
+      border-bottom: 1px solid #C41111;
+      }
+      #fighting {
+        position: relative;
+        bottom: 50px; left: 750px;
+      }
+      body {
+        background-image: url("file:///C:/Users/user/Desktop/github/Sesac4-/실습이미지/bg6.jpg");
+        height: fit-content;
+        background-size: cover;
+        padding: 0px; margin: 0px;
+      }
+      .jb-box { width: 100%; height: 00px; margin: 0px auto; position: relative; }
+      video{
+        width: 100%;
+      }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg"  style="background-color:#c41111; font-style: oblique;">
+        <div class="container-fluid" >
+          <a class="navbar-brand" href="C:\Users\user\Desktop\github\Sesac4-\2주차\0708실습2.html" ><img src="C:\Users\user\Desktop\github\Sesac4-\실습이미지\ars_logo.png" width="50" height="50">
+            Arsenalish</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="C:\Users\user\Desktop\github\Sesac4-\2주차\0708실습2-2.html" style="color: white;">History</a>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link" href="C:\Users\user\Desktop\github\Sesac4-\2주차\0708실습2-3.html" style="color: white;">News</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                  Teams
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Mens</a></li>
+                  <li><a class="dropdown-item" href="#">Youth</a></li>
+                  <li><a class="dropdown-item" href="#">Coach</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="color: white;">Matchs</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <!-- video -->
+      <div class="jb-box">
+      <video autoplay muted>
+        <source src="C:\Users\SBA5\Downloads\flower.mp4" type="video/mp4">
+      </video>
+      </div>
+       <div class="container">
+       <div class="row">
+        <div .col-2 ></div>
+        <!-- 두번째 행 뉴스-->
+    <div style="margin-bottom: 30px; margin-top: 30px;"> <h2>Today's News</h2></div>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col" >
+        <div class="card" id="news">
+          <a href="https://www.goal.com/kr/%EB%89%B4%EC%8A%A4/%E1%84%8B%E1%85%B3%E1%86%AB%E1%84%89%E1%85%A1-%E1%84%80%E1%85%A1-%E1%84%8B%E1%85%A2%E1%84%8C%E1%85%A6%E1%84%8C%E1%85%A1-%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A6-%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%86%E1%85%A6%E1%84%89%E1%85%B5%E1%84%8C%E1%85%B5-%E1%84%82%E1%85%A2%E1%84%80%E1%85%A6-%E1%84%82%E1%85%A5%E1%84%86%E1%85%AE-%E1%84%89%E1%85%B3%E1%86%AF%E1%84%91%E1%85%B3%E1%86%AB/blt76692ece15d1ab4d">
+            <img src="C:\Users\user\Desktop\github\Sesac4-\실습이미지\news2.webp" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h6 class="card-title">‘은사’가 ‘애제자’에게 전하는 메시지…“내게 너무 슬픈 순간이다”</h6>
+            <p class="card-text">[골닷컴] 최대훈 기자 = 프리미어리그 아스널을 성공적으로 이끌었던 아르센 벵거가 30세의 나이로 은퇴를 선언한 잭 윌셔에게 메시지를 보냈다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" id="news">
+          <a href="https://www.goal.com/kr/%EB%89%B4%EC%8A%A4/goal-%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%87%E1%85%A5%E1%86%AF-%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8-%E1%84%92%E1%85%AE-%E1%84%8E%E1%85%A5%E1%86%BA-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%87%E1%85%B2-%E1%84%8B%E1%85%A1%E1%84%89%E1%85%B3%E1%84%82%E1%85%A5%E1%86%AF-9%E1%84%87%E1%85%A5%E1%86%AB-%E1%84%8C%E1%85%A5%E1%84%8C%E1%85%AE%E1%84%82%E1%85%B3%E1%86%AB/bltffa3c47ab61c6cc5">
+          <img src="C:\Users\user\Desktop\github\Sesac4-\실습이미지\news1.webp" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h6 class="card-title" >[GOAL 글로벌] 이적 후 첫 인터뷰 아스널 9번, '저주는 신경 안 쓴다'</h6>
+            <p class="card-text">[골닷컴] 김형중 기자 = 맨체스터 시티에서 아스널로 이적한 제주스가 이적 후 처음으로 미디어 인터뷰를 진행했다. 본 매체(골닷컴) 글로벌 에디션과 만나 이적에 대한 이야기를 전했다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" id="news">
+          <a href="https://www.goal.com/kr/%EB%89%B4%EC%8A%A4/%E1%84%8B%E1%85%A1%E1%84%89%E1%85%B3%E1%84%82%E1%85%A5%E1%86%AF-%E1%84%92%E1%85%AA%E1%86%A8%E1%84%89%E1%85%B5%E1%86%AB%E1%84%8B%E1%85%A6-%E1%84%8E%E1%85%A1-%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%83%E1%85%A1-%E1%84%8B%E1%85%A9%E1%86%AF%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7-5%E1%84%92%E1%85%A9-%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%8B%E1%85%B5%E1%86%B8-%E1%84%8B%E1%85%B2%E1%84%85%E1%85%A7%E1%86%A8/blt1de25e91d5d8ec13">
+            <img src="C:\Users\user\Desktop\github\Sesac4-\실습이미지\news3.webp" class="card-img-top" alt="..." ></a>
+          <div class="card-body">
+            <h6 class="card-title">아스널 확신에 차 있다…올여름 '5호 영입' 유력</h6>
+            <p class="card-text">[골닷컴] 강동훈 기자 = 잉글랜드 프로축구 아스널이 올여름 다섯 번째 영입을 정조준하고 있다. 타깃은 현재 레스터 시티(잉글랜드)에서 뛰고 있는 미드필더 유리 틸레만스(25)인데, 이미 영입에 확신이 차 있다는 분석이 나왔다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" id="news" >
+          <a href="https://www.goal.com/kr/%EB%89%B4%EC%8A%A4/%E1%84%8B%E1%85%AB-%E1%84%92%E1%85%A1%E1%84%91%E1%85%B5%E1%86%AF-%E1%84%87%E1%85%AE%E1%86%AF%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%92%E1%85%A1%E1%84%80%E1%85%A6-%E1%84%8C%E1%85%A6%E1%84%8C%E1%85%AE%E1%84%89%E1%85%B3-%E1%84%91%E1%85%AE%E1%86%B7%E1%84%8B%E1%85%B3%E1%86%AB-%E1%84%8B%E1%85%A1%E1%84%89%E1%85%B3%E1%84%82%E1%85%A5%E1%86%AF-9%E1%84%87%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B4-%E1%84%8C%E1%85%A5%E1%84%8C%E1%85%AE/blt5106dcad1f8adaa4">
+            <img src="C:\Users\user\Desktop\github\Sesac4-\실습이미지\news4.webp" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h6 class="card-title" >'왜 하필.. 불안하게' 제주스 품은 아스널, 9번의 저주 잔혹사</h6>
+            <p class="card-text">[골닷컴] 박문수 기자 = 아스널의 새로운 해결사 가브리엘 제주스는 악명 높은 아스널 9번의 저주를 깰 수 있을까?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 세번째 행 방명록-->
+    <div class="row" style="margin-top: 30px;">
+        <h2 style="margin: 20px;">응원글을 남겨주세요</h2>
+        <form>
+              <div .col-6>
+              <table class="tbl">
+                 <tr>
+                    <th style="font-size: 15px; width: 100px; text-align: center;">이름</th>
+                    <td>
+                       <input type="text" id="uName" style="width: 180px;" placeholder="이름을 입력해주세요.">
+                    </td>
+                 </tr>
+                 <tr>
+                    <th style="font-size: 15px; width: 100px; text-align: center;"  >내용</th>
+                    <td>
+                       <input type="text" id="uContent" style="width: 600px;" placeholder="내용을 입력해주세요.">
+                    </td>
+                 </tr>
+              </table>
+            </div>
+            <div >
+            <button type="button" class="btn btn-danger" value="글쓰기" onclick="main()" style="font-size:18pt;" text-align: center; id="fighting">응원글작성!</button>
+            </div>
+          </div>
+              <table id="bbsTable" class="table-danger">
+                 <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                 </tr>
+              </table>
+           </form>
+        </div>
+     </div>
+  </div>
+    <footer class="mt-auto mb-0">
+      <div style="background-color: #C41111;" id="footer" class="jumbotron text-center mt-5 mb-0">
+        <h3>Arsenal Fanpage</h3>
+        <br>
+        <p>Arsenal’s Homepage is powered by lettuce / Designed by lettuce</p>
+      </div>
+    </footer>
+</body>
+</html>
