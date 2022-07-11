@@ -1,0 +1,591 @@
+<html>
+    <head>
+        <title>나이키. Just Do It. Nike.com</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap Icon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+        <script>
+
+            function delay(ms) {
+                let start = new Date().getTime();
+                console.log(start);
+                let end = 0;
+                while ( (end-start) < ms ) {
+                    end = new Date().getTime();
+                }
+            }
+
+            // 네비게이션바 메뉴에 마우스 올리면 하위 메뉴 보여주기
+            function showDropdown(id) {
+                $(id).removeClass("display-none");
+            }
+            function hideDropdown(id) {
+                $(id).addClass("display-none");
+            }
+
+            // 
+            function closeButton(id) {
+                $(id).addClass("display-none");
+            }
+        </script>
+
+    </head>
+
+    <body>
+
+        <!-- Login bar -->
+        <div id="login-bar" class="flex-container">
+            <div style="margin-left: 4%;">
+                <button type="button"><img src="../clone-nike/img/jordan.png" width="20"></button>
+                <button type="button"><img src="../clone-nike/img/converse.png" width="40"></button>
+            </div>
+            <div style="margin-right: 3%;">
+                <button type="button">고객센터</button>
+                <span>|</span>
+                <button type="button">멤버 가입</button>
+                <span>|</span>
+                <button type="button">로그인</button>
+            </div>
+        </div>
+
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Home -->
+                <a class="navbar-brand" href="index.html"><img src="../clone-nike/img/nike.png" width="50"></a>
+                <!-- 오른쪽 위 모서리 네비게이션바 생략 아이콘 -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="border: none;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <!-- New Releases -->
+                            <li class="nav-item">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#newReleases');" onmouseleave="hideDropdown('#newReleases');">New Releases</a>
+                            </li>
+                            <!-- Men -->
+                            <li class="nav-item">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#men');" onmouseleave="hideDropdown('#men');">Men</a>
+                            </li>
+                            <!-- Women -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#women');" onmouseleave="hideDropdown('#women');">Women</a>
+                            </li>
+                            <!-- Kids -->
+                            <li class="nav-item">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#kids');" onmouseleave="hideDropdown('#kids');">Kids</a>
+                            </li>
+                            <!-- Sale -->
+                            <li class="nav-item">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#sale');" onmouseleave="hideDropdown('#sale');">Sale</a>
+                            </li>
+                        </ul>
+                        <div style="margin-left: auto; padding-top: 10px;">
+                            <i role="button" class="bi bi-search"></i>
+                            <input type="search"><span class="text-search">검색</span>
+                            <i role="button" class="bi bi-heart" style="margin-left: 0;"></i>
+                            <i role="button" class="bi bi-bag"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dropdown menu -->
+
+        <!-- New Releases -->
+        <div id="newReleases" class="flex-container menu display-none">
+            <div>
+                <p class="menu-title">New & Featured</p>
+                <p>신상품 전체보기</p>
+                <p>SNKRS</p>
+                <p>에어 포스 1</p>
+                <p>ACG</p>
+                <p>NikeLab</p>
+                <p>여름을 위한 스타일링 추천</p>
+                <p>스타일링 리뷰 챌린지</p>
+                <p>지속 가능 컬렉션</p>
+                <p>썸머 컬렉션</p>
+                <p>품절 임박</p>
+            </div>
+            <div>
+                <p class="menu-title">New For Men</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+            <div>
+                <p class="menu-title">New For Women</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+            <div>
+                <p class="menu-title">New For Kids</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+        </div>
+
+        <!-- Men  -->
+        <div id="men" class="flex-container menu display-none">
+            <div>
+                <p class="menu-title">New & Featured</p>
+                <p>신상품</p>
+                <p>SNKRS</p>
+                <p>MUST HAVES</p>
+                <p>MEMBER SHOP</p>
+                <p>젠더리스 컬렉션</p>
+                <p>애슬릿 리뷰</p>
+                <p>여름을 위한 스타일링 추천</p>
+                <p>스타일링 리뷰 챌린지</p>
+                <p>지속 가능 컬렉션</p>
+                <p>썸머 컬렉션</p>
+                <p>품절 임박</p>
+            </div>
+            <div>
+                <p class="menu-title">신발</p>
+                <p>신발 전체</p>
+                <p>라이프스타일</p>
+                <p>러닝</p>
+                <p>트레이닝 & 짐</p>
+                <p>농구</p>
+                <p>조던</p>
+                <p>축구</p>
+                <p>스케이트보딩</p>
+                <p>골프</p>
+                <p>테니스</p>
+                <p>샌들 & 슬리퍼</p>
+            </div>
+            <div>
+                <p class="menu-title">의류</p>
+                <p>의류 전체</p>
+                <p>탑 & 티셔츠</p>
+                <p>팬츠 & 타이츠</p>
+                <p>후디 & 크루</p>
+                <p>재킷 & 베스트</p>
+                <p>숏 팬츠</p>
+                <p>나이키 프로</p>
+                <p>양말</p>
+                <p>셋업</p>
+                <p class="menu-title" style="margin-top: 15px;">용품</p>
+                <p>모자 & 헤드밴드</p>
+                <p>가방</p>
+                <p>애플워치</p>
+            </div>
+            <div>
+                <p class="menu-title">스포츠</p>
+                <p>러닝</p>
+                <p>트레이닝 & 짐</p>
+                <p>농구</p>
+                <p>축구</p>
+                <p>스케이트보딩</p>
+                <p>골프</p>
+                <p>테니스</p>
+            </div>
+            <div>
+                <p class="menu-title">브랜드</p>
+                <p>Nike Sportswear</p>
+                <p>NikeLab</p>
+                <p>Jordan</p>
+                <p>NBA</p>
+                <p>ACG</p>
+            </div>
+        </div>
+
+        <!-- Women  -->
+        <div id="women" class="flex-container menu display-none">
+            <div>
+                <p class="menu-title">New & Featured</p>
+                <p>신상품</p>
+                <p>SNKRS</p>
+                <p>MUST HAVES</p>
+                <p>MEMBER SHOP</p>
+                <p>브라 & 타이츠 셋업</p>
+                <p>썸머 컬렉션</p>
+                <p>홈트레이닝 컬렉션</p>
+                <p>애슬릿 리뷰</p>
+                <p>여름을 위한 스타일링 추천</p>
+                <p>스타일링 리뷰 챌린지</p>
+                <p>지속 가능 컬렉션</p>
+                <p>품절 임박</p>
+            </div>
+            <div>
+                <p class="menu-title">신발</p>
+                <p>신발 전체</p>
+                <p>라이프스타일</p>
+                <p>러닝</p>
+                <p>트레이닝 & 짐</p>
+                <p>농구</p>
+                <p>조던</p>
+                <p>축구</p>
+                <p>골프</p>
+                <p>테니스</p>
+                <p>샌들 & 슬리퍼</p>
+            </div>
+            <div>
+                <p class="menu-title">의류</p>
+                <p>의류 전체</p>
+                <p>스포츠 브라</p>
+                <p>타이츠 & 레깅스</p>
+                <p>팬츠 & 숏팬츠</p>
+                <p>탑 & 티셔츠</p>
+                <p>후디 & 크루</p>
+                <p>재킷 & 베스트</p>
+                <p>스커트 & 드레스</p>
+                <p>요가</p>
+                <p>양말</p>
+                <p>셋업</p>
+                <p class="menu-title" style="margin-top: 15px;">용품</p>
+                <p>모자 & 헤드밴드</p>
+                <p>가방</p>
+                <p>애플워치</p>
+            </div>
+            <div>
+                <p class="menu-title">스포츠</p>
+                <p>러닝</p>
+                <p>트레이닝 & 짐</p>
+                <p>농구</p>
+                <p>축구</p>
+                <p>골프</p>
+                <p>테니스</p>
+                <p>요가</p>
+            </div>
+            <div>
+                <p class="menu-title">브랜드</p>
+                <p>Nike Sportswear</p>
+                <p>NikeLab</p>
+                <p>Jordan</p>
+                <p>ACG</p>
+            </div>
+        </div>
+
+        <!-- Kids  -->
+        <div id="kids" class="flex-container menu display-none">
+            <div>
+                <p class="menu-title">New & Featured</p>
+                <p>신상품</p>
+                <p>썸머 컬렉션</p>
+                <p>다이나모 고</p>
+                <p>와플 트레이너 2</p>
+                <p>신고 벗기 편한 키즈 플라이이즈</p>
+                <p>나이키 키즈 클래식</p>
+                <p>조던 키즈</p>
+                <p>스타일링 리뷰 챌린지</p>
+                <p>아이들을 위한 선물</p>
+                <p>품절 임박</p>
+            </div>
+            <div>
+                <p class="menu-title">신발</p>
+                <p>베이비(160mm 이하)</p>
+                <p>리틀키즈(165-220mm)</p>
+                <p>주니어(225-250mm)</p>
+                <p>라이프스타일</p>
+                <p>러닝</p>
+                <p>축구</p>
+                <p>농구</p>
+                <p>샌들 & 슬리퍼</p>
+            </div>
+            <div>
+                <p class="menu-title">의류</p>
+                <p>베이비 (0-4세)</p>
+                <p>리틀키즈 (4-7세)</p>
+                <p>주니어 (8-13세)</p>
+                <p>탑 & 티셔츠 & 브라</p>
+                <p>후디 & 크루</p>
+                <p>아우터 & 재킷</p>
+                <p>스커트 & 드레스</p>
+                <p>트랙수트 & 세트</p>
+                <p>가방 & 모자 & 용품</p>
+                <p class="menu-title" style="margin-top: 15px;">용품</p>
+                <p>가방</p>
+                <p>모자</p>
+                <p>양말</p>
+            </div>
+            <div>
+                <p class="menu-title">스포츠</p>
+                <p>러닝</p>
+                <p>축구</p>
+                <p>농구</p>
+                <p>테니스</p>
+            </div>
+        </div>
+
+        <!-- Sale -->
+        <div id="sale" class="flex-container menu display-none">
+            <div>
+                <p class="menu-title">New To Sale</p>
+            </div>
+            <div>
+                <p class="menu-title">Mens Sale</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+            <div>
+                <p class="menu-title">Womens Sale</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+            <div>
+                <p class="menu-title">Kids Sale</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+        </div>
+
+        <!-- Carousel -->
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <p style="font-weight: bold; padding-top: 12px;">카카오페이 이벤트 안내 <br>
+                        <span role="button" style="text-decoration: underline; font-size: 12px;">자세히 보기</span>
+                    </p>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <p role="button" style="padding-top: 20px;">고객님의 나이키 멤버 정보가 이전됩니다. 
+                        <span style="font-weight: bold; text-decoration: underline; margin-left: 8px;">동의하기</span>
+                    </p>
+                </div>
+            </div>
+            <button type="button" class="close-btn" onclick="closeButton('#carouselExampleDark');">×</button>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- first content -->
+        <div id="first-content" class="content">
+            <iframe src="https://www.youtube.com/embed/-SBsT032jVI?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h1>RUNNERS HELPING RUNNERS</h1>
+            <p>러닝이 더욱 즐거워지는 이곳. <br>
+            마라톤 선수 안슬기의 팁과 잔나비 최정훈의 응원부터 <br>
+            러닝을 도와줄 새로운 제품, 페스티벌 정보까지 만나보세요.</p>
+            <div class="flex-container">
+                <button type="button" class="btn">자세히 보기</button>
+                <div style="width: 10px;"></div>
+                <button type="button" class="btn">구매하기</button>
+            </div>
+        </div>
+
+        <!-- second content -->
+        <div id="second-content" class="content">
+            <h4>여름을 위한 스타일링 추천</h4>
+            <img src="" width="90%">
+            <h1>썸머 러닝 스타일링</h1>
+            <p>시원하고 편안한 착용감의 러닝 제품과 함께 올여름 쾌적한 러닝을 즐겨보세요.</p>
+            <div class="flex-container">
+                <button type="button" class="btn">구매하기</button>
+                <div style="width: 10px;"></div>
+                <button type="button" class="btn">더 많은 스타일링 보기</button>
+            </div>
+        </div>
+
+        <!-- third content -->
+        <div id="third-content" class="content">
+            <h4>Trending Now</h4>
+            <div class="flex-container">
+                <div class="flex-column" style="width: 44%;">
+                    <img src="../clone-nike/img/trend1.png">
+                    <h5>러닝 의류</h5>
+                    <button type="button" class="btn">구매하기</button>
+                </div>
+                <div style="width: 2%"></div>
+                <div class="flex-column" style="width: 44%">
+                    <img src="../clone-nike/img/trend2.png">
+                    <h5>에어맥스 90 퓨추라</h5>
+                    <button type="button" class="btn">구매하기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- fourth content -->
+        <div id="fourth-content" class="content">
+            <h4>Featured Shoes</h4>
+            <div class="flex-container scroll">
+                <div class="flex-column" style="margin-left: 0;">
+                    <img src="../clone-nike/img/shoes1.png">
+                    <h6>나이키 에어맥스 코코</h6>
+                    <p>여성 샌들</p>
+                    <p>107,100원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes2.png">
+                    <h6>나이키 에어맥스 97</h6>
+                    <p>남성 신발</p>
+                    <p>179,100원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes3.png">
+                    <h6>나이키 에어 리프트 브리드</h6>
+                    <p>여성 신발</p>
+                    <p>116,100원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes4.png">
+                    <h6>나이키 리액트 인피니티 런 플라이니트 3</h6>
+                    <p>남성 로드 러닝화</p>
+                    <p>179,000원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes5.png">
+                    <h6>나이키 줌 메트콘 터보 2</h6>
+                    <p>남성 트레이닝화</p>
+                    <p>179,000원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes6.png">
+                    <h6>르브론 19</h6>
+                    <p>성인공용 농구화</p>
+                    <p>239,000원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes7.png">
+                    <h6>나이키 에어 줌 인피니티 투어 넥스트% 보아</h6>
+                    <p>남성 골프화(와이드)</p>
+                    <p>259,000원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes8.png">
+                    <h6>조던 "Why Not?" Zer0.5 PF</h6>
+                    <p>남성 농구화</p>
+                    <p>159,000원</p>
+                </div>
+                <div class="flex-column" style="margin-right: 0;">
+                    <img src="../clone-nike/img/shoes9.png">
+                    <h6>나이키 머큐리얼 슈퍼플라이 8 엘리트 FG</h6>
+                    <p>성인공용 천연 잔디 클리트 축구화</p>
+                    <p>319,000원</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer>
+            <p>고객님의 나이키 멤버 정보가 이전됩니다.
+                <span role="button" style="text-decoration: underline; margin-left: 10px;">동의하기</span>
+            </p>
+            <hr style="margin-top: 11px; margin-bottom: 60px;">
+            <div class="flex-container" style="text-align: left; justify-content: space-around;">
+                <div>
+                    <p role="button">매장안내</p>
+                    <p role="button">나이키 저널</p>
+                    <p role="button">로그인</p>
+                    <p role="button">멤버 가입</p>
+                </div>
+                <div class="footer-menu">
+                    <p style="color: white; font-size: 12px;">고객센터</p>
+                    <p role="button">080-022-0182</p>
+                    <p role="button">주문/결제</p>
+                    <p role="button">배송</p>
+                    <p role="button">주문배송조회</p>
+                    <p role="button">멤버쉽 혜택/서비스</p>
+                    <p role="button">공지사항</p>
+                    <p role="button">1:1 채팅 문의</p>
+                    <p role="button">이용약관</p>
+                    <p role="button">개인정보처리방침</p>
+                </div>
+                <div class="footer-menu">
+                    <p style="color: white; font-size: 12px;">ABOUT NIKE</p>
+                    <p role="button">나이키에 대하여</p>
+                </div>
+                <div class="social">
+                    <p>SOCIAL</p>
+                    <i role="button" class="bi bi-twitter" style="margin: 0;"></i>
+                    <i role="button" class="bi bi-facebook"></i>
+                    <i role="button" class="bi bi-youtube" style="margin: 0;"></i>
+                    <i role="button" class="bi bi-instagram"></i>
+                </div>
+            </div>
+            <hr style="margin-top: 40px;">
+            <div class="flex-container footer-middle">
+                <div>
+                    <span role="button"><i class="bi bi-geo-alt-fill"></i>대한민국</span>
+                    <span style="color: gray; margin-left: 15px;">2022 Nike, Inc. All Rights Reserved</span>
+                </div>
+                <div style="color: gray;">
+                    <span role="button" style="margin-right: 15px;">이용약관</span>
+                    <span role="button">개인정보처리방침</span>
+                </div>
+            </div>
+            <hr style="margin-top: 15;">
+            <div class="flex-container footer-info">
+                <p style="width: 430px; margin-right: 30px;">(유)나이키코리아 대표 Kimberlee Lynn Chang Mendes, 킴벌리 린 창 멘데스 | 서울 강남구 테헤란로 152 강남파이낸스센터 30층<br>통신판매업신고번호 2011-서울강남-03461 | 등록번호 220-88-09068 <span role="button">사업자정보확인</span><br>고객센터 전화문의 <span role="button">080-022-0182</span><br>FAX 02-6744-5880 | E-mail service@nike.co.kr | 호스팅서비스사업자 (유)나이키코리아</p>
+                <p style="width: 300px;">안전거래를 위해 현금 등으로 결제 시 저희 쇼핑몰에서 가입한<br>KG 이니시스의 구매안전 서비스 (채무지급보증)를 이용하실 수 있습니다.<br><br>온라인디지털콘텐츠사업발전법에 의한 <span role="button" style="text-decoration: underline;">콘텐츠보호안내 자세히보기</span></div></p>
+            </div>
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 480px">
+              <div class="modal-content">
+                <div class="modal-header border-0">
+                  <p style="font-size: 25px; font-weight: 500;">고객님의 나이키 멤버 정보가 <br> 이전됩니다.</p>
+                  <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+                </div>
+                <div class="modal-body" style="font-weight: 350;">
+                    나이키 멤버인 경우, 로그인 시 고객님의 멤버 정보 및 주문 정보가 미국 Nike, Inc.로 이전하는 것에 대한 제 3자 제공 동의 수집이 진행될 예정입니다. 해당 업데이트는 한국의 나이키 멤버 정보를 나이키 글로벌 시스템에 통합하여 향후 더 나은 서비스를 제공하기 위함입니다. <br><br> <span style="font-weight: 500;">국외 이전 및 제 3자 제공 동의 수집 기한은 2022년 8월 31일까지 입니다. 국외 이전 및 제 3자 제공에 동의하지 않는 경우, 고객님의 기존 나이키 멤버 정보가 삭제될 예정입니다.</span> <br><br> 아직 나이키 멤버 계정이 없는 경우 새로 생성하시거나 비회원으로도 여전히 나이키 서비스를 이용하실 수 있습니다. <br><br> 국외 이전 및 제 3자 제공에 대해 더 알고 싶으신가요? <br> 데이터 및 개인 정보 관련 <span style="text-decoration:underline; font-weight: bold;">FAQ</span>를 확인해 보세요. <br><br>
+                    <input type="checkbox"> 오늘 다시 표시 안 함
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn" data-bs-dismiss="modal">나중에 확인하기</button>
+                    <button type="button" class="btn">동의하기</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        // 페이지가 로드되면 모달 뜨게 하기
+        $(document).ready(function() {
+	        $("#exampleModal").modal("show");
+        });
+
+        // underline when mouse is over
+        let target;
+
+        $(".nav-link").on("mouseover", function( obj ){
+            target = obj.currentTarget; // 현재 선택한 태그 target 변수에 담기 지금, td가 console.log로 나온다.
+            $(target).css("border-bottom", "2px solid black");
+        });
+
+        $(".nav-link").on("mouseleave", function( obj ){
+            target = obj.currentTarget;
+            $(target).css("border-bottom", "none");
+        });
+
+        $(".menu").on("mouseover", function( obj ){
+            target = obj.currentTarget;
+            console.log(target);
+            $(target).removeClass("display-none");
+        });
+
+        $(".menu").on("mouseleave", function( obj ){
+            target = obj.currentTarget;
+            console.log( target );
+            $(target).addClass("display-none");
+        });
+    </script>
+</html>

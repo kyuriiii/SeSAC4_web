@@ -105,7 +105,6 @@
 
         <script>
             var target;
-            
             $("td").on("click", function( obj ){
                 console.log( obj );
                 target = obj.currentTarget; // 현재 선택한 태그 target 변수에 담기 지금, td가 console.log로 나온다.
@@ -118,17 +117,17 @@
                 // 이 함수를 채워주세요.
                 var content = $("#content").val();
 
-                // $(target).append("<p>" + content + "</p>");
+                $(target).append("<p>" + content + "</p>");
 
-                var ps = document.querySelectorAll("p");
-                for ( var i = 0; i < ps.length; i++ ){
-                    console.log(ps[i]);
-                    if ( $(ps[i]).text() == $("#date").val() ){
-                        $(ps[i]).after(
-                            "<h1>adf</h1>"
-                        );
-                    }
-                }
+                // var ps = document.querySelectorAll("p");
+                // for ( var i = 0; i < ps.length; i++ ){
+                //     console.log(ps[i]);
+                //     if ( $(ps[i]).text() == $("#date").val() ){
+                //         $(ps[i]).after(
+                //             "<h1>adf</h1>"
+                //         );
+                //     }
+                // }
             }
         </script>
     </body>
