@@ -35,6 +35,27 @@
             }
         </script>
 
+        <style>
+            .ct_nav {
+            text-align: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin: 0 auto;
+            z-index: 2;
+          }
+          
+         .ct_nav > ul {
+            /* width:calc(100% - 816px); */
+            display: inline-block;
+            margin: 0 auto;
+          }
+          
+          .ct_nav > ul > li {
+            display: inline-block;
+          }
+        </style>
     </head>
 
     <body>
@@ -64,30 +85,33 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav">
-                            <!-- New Releases -->
-                            <li class="nav-item">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#newReleases');" onmouseleave="hideDropdown('#newReleases');">New Releases</a>
-                            </li>
-                            <!-- Men -->
-                            <li class="nav-item">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#men');" onmouseleave="hideDropdown('#men');">Men</a>
-                            </li>
-                            <!-- Women -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#women');" onmouseleave="hideDropdown('#women');">Women</a>
-                            </li>
-                            <!-- Kids -->
-                            <li class="nav-item">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#kids');" onmouseleave="hideDropdown('#kids');">Kids</a>
-                            </li>
-                            <!-- Sale -->
-                            <li class="nav-item">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#sale');" onmouseleave="hideDropdown('#sale');">Sale</a>
-                            </li>
-                        </ul>
-                        <div style="margin-left: auto; padding-top: 10px;">
+                    <div class="offcanvas-body w-100">
+                        <div class="ct_nav">
+                            <ul class="navbar-nav">
+                                <!-- New Releases -->
+                                <li class="nav-item">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#newReleases');" onmouseleave="hideDropdown('#newReleases');">New Releases</a>
+                                </li>
+                                <!-- Men -->
+                                <li class="nav-item">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#men');" onmouseleave="hideDropdown('#men');">Men</a>
+                                </li>
+                                <!-- Women -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#women');" onmouseleave="hideDropdown('#women');">Women</a>
+                                </li>
+                                <!-- Kids -->
+                                <li class="nav-item">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#kids');" onmouseleave="hideDropdown('#kids');">Kids</a>
+                                </li>
+                                <!-- Sale -->
+                                <li class="nav-item">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#sale');" onmouseleave="hideDropdown('#sale');">Sale</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="display: absolute; z-index:3; margin-left: auto; padding-top: 10px;">
                             <i role="button" class="bi bi-search"></i>
                             <input type="search"><span class="text-search">검색</span>
                             <i role="button" class="bi bi-heart" style="margin-left: 0;"></i>

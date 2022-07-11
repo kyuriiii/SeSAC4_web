@@ -1,0 +1,394 @@
+<html>
+    <head>
+      <title>트렌디어패럴</title>
+        <link rel="stylesheet" href=https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css></script>  
+        
+        <script src=https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js></script>
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
+        <script>
+          function message() {
+            swal({
+              title: "출석 완료!",
+              text: "출석체크를 완료하셨습니다!",
+              icon: "success",
+              button: "완료",
+            });
+          };
+        </script>
+
+        <script>
+          function clickme(){
+              window.scrollTo(0,0);
+          }
+        </script>
+
+        <style>
+            .nav-item {
+                padding: 20px;
+                
+            }
+            .nav-link {
+                color: #493f3f;
+                font-weight: bold;
+            }
+            .dropdown > .btn{
+                background-color: transparent;
+                border: transparent;
+                color: #493f3f;
+                font-weight: bold;
+            }
+            .bts, #message {
+                background-color: transparent;
+                border: transparent;
+                font-weight: bold;
+                transform: translate(0px, 7px);
+            }
+            .wrap {
+                width: 100%;
+                /* margin: 10px auto; */
+                /* border: 1px; */
+                position: relative;
+            }
+            .wrap img {
+                width: 100%;
+                vertical-align: middle;
+            }
+            .text {
+                padding: 10px 20px;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 68px;
+                font-weight: bold;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -70%);
+            }
+            .text > a {
+              color: hsl(0, 6%, 13%);
+              text-decoration: none;
+            }
+            .goupbtn {
+                top: 90%;
+                left: 94%;
+                width: 40px;
+                height: 40px;
+                background-color: #ffffff;
+                border: black 1px solid; 
+                position: fixed;
+                z-index: 2;
+                font-size: 25px;
+            }
+            .card-title {
+                font-size: 12px;
+                font-weight: bold;
+            }
+            .card-text {
+              font-size: 11px;
+              padding-left: 0px;
+            }
+            .card, .card > img {
+              border-radius: 0%;
+              border: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="wrap"> 
+          <div class="text"><a href="file:///C:/Users/user/Desktop/github/SeSAC4_web/2%EC%A3%BC%EC%B0%A8/0708_bootstrap_%EC%8B%A4%EC%8A%B52.html">TRENDY APPAREL</a></div>
+            <img src="pink.jpg" height="250">
+            <nav class="navbar bg-none">
+              <div >
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SHOP</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </nav>             
+          </div>  
+        </div>
+
+        
+
+        <ul class="nav justify-content-center"> 
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Outer
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Jacket</a></li>
+                      <li><a class="dropdown-item" href="#">Cardigan</a></li>
+                      <li><a class="dropdown-item" href="#">Coat</a></li>
+                    </ul>
+                  </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Top
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Tee</a></li>
+                      <li><a class="dropdown-item" href="#">Knit</a></li>
+                      <li><a class="dropdown-item" href="#">Blouse</a></li>
+                    </ul>
+                  </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Bottom
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Slacks</a></li>
+                      <li><a class="dropdown-item" href="#">Denim</a></li>
+                      <li><a class="dropdown-item" href="#">Shorts</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dress
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Ops</a></li>
+                      <li><a class="dropdown-item" href="#">Jump Suit</a></li>
+                      <li><a class="dropdown-item" href="#">Sleep Wear</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <!-- Button trigger modal -->
+                <button type="button" class="bts btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Event
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">10th event!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <img src="event.PNG" width="100%">
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+              <button onclick="message()" id="message">Check</button>
+            </li>
+          </ul>
+
+         
+
+
+
+
+
+          <div class="container">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="tr1.PNG" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="tr2.PNG" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="tr3.PNG" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <br><br>
+        
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                <div class="card">
+                    <img src="im1.PNG" class="card-img-top">
+                </div>
+                </div>
+                <div class="col">
+                <div class="card">
+                    <img src="im2.PNG" class="card-img-top">
+                </div>
+                </div>
+                <div class="col">
+                <div class="card">
+                    <img src="im3.PNG" class="card-img-top">
+                </div>
+                </div>
+                <div class="col">
+                <div class="card">
+                    <img src="im4.PNG" class="card-img-top">
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <br><br><br><br><br>
+        
+        <p style="font-weight: bold; text-align: center; font-size: 20px;">
+          NEW ARRIVAL
+        </p>
+        <p style="text-align: center; font-size: 12px;">
+          매일 오전 11시 업데이트
+          <br>-24시간동안 8% 할인!-
+        </p>
+
+        <br><br>
+
+        <div class="container">
+          <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+              <div class="card">
+                <img src="new1.PNG" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">[MADE]클린 썸머 핀턱 와이드 슬랙스 ; 3 color</h5>
+                  <p class="card-text">
+                    [기장 옵션 구성] - 숏, 롱<br>
+                    24시간 동안 10%할인 적용!<br>
+                    <span style="color: gray;">단독주문시 당일출고!</span><br><br>
+                    : 37,000원 </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="new2.PNG" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">체인지 티 ; 4 color</h5>
+                  <p class="card-text">: 20,000원</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="new3.PNG" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">리센트 시어커서 미니 셔츠 ; 3 color</h5>
+                  <p class="card-text">: 37.000원</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="new4.PNG" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">로마브 스퀘어 퍼프 블라우스 ; 2 color</h5>
+                  <p class="card-text">: 41,000원</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+              <div class="card">
+                <img src="new5.PNG" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">[MADE]논페이드 썸머 생지 와이드 데님 ; 3 color</h5>
+                  <p class="card-text">
+                    [기장 옵션 구성] - 숏, 롱<br>
+                    7/15 (금) 까지 10%할인 적용!<br>
+                    <span style="color: gray;">단독주문시 부분 당일출고!</span><br><br>
+                    : 35,000원 </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="new6.PNG" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">리토아 크롭 티 ; 4 color</h5>
+                  <p class="card-text">: 17,000원</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="new7.PNG" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">디엘르 도트 퍼프 블라우스 ; 2 color</h5>
+                  <p class="card-text">: 37.000원</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="new8.PNG" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">[MADE] 멜로디 썸머 코튼 핀턱 팬츠 ; 5 color</h5>
+                  <p class="card-text">
+                    [기장 옵션 구성] - 숏, 롱<br>
+                    10%할인 적용!<br>
+                    <span style="color: gray;">단독주문시 부분 당일출고!</span><br><br>
+                    : 44,000원 </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <input class="goupbtn" type="button" onclick="clickme()" value="^"></div>
+      </body>
+</html>
