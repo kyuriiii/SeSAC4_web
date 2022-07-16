@@ -1,4 +1,4 @@
-const { a, b } = require("./var.js" );
+const { a, b } = require("./1_var.js" );
 
 function connect() {
     return a + b;
