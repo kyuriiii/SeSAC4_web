@@ -21,7 +21,9 @@ function hell() {
         }, 1000 );
     });
 }
-call('kim')
+
+function exec() {
+    call('kim')
     .then(function(name){
         console.log( name + " 반가워");
         var b = back();
@@ -35,3 +37,6 @@ call('kim')
     .then( function( message) {
         console.log( "여기는 " + message );
     });
+}
+
+exec();
