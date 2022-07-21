@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>EJS TEST</title>
+    </head>
+    <body>
+        <% for (var i = 0; i < 5; i++) { %>
+            <h1>안녕</h1>
+        <% } %>
+
+        <hr>
+
+        <% var a = "test"; %>
+        <h3><%=a%></h3>
+
+        <hr>
+
+        <%- include('a.ejs') %>
+    </body>
+</html>
