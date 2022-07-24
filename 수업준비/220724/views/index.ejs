@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Index.ejs</title>
+    </head>
+
+    <body>
+        <form action="receive" method="POST" target="_blank">
+            <input type="text" name="name">
+            <br>
+
+            <input type="radio" name="gender" value="남자"> 남자
+            <input type="radio" name="gender" value="여자"> 여자
+            <br>
+            
+            <input type="checkbox" name="sports" value="농구"> 농구
+            <input type="checkbox" name="sports" value="축구"> 축구
+            <input type="checkbox" name="sports" value="야구"> 야구
+
+
+            <fieldset style="width:300px;">
+                <legend> 개인 정보 </legend>
+                이름 : <input type="text" name="name"><br>
+                나이 : <input type="text" name="age"><br>
+            </fieldset>
+            
+            <input type="reset" value="리셋">
+            <button>POST 전송</button>
+        </form>
+    </body>
+</html>

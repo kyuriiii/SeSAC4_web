@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>파일업로드</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    
+    <form action="upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfile">
+      <input type="submit" value="전송">
+    </form>
+	
+	<form action="upload-multiple" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfiles"  multiple='multiple'/>
+      <input type="submit" value="전송" />
+    </form>
+  </body>
+</html>
