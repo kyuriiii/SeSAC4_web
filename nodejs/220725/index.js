@@ -13,14 +13,16 @@ app.get("/", function(req,res){
 });
 
 app.get("/receive", function(req,res){
-    console.log( "receive-get" );
-    res.render("index");
+    console.log( req );
+    console.log( req.query );
+    res.render("receive", req.query);
 });
 
 app.post("/receive", function(req,res){
-    console.log( "receive-post" );
     console.log( req.body );
-    res.render("index");
+    res.render("receive", req.body);
+
+    //res.render("receive", { a:1, b:2 });
 });
 
 app.listen(port, ()=>{
