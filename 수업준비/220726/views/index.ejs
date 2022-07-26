@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Index.ejs</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script>
+            function sendGet(){
+                axios({
+                method: 'get',
+                url: 'http://localhost:8080/receive?name=CODINGON',
+                })
+                .then((response) => { return response.data; })
+                .then((data) => {
+                    alert( data );
+                });
+            }
+
+            function sendPost(){
+                axios({
+                method: 'post',
+                url: 'http://localhost:8080/receive',
+                data: {
+                    name: "codee"
+                }
+                })
+                .then((response) => { return response.data; })
+                .then((data) => {
+                    alert( data );
+                });
+            }
+            
+            function sendForm(){
+                var form = document.getElementById("form_info");
+
+                if ( !form.checkValidity() ){
+                    if ( form.reportValidity ) form.reportValidity();
+                    else alert("무언가가 틀렸다네");
+                    return false;
+                }
+
+                
+                axios({
+                method: 'post',
+                url: 'http://localhost:8080/receive_form',
+                data: {
+                    name: form.name.value,
+                    gender: form.gender.value,
+                    sports: form.sports.value
+                }
+                })
+                .then((response) => { return response.data; })
+                .then((data) => {
+                    alert( data );
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <form action="receive" id="form_info">
+            <input type="text" name="name" required>
+            <br>
+
+            <input type="radio" name="gender" value="남자"> 남자
+            <input type="radio" name="gender" value="여자"> 여자
+            <br>
+            
+            <input type="checkbox" name="sports" value="농구"> 농구
+            <input type="checkbox" name="sports" value="축구"> 축구
+            <input type="checkbox" name="sports" value="야구"> 야구
+            <br>
+
+            <button type="button" onclick="sendPost();">post전송</button>
+            <button type="button" onclick="sendGet();">get전송</button>
+            <button type="button" onclick="sendForm();">form전송</button>
+        </form>
+    </body>
+</html>
