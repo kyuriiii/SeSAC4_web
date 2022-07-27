@@ -16,6 +16,8 @@
             }
 
             function sendPost(){
+                alert("hi");
+                return false;
                 axios({
                 method: 'post',
                 url: 'http://localhost:8080/receive',
@@ -32,6 +34,13 @@
             function sendForm(){
                 var form = document.getElementById("form_info");
 
+                console.log( form.sports );
+                let sports = [];
+                for ( let i = 0; i < form.sports.length; i++ ){
+                    let sport = form.sports[i];
+                    if ( sport.checked ) sports.push(sport.value );
+                }
+                console.log( sports );
                 if ( !form.checkValidity() ){
                     if ( form.reportValidity ) form.reportValidity();
                     else alert("무언가가 틀렸다네");
@@ -41,7 +50,7 @@
                 
                 axios({
                 method: 'post',
-                url: 'http://localhost:8080/receive_form',
+                url: 'http://localhost:8000/receive_form',
                 data: {
                     name: form.name.value,
                     gender: form.gender.value,
@@ -70,7 +79,7 @@
             <input type="checkbox" name="sports" value="야구"> 야구
             <br>
 
-            <button type="button" onclick="sendPost();">post전송</button>
+            <button onclick="sendPost();">post전송</button>
             <button type="button" onclick="sendGet();">get전송</button>
             <button type="button" onclick="sendForm();">form전송</button>
         </form>

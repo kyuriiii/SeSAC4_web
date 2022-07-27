@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Axios</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script>
+            function sendGet(){
+                axios({
+                    method: "get",
+                    url: "http://localhost:8080/receive",
+                    params:{
+                        name: "codee"
+                    }
+                }).then((a) => { return a.data; })
+                .then((d) => { 
+                    alert( d.message );
+                });
+            }
+            function sendPost(){
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/receive",
+                    data:{
+                        name: "codee"
+                    }
+                }).then((a) => { return a.data; })
+                .then((d) => { 
+                    alert( d.message );
+                });
+            }
+            function sendForm(){
+                var form = document.getElementById("form_info");
+                console.log( form );
+
+                var result = form.checkValidity();
+                if ( !result ){
+                    form.reportValidity();
+
+                    return false;
+                }
+                console.log( result );
+                // console.log( form.name.value );
+                // console.log( form.age.value );
+
+                // axios({
+                //     method: "post",
+                //     url: "http://localhost:8080/receive",
+                //     data:{
+                //         name: form.name.value
+                //     }
+                // }).then((a) => { return a.data; })
+                // .then((d) => { 
+                //     alert( d.message );
+                // });
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="sendGet();">sendGet</button>
+        <button onclick="sendPost();">sendPost</button>
+
+        <form id="form_info">
+            <input type="text" name="name" required>
+            <input type="text" name="age" required>
+            <button type="button" onclick="sendForm()">sendForm</button>
+        </form>
+    </body>
+</html>
