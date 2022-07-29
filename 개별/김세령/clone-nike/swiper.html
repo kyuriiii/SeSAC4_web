@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Swiper</title>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+        <style>
+            .slider {
+                background-color: beige;
+                max-width: 1200px;
+                margin: 0 auto;
+                height: 400px;
+            }
+            
+            .swiper-container {
+                padding-bottom: 20px;
+            }
+            
+            .swiper-scrollbar {
+                background: #d6d6d6;
+            }
+            
+            .swiper-container-horizontal > .swiper-scrollbar {
+                border-radius: 2px;
+                height: 5px;
+                width: 200px;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .swiper-wrapper img {
+                width: 200px;
+                height:300px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="slider">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/4060569/pexels-photo-4060569.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/5601991/pexels-photo-5601991.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/6483585/pexels-photo-6483585.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/5232929/pexels-photo-5232929.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/5797913/pexels-photo-5797913.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/6102229/pexels-photo-6102229.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                </div>
+              </div>
+          
+              <!-- pagination -->
+              <div class="swiper-pagination"></div>
+          
+              <!-- scrollbar -->
+              <div class="swiper-scrollbar"></div>
+          
+              <!-- buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div> 
+          </div>
+          <script src="swiper.js"></script>
+    </body>
+</html>
