@@ -6,7 +6,7 @@ const multer = require("multer");
 const path = require("path");
 
 app.set("view engine", "ejs");
-app.use( express.static( "public" ) );
+app.use( express.static( "uploads" ) );
 app.use(express.urlencoded({extended: true}));
 app.use( bodyParser.json() );
 
@@ -17,9 +17,8 @@ const upload = multer({
             done( null, 'uploads/');
         },
         filename( req, file, done) {
-            console.log( "filename : ", req.body );
             const ext = path.extname(file.originalname);
-            done(null, path.basename(file.originalname, ext) + req.body.name + ext );
+            done(null, req.body.id + ext );
         },
     }),
     limits: { fileSize: 5*1024*1024 },
@@ -28,6 +27,12 @@ const upload = multer({
 app.get("/", function(req,res) {
     res.render("index");
 });
+app.get("/register", function(req,res){
+    res.render("register")
+})
+app.post("/register", upload.single('userfile'), function(req,res){
+    res.render("result", { filename: req.file.filename } );
+})
 app.post("/upload", upload.single('userfile'), function(req,res) {
     res.send("Upload");
 });
