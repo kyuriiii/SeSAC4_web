@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>파일 업로드</title>
+    </head>
+
+    <body>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name">
+            <input type="file" name="userfile">
+            <button>업로드</button>
+        </form>
+        <br>
+        <form action="/upload/array" method="POST" enctype="multipart/form-data">
+            <input type="file" name="userfile" multiple>
+            <button>업로드</button>
+        </form>
+        <br>
+        <form action="/upload/fields" method="POST" enctype="multipart/form-data">
+            <input type="file" name="userfile">
+            <input type="file" name="userfile2">
+            <input type="file" name="userfile3">
+            <button>업로드</button>
+        </form>
+    </body>
+</html>
