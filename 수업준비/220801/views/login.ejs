@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Index.ejs</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function login(){
+                var form = document.getElementById("form_info");
+                
+                axios({
+                method: 'post',
+                url: 'http://localhost:8000/login',
+                data: {
+                    id: form.id.value,
+                    pw: form.pw.value
+                }
+                })
+                .then((response) => { return response.data; })
+                .then((data) => {
+                    if ( data.return ) {
+                        alert( data.msg );
+                        document.location = "/";
+                    } else {
+                        alert( data.msg );
+                        form.reset();
+                    }
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <form id="form_info">
+            <fieldset style="width:300px;">
+                아이디 : <input type="text" name="id"><br>
+                비밀번호 : <input type="password" name="pw"><br>
+            </fieldset>
+            <button type="button" onclick="login();">로그인</button>
+        </form>
+    </body>
+</html>
