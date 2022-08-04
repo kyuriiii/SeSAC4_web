@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <title> 방명록 </title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script>
+            function writeComment(){
+                var form = document.getElementById("form_comment");
+                axios({
+                    method: 'post',
+                    url: 'http://localhost:8000/visitor/write',
+                    data: {
+                        name: form.name.value,
+                        comment: form.comment.value
+                    }
+                })
+                .then((response) => { return response.data; })
+                .then((data) => {
+                    let html = 
+                    "<tr id='tr_" + data.id + "'><td>" + data.id + "</td><td>" + form.name.value + "</td><td>" + form.comment.value + "</td>" +
+                        "<td><button type='button' onclick='editVisitor(" + data.id  + ");'>수정</button></td>" + 
+                        "<td><button type='button' onclick='deleteVisitor( this, " + data.id + ");'>삭제</button></td>" + 
+                    "</tr>";
+
+                    $( "#visitr_list" ).append(html);
+                });
+            }
+
+            async function editVisitor( id ){
+                let result = await axios({
+                    method: 'get',
+                    url: 'http://localhost:8000/visitor/get?id=' + id
+                })
+                .then((response) => { return response.data; });
+                console.log( result );
+
+                var form = document.getElementById("form_comment");
+                form.id.value = id;
+                form.name.value = result.name;
+                form.comment.value = result.comment;
+
+                var html = 
+                "<button type='button' onclick='editDo(" + id + ");'>수정</button>" + 
+                "<button type='button' onclick='editCancel();'>취소</button>";
+
+                document.getElementById("button-group").innerHTML = html;
+            }
+            function editDo(){
+                var form = document.getElementById("form_comment");
+                axios({
+                    method: 'patch',
+                    url: 'http://localhost:8000/visitor/edit',
+                    data: {
+                        id: form.id.value,
+                        name: form.name.value,
+                        comment: form.comment.value
+                    }
+                })
+                .then((response) => { return response.data; })
+                .then((data) => {
+                    alert( data );
+
+                    var children = document.getElementById("tr_" + form.id.value ).children;
+                    $( children[1] ).text(form.name.value);
+                    $( children[2] ).text(form.comment.value);
+                    console.log( children );
+
+                    editCancel();
+                });
+            }
+            function editCancel(){
+                var form = document.getElementById("form_comment");
+                form.name.value = "";
+                form.comment.value = "";
+
+                var html = "<button type='button' onclick='writeComment();'>등록</button>";
+                document.getElementById("button-group").innerHTML = html;
+            }
+
+            function deleteVisitor( obj, id ){
+                axios({
+                    method: 'delete',
+                    url: 'http://localhost:8000/visitor/delete',
+                    data: {
+                        id: id
+                    }
+                })
+                .then((response) => { return response.data; })
+                .then((data) => {
+                    alert(data);
+                    $( obj.parentNode.parentNode ).remove();
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <form id="form_comment">
+              <fieldset>
+                <legend>방명록 등록</legend>
+                <div><input name="id" type="hidden" placeholder="사용자 이름"></div>
+                <div><input name="name" type="text" placeholder="사용자 이름"></div>
+                <div><input name="comment" type="text" placeholder="방명록"></div>
+                <div id="button-group">
+                    <button type="button" onclick="writeComment();">등록</button>
+                </div>
+              </fieldset>
+            </form>
+        </div>
+        <br>
+        <table id="visitr_list" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>작성자</th>
+                <th>방명록</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+            </thead>
+            <tbody>
+                <%
+                    for ( let i = 0; i < visitors.length; i++ ) {
+                %>
+                    <tr id="tr_<%=visitors[i].id%>">
+                        <td><%=visitors[i].id%></td>
+                        <td><%=visitors[i].name%></td>
+                        <td><%=visitors[i].comment%></td>
+                        <td>
+                            <button type="button" onclick="editVisitor('<%=visitors[i].id%>');">수정</button>
+                        </td>
+                        <td>
+                            <button type="button" onclick="deleteVisitor(this, '<%=visitors[i].id%>');">삭제</button>
+                        </td>
+                    </tr>
+                <%
+                    }
+                %>
+            </tbody>
+        </table>
+    </body>
+</html>
