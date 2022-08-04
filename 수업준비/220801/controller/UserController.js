@@ -32,3 +32,8 @@ exports.post_login =  async (req,res) => {
         res.send( { return: true, msg: "로그인 성공"} );
     }
 }
+const userDB = require("../model/UserDB");
+exports.get_user = async (req,res) => {
+    const rows = await userDB.get_user();
+    res.send(rows);
+}
