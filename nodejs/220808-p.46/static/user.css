@@ -1,0 +1,95 @@
+/* VARIABLES */
+/* BASE */
+body {
+    color: #FEFEFE;
+    font: 100 100%/1.6 "Heebo", sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+            clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
+  .flex {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .scene {
+    background: #FFFFB0;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .card {
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    background: rgba(254, 254, 254, 0.075);
+    border: 1px solid rgba(254, 254, 254, 0.18);
+    border-radius: 15px;
+    box-shadow: 0 10px 35px 0 rgba(54, 33, 0, 0.65);
+    color: black;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 20px 30px 50px 30px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+  .card__heading {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+  .card__figure {
+    height: auto;
+    margin: 0 auto;
+    max-width: 225px;
+    width: 60%;
+  }
+  .card__image {
+    border-radius: 50%;
+    max-width: 100%;
+  }
+  .card__input {
+    background: rgba(254, 254, 254, 0.075);
+    border: 1px solid rgba(255, 178, 330, 0.3);
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #000000;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    padding: 10px;
+    width: 100%;
+  }
+  .card__input:focus, .card__input:active {
+    background: rgba(254, 254, 254, 0.08);
+    border: 1px solid rgba(255, 178, 330, 0.3);
+    outline: none;
+  }
+  .card__button {
+    background: rgba(255, 178, 330, 0.3);
+    border: none;
+    border-radius: 3px;
+    color: #362100;
+    margin: 15px auto 0 auto;
+    padding: 8px 20px;
+  }
+  .card__button:focus, .card__button:active {
+    background: rgba(255, 178, 308, 0.3);
+    outline: none;
+  }
+
+  .card__button:hover {
+    background: rgba(255, 178, 308, 0.3);
+    cursor: pointer;
+  }

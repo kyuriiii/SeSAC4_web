@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>회원가입</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap'>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <link rel="stylesheet" href="/static/user.css">
+        
+        <script>
+            function profileEdit() {
+                var form = document.getElementById("form_profile");
+                if ( !form.checkValidity() ) {
+                    form.reportValidity();
+
+                    return false;
+                }
+                let user = {
+                    id: form.id.value,
+                    pw: form.pw.value,
+                    name: form.name.value
+                };
+                axios({
+                    method: 'post',
+                    url: 'http://localhost:8000/user/profile/edit',
+                    data: user
+                }).then((rep) => {return rep.data;} )
+                .then((data) => {
+                    alert( "수정 성공" );
+                });
+            }
+            function profileDelete() {
+                var form = document.getElementById("form_profile");
+                if ( !form.checkValidity() ) {
+                    form.reportValidity();
+
+                    return false;
+                }
+                let user = {
+                    id: form.id.value
+                };
+                axios({
+                    method: 'post',
+                    url: 'http://localhost:8000/user/profile/delete',
+                    data: user
+                }).then((rep) => {return rep.data;} )
+                .then((data) => {
+                    alert( "회원 탈퇴 성공" );
+                    document.location.href = "/user/signup";
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div class="scene flex">
+            <section class="card">
+            <h1 class="card__heading">
+                <span> Welcome</span>
+            </h1>
+            <form class="card__form" id="form_profile">
+                <label for="ID" class="visually">ID :</label>
+                <div><input id="ID" class="card__input" type="text" name="id" value="<%=data.id%>" readonly /></div>
+                <label for="password" class="visually">Password :</label>
+                <input id="password" class="card__input" type="password" name="pw" value="<%=data.pw%>" required />
+                <label for="name" class="visually">Name :</label>
+                <input id="name" class="card__input" type="text" name="name" value="<%=data.name%>" required />
+                <button class="card__button" type="button" onclick="profileEdit();">
+                <span>Edit</span>
+                </button>
+                <button class="card__button" type="button" onclick="profileDelete();">
+                <span>Delete</span>
+                </button>
+            </form>
+            </section>
+        </div>
+    </body>
+</html>
