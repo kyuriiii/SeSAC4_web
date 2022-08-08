@@ -15,3 +15,24 @@ exports.post_comment = (req,res) => {
         res.send({ id: result });
     } );
 }
+
+exports.get_visitor = (req,res) => {
+    Visitor.get_visitor( req.query.id, function(result) {
+        console.log( "result : ", result );
+        res.send( { result : result[0] } );
+    })
+}
+
+exports.patch_comment = (req,res) => {
+    Visitor.update( req.body, function(result){
+        console.log( result );
+        res.send( "수정 성공" );
+    });
+}
+
+exports.delete_comment = (req,res) => {
+    Visitor.delete( req.body.id, function(result){
+        console.log( result );
+        res.send( "삭제 성공" );
+    });
+}
