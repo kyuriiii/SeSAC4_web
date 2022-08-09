@@ -25,8 +25,8 @@ exports.post_signin = (req,res) => {
 
 exports.profile = (req,res) => {
     User.get_user(req.body.id, function(result){
-        if ( result.length > 0 ) res.redirect("/user/login");
-        else res.render("profile", {data: result[0]});
+        if ( result.length > 0 ) res.render("profile", {data: result[0]});
+        else res.redirect("/user/signin");
     })
 }
 
