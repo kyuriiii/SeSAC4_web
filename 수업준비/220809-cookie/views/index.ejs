@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>타이틀</title>
+
+        <script>
+            console.log( document.cookie );
+
+            var cookieArr = document.cookie.split(";");
+            for ( var i in cookieArr ){
+                console.log( cookieArr[i].split("=")[0], " : ", cookieArr[i].split("=")[1] ); 
+            }
+        </script>
+    </head>
+    <body>
+        <h1>index.js</h1>
+    </body>
+</html>
