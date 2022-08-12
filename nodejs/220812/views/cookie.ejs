@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <script>
+            console.log( document.cookie );
+            document.cookie = "user=sesac; expires=Sat, 13 Aug 2022 13:00:00 GMT; path=/";
+            console.log( document.cookie );
+
+            var cookieArr = document.cookie.split(";");
+            // for ( var i = 0; i < cookieArr.length; i++ )
+            for ( var i in cookieArr ){
+                console.log( cookieArr[i] );
+            }
+        </script>
+    </head>
+</html>
