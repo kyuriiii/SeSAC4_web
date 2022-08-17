@@ -1,0 +1,6 @@
+<% if ( !isLogin ) { %>
+    <a href="login">로그인</a>
+<% } else { %>
+    <p><%=user%>님 환영합니다.</p>
+    <a href="logout">로그아웃</a>
+<% } %>
