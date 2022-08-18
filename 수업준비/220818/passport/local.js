@@ -10,12 +10,12 @@ let user = {
 // 로그인 성공 시 호출, 사용자 식별자를 req.session에 저장
 passport.serializeUser((user, done) => {
     console.log( 'serializeUser - user : ', user );
-    done(null, user.name);
+    done(null, user);
 });
 
 // 로그인 후 서버 요청시마다 req.session에 저장된 사용자 식별자를 이용해 사용자 정보를 읽어 req.user에 저장
-passport.deserializeUser((id, done) => {
-    console.log( 'deserializeUser - id : ', id );
+passport.deserializeUser((user, done) => {
+    console.log( 'deserializeUser - user : ', user );
     done( null, user );
 });
 
