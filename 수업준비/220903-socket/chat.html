@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Socket 공부</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+        <style>
+            .chat-list {
+                background-color: #B2C7DA;
+                width: 50%;
+                height: 60%;
+                padding: 10px;
+            }
+            .chat-list div div { display: inline-block; padding: 3px; }
+            .my-chat { text-align: right; margin-bottom: 3px;}
+            .my-chat div { background-color: #FFE936; border: 1px solid #FFE936; }
+            .other-chat { text-align: left; }
+            .other-chat div { background-color: white; border: 1px solid white; }
+        </style>
+    </head>
+    
+	<body>
+        <h1>Hello Socket!</h1>
+
+        <div class="chat-list" id="chat-list"></div>
+        <input type="text" placeholder="내용" id="message" onkeypress="if(window.event.keyCode==13) sendMSG();">
+        <button type="button" onclick="sendMSG()">전송</button>
+        
+		<script>
+			var socket = io.connect();
+			socket.on( "connect", function(){ console.log( "server connected!" ); });
+			socket.on( "newMSG", function( json ){
+                let chat_list = document.getElementById("chat-list");
+				let div = document.createElement("div");
+                let div_chat = document.createElement("div");
+
+                if ( document.getElementById("message").value == json["msg"] ) div.classList.add("my-chat");
+                else div.classList.add("other-chat");
+
+                div_chat.textContent = json["msg"];
+                div.appendChild(div_chat);
+                chat_list.appendChild(div);
+
+                document.getElementById("message").value = "";
+			});
+
+            function sendMSG(){
+                let msg = document.getElementById("message").value;
+                socket.emit( "sendMSG", { msg } );
+            }
+		</script>
+    </body>
+</html>
