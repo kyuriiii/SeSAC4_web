@@ -8,14 +8,24 @@ app.get("/", function(req,res){
     res.sendFile( __dirname + "/index.html" );
 });
 
+var msg = {hello: "안녕하세요?", study: "공부합시다~"};
 io.on("connection", function(socket){
     console.log( "connected" );
-    socket.emit("hello", "server hello");
-    socket.on("click", function(data){
-        console.log( "client click");
-        socket.emit("clickResponse", 'success');
-        io.emit("clickResponse", "io success");
+    socket.on("send", function(data){
+        // data로 hello가 들어왔을 때
+        console.log( "client : ", data );
+        socket.emit("response", data + " : " + msg[data]);
+        // socket.emit( "response", "hello : 안녕하세요?");
+        // if ( data == "hello" ) socket.emit("response", "hello : 안녕하세요?");
+    })
+    socket.on("hello", function(data){
+        console.log( "client : ", data );
+        socket.emit("response", "hello : 안녕하세요?");
     });
+    socket.on("study", function(data){
+        console.log( "client : ", data );
+        socket.emit("response", "study : 공부합시다~");
+    })
 });
 
 http.listen( 8000, function(){
