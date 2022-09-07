@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		
+        <title>
+            nodejs 공부
+        </title>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+		
+    </head>
+    
+	<body>
+        <h1>Hello Wolrd!</h1>
+
+        <button type="button" onclick="hello();">hello</button>
+        <button type="button" onclick="study();">study</button>
+        <button type="button" onclick="bye();">bye</button>
+
+        <h5 id="response"></h5>
+        
+		<script>
+			var socket = io.connect();
+			
+			socket.on( "connect", function(){
+				console.log( "server connected!" );
+			});
+
+            socket.on( "response", function(json) {
+                let h5 = document.getElementById("response");
+                h5.textContent = json;
+            });
+            
+            function hello(){
+                socket.emit("hello", "안녕하세요?" );
+            }
+            function study(){
+                socket.emit("study", "공부합시다~");
+            }
+            function bye(){
+                socket.emit("bye", "잘가!");
+            }
+		</script>
+    </body>
+</html>
