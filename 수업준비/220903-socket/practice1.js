@@ -11,20 +11,17 @@ app.get( "/", function( req, res ){
 
 io.on( "connection", function ( socket ){
 	console.log( "Server Socket Connected" );
-
-	socket.on( "hello", ( data ) => {
-		console.log( "client : ", data.msg );
-		socket.emit( "hello_reply", "안녕하세요." );
+	socket.on( "hello", ( arg ) => {
+        console.log( "hello : ", arg );
+        socket.emit("response", "hello : "+ arg );
 	});
-
-	socket.on( "study", ( data ) => {
-		console.log( "client : ", data.msg );
-		socket.emit( "study_reply", "공부합시다!" );
+	socket.on( "study", ( arg ) => {
+        console.log( "study : ", arg );
+        socket.emit("response", "study : "+ arg );
 	});
-
-	socket.on( "bye", ( data ) => {
-		console.log( "client : ", data.msg );
-		socket.emit( "bye_reply", "잘가~" );
+	socket.on( "bye", ( arg ) => {
+        console.log( "bye : ", arg );
+        socket.emit("response", "bye : "+ arg );
 	});
 
 	socket.on( "disconnect", function() {

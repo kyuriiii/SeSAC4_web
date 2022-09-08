@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js 
+        "></script>
+        <style>
+            .chat-list { background-color: skyblue; width: 50%; 
+                height:50%; padding: 10px;}
+            .chat-list div div { display: inline-block; padding:3px; }
+            .my-chat { text-align: right; }
+            .my-chat div { background-color: yellow; }
+            .other-chat div { background-color: white;}
+        </style>
+    </head>
+
+    <body>
+        <div id="chat-list" class="chat-list"></div>
+        <input type="text" id="message">
+        <button type="button" onclick="send();">전송</button>
+        <script>
+            var id = "";
+            var socket = io.connect();
+            socket.on("info", function(data){ console.log( data ); id = data;});
+
+            function send(){
+                console.log( id );
+                let msg = document.getElementById("message").value;
+                // socket.emit("send", {id, msg});
+                socket.emit("send", { id: id, msg: msg } );
+                document.getElementById("message").value = "";
+            }
+            socket.on("newMessage", function(data){
+                // data = { id: ~~~, msg: ~~ }
+                let chat_list = document.getElementById("chat-list");
+                let div = document.createElement("div"); // <div></div>
+                let div_chat = document.createElement("div"); // <div></div>
+                // <div></div>
+
+                div_chat.textContent = data.msg; // <div>{msg}</div>
+
+                if ( data.id == id ) { div.classList.add("my-chat"); }
+                else { div.classList.add("other-chat"); }
+                // <div class="my-chat"></div>
+
+                // div => <div class="my-chat"></div>
+                // div_chat => <div>{msg}</div>
+                
+                div.appendChild(div_chat);
+                // <div class="my-chat">
+                    // <div>{msg}</div>
+                // </div>
+                chat_list.appendChild(div);
+            });
+            socket.on("notice", function(data){
+                let chat_list = document.getElementById("chat-list");
+                let div = document.createElement("div"); // <div></div>
+                div.textContent = data;
+                
+                chat_list.appendChild(div);
+            });
+        </script>
+    </body>
+</html>

@@ -15,6 +15,7 @@
             .chat-list div div { display: inline-block; padding: 3px; margin-bottom: 3px;}
             .entry { text-align: center; width: 100%; background-color: white; font-size: 0.8em;}
             .my-chat { text-align: right; }
+
             .my-chat div { background-color: #FFE936; border: 1px solid #FFE936; }
             .other-chat { text-align: left; }
             .other-chat div { background-color: white; border: 1px solid white; }
@@ -53,7 +54,6 @@
 
                 document.getElementById("message").value = "";
 			});
-
             function sendMSG(){
                 let msg = document.getElementById("message").value;
                 socket.emit( "sendMSG", { msg } );
