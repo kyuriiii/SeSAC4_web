@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>NodeJS test</title>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+		
+		<style>
+			.container {
+				text-align: center;
+				margin: 0 auto;
+				width: 60%;
+				height: auto;
+			}
+			#show {
+				display: inline-block;
+				width: 100%;
+				height: 400px;
+				border: solid 1px rgb(178,199,218);
+				overflow: auto;
+				text-align: left;
+				padding: 0.5rem;
+				background-color: rgb(178,199,218);
+				border-radius: 5px;
+			}
+			#show > div {            
+				margin: 0.5rem 1rem;
+				font-size: 1rem;
+				color:#414141;
+			}
+			#show div.notice { font-style:italic; font-size: 0.8rem; color:#005397; text-align: center; }
+			#show div div { display: inline-block; padding: 0.3rem; border: 1px solid #ffffff; background-color:#ffffff; border-radius: 5px; }
+			#show div div.secret { background-color: rgb(255, 134, 235); border: 1px solid rgb(255, 134, 235); }
+			#show .myChat { text-align: right; }
+			#show .myChat div { background-color: rgb(255,233,54); border: 1px solid rgb(255,233,54); }
+			#show div div span { margin-left: 3px; font-size: 0.8rem; color:#aaaaaa; }
+			#nick_list { width: 27%; text-align: center; height: 30px; }
+			#nick { margin-left: 1rem; width: 67.5%; text-align: center; height: 1.5rem; }
+			#chat { margin-top: 5px; width: 100%; text-align: center; height: 1.5rem; }
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<h3>코딩온으로 채팅 만들어보기!</h3>
+			<div id="show"> </div><br>
+			<select id="nick_list" type="text">
+				<option>전체</option>
+			</select>
+			<input type="text" id="nick" placeholder="닉네임" autofocus><br>
+			<input type="text" id="chat" placeholder="채팅 메세지 입력">
+		</div>
+		<script>
+			const socket = io.connect(); // 코딩온과 채팅을 할 수 있는 소켓 불러오기
+			let myNick; // 나만의 닉네임 설정!
+			
+			socket.on( "notice", ( data ) => {// 입장과 퇴장에 대한 알림 메세지 제작!
+				let show = document.getElementById("show");
+				let div = document.createElement("div");
+				div.classList.add("notice");
+				div.textContent = data;
+				show.appendChild( div );
+				show.scrollTop = show.scrollHeight;
+			}); 
+			
+			chat.addEventListener('keypress', function(e){ // Enter 키를 입력한 자동 채팅 전송 이벤트 구현 + 다른 친구들의 메세지를 서버로부터 받기!
+				let nick = document.getElementById("nick");
+				let chat = document.getElementById("chat");
+				if ( e.key === 'Enter' ){
+					if ( nick.value === "" || chat.value === "" ){
+						alert( "대화명 또는 메세지를 입력하세요" );
+						return false;
+					} else {
+						let DM_list = document.getElementById("nick_list");
+						let DM = DM_list.options[DM_list.selectedIndex].value;
+						let myChat = chat.value;
+						myNick = nick.value;
+						let data = { DM, myNick, myChat };
+						socket.emit( "sendMsg", data );
+						document.getElementById("chat").value="";
+					}
+				}
+			});
+			
+			let old_list = ["전체"];
+			socket.on( "update_nicks", ( data ) => { // 참가자 리스트 업데이트(귓속말)
+				data.splice( data.indexOf(myNick), 1 );
+				if ( old_list.sort() !== data.sort() ){
+					// 기존 리스트 전부 삭제
+					let nick_list = document.getElementById("nick_list");
+					while (nick_list.firstChild) {
+						nick_list.removeChild(nick_list.lastChild);
+					}
+					// 새로운 리스트 생성
+					let default_option = document.createElement("option");
+					default_option.text = "전체";
+					nick_list.appendChild(default_option);
+					for ( let new_nick of data) {
+						let new_option = document.createElement("option");
+						new_option.text = new_nick;
+						nick_list.appendChild(new_option);
+					}
+					// old_list 변수 업데이트
+					old_list = data.sort();
+				}
+			} );
+			
+			// 메세지 수신 from 서버
+			socket.on( "newMsg", ( data ) => {
+				let show = document.getElementById("show");
+				let div_container = document.createElement("div");
+				let div = document.createElement("div");
+				let span = document.createElement("span");
+				span.innerText = data["msgTime"];
+				div.textContent = `${data["msg"]["myNick"]} : ${data["msg"]["myChat"]}`;
+				if ( myNick === data["msg"]["myNick"] ){
+					div_container.classList.add("myChat");
+				}
+				if ( data["DM"] ) {
+					div.classList.add("secret");
+					div.textContent = data["DM"] + div.textContent;
+				}
+				div.appendChild( span );
+				div_container.appendChild( div );
+				show.appendChild( div_container );
+				show.scrollTop = show.scrollHeight;
+			});
+			
+			// 에러 관련 (대화명 중복)
+			socket.on( "error", ( data ) => {
+				alert(data);
+			} );       
+		</script>
+	</body>
+</html>
