@@ -1,0 +1,40 @@
+<style>
+    .roomList {
+        width: 60%;
+        padding: 10px;
+        background-color: beige;
+    }
+    .room {
+        margin-bottom: 10px;
+        background-color: white;
+    }
+</style>
+<div style="display: flex; justify-content: center;">
+    <div class="roomList">
+        <%
+            if ( rooms.length == 0 ) {
+        %>
+                <h3 style="text-align: center;">만들어진 방이 없습니다.</h3>
+        <%
+            } else {
+                for ( let i = 0; i < rooms.length; i++ ) {
+            %>
+                    <div class="room">
+                        <%=i%>. <%=rooms[i]%>
+                    </div>
+        <%
+                }
+                    
+            }
+        %>
+        <div style="text-align: right;">
+            <button type="button" onclick="createRoom();">방 만들기</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function createRoom(){
+        
+    }
+</script>
