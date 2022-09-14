@@ -26,10 +26,8 @@
         <script>
             var socket = io.connect();
 
-            // (1) 닉네임 받기
-            var nickname = prompt("이용할 닉네임을 입력해주세요.");
-            socket.emit("info", { nickname: nickname } );
-            // (1) ----------
+            var nickname = prompt( "닉네임을 입력해주세요.");
+            socket.emit("info", { no: "<%=no%>", nickname: nickname } );
 
             function send(){
                 console.log( "send" );

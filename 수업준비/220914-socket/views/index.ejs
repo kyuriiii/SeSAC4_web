@@ -1,3 +1,7 @@
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 <style>
     .roomList {
         width: 60%;
@@ -8,9 +12,11 @@
         margin-bottom: 10px;
         background-color: white;
     }
+    .room:hover{ cursor: pointer; }
 </style>
 <div style="display: flex; justify-content: center;">
     <div class="roomList">
+        <div id="list">
         <%
             if ( rooms.length == 0 ) {
         %>
@@ -19,14 +25,14 @@
             } else {
                 for ( let i = 0; i < rooms.length; i++ ) {
             %>
-                    <div class="room">
+                    <div class="room" onclick="location.href='/chat?no=<%=i%>'">
                         <%=i%>. <%=rooms[i]%>
                     </div>
         <%
-                }
-                    
+                }     
             }
         %>
+        </div>
         <div style="text-align: right;">
             <button type="button" onclick="createRoom();">방 만들기</button>
         </div>
@@ -35,6 +41,26 @@
 
 <script>
     function createRoom(){
-        
+        var roomName = prompt( "만들 방의 이름을 입력해주세요." );
+
+        axios({
+            method: 'post',
+            url: '/room',
+            data: { name: roomName }
+        })
+        .then((response) => { return response.data; })
+        .then((data) => {
+            if ( data.return ) {
+                let html = 
+                `<div class="room" onclick="location.href='/chat?no=${data.index}'">
+                    ${data.index}. ${roomName}
+                </div>`;
+
+                $( "#list" ).append(html);
+            } else {
+                alert( "이미 만들어진 방입니다. 다른 이름으로 만들어주세요." );
+                return false;
+            }
+        });
     }
 </script>
