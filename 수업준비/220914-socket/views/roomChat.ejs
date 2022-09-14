@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js 
+        "></script><script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <style>
+            .chat-list { background-color: skyblue; width: 50%; height:50%; padding: 10px; overflow:scroll; }
+            .chat-list div div { display: inline-block; padding:3px; }
+            .chat-list div div.secret { background-color: rgb(255, 134, 235); border: 1px solid rgb(255, 134, 235); }
+            .notice { font-style:italic; font-size: 0.8rem; color:#005397; text-align: center; }
+            .my-chat { text-align: right; }
+            .my-chat div { background-color: yellow; }
+            .other-chat div { background-color: white;}
+        </style>
+    </head>
+
+    <body>
+        <div id="chat-list" class="chat-list"></div>
+        <form id="form_message" onsubmit="window.event.preventDefault();">
+            <select id="nick_list" name="nick_list">
+                <option value="전체">전체</option>
+            </select>
+            <input type="text" id="message" name="message" onkeypress="if(window.event.keyCode==13) send();">
+            <button type="button" onclick="send();">전송</button>
+        </form>
+        <script>
+            var socket = io.connect();
+
+            var nickname = prompt( "닉네임을 입력해주세요.");
+            socket.emit("info", { no: "<%=no%>", nickname: nickname } );
+
+            function send(){
+                console.log( "send" );
+                var form = document.getElementById("form_message");
+                socket.emit("send", { msg: form.message.value, to: form.nick_list.value } );
+                form.message.value = "";
+            }
+            socket.on("list", function(data){
+                let nick_list = document.getElementById("nick_list");
+                while (nick_list.firstChild) {
+                    nick_list.removeChild(nick_list.lastChild);
+                }
+                let option = document.createElement("option");
+                option.text = "전체";
+                option.value = "전체";
+                nick_list.appendChild(option);
+                
+                for ( let [key,value] of Object.entries(data.list) ) {
+                    let option = document.createElement("option");
+                    option.text = value;
+                    option.value = value;
+                    nick_list.appendChild(option);
+                }
+            });
+            socket.on("newMessage", function(data){
+                let chat_list = document.getElementById("chat-list");
+                let div = document.createElement("div"); // <div></div>
+                let span = document.createElement("span");
+                let br = document.createElement("br");
+                span.textContent = data.nickname;
+                let div_chat = document.createElement("div"); // <div></div>
+                div_chat.textContent = data.msg;
+                if ( data["is_dm"] ) {
+					div_chat.classList.add("secret");
+					div_chat.textContent = "(DM)" + div_chat.textContent;
+                    span.textContent = "(DM)" + span.textContent;
+				} // <div>{msg}</div>
+
+                if (data.nickname == nickname) { div.classList.add("my-chat"); }
+                else { div.classList.add("other-chat"); }
+                
+                div.appendChild(span);
+                div.appendChild(br);
+                div.appendChild(div_chat);
+                chat_list.appendChild(div);
+
+                $( chat_list ).scrollTop( $(chat_list)[0].scrollHeight);
+            });
+            socket.on("notice", function(data){
+                let chat_list = document.getElementById("chat-list");
+                let div = document.createElement("div"); // <div></div>
+                div.classList.add("notice");
+                div.textContent = data;
+                
+                chat_list.appendChild(div);
+            });
+        </script>
+    </body>
+</html>
