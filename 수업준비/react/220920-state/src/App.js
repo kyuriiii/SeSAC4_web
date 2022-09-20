@@ -1,3 +1,4 @@
+import ClassState from './ClassState';
 import CounterClass from './CounterClass'
 import SayFunction from './SayFunction';
 
@@ -6,6 +7,7 @@ function App() {
     <div>
       <CounterClass />
       <SayFunction />
+      <ClassState/>
     </div>
     
   );
