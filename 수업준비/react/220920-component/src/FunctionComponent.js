@@ -5,13 +5,10 @@ const FunctionComponent = (props) => {
     return (
         <div>
             새로운 MyComponent 이름은 { props.name } 
-            <h5>{ props.children }</h5>
+            <h5>props.children</h5>
         </div>
     );
 };
-// function MyComponent(){
-//     return <div>새로운 MyComponent</div>;
-// }
 
 FunctionComponent.defaultProps = {
     name: '기본 이름'
