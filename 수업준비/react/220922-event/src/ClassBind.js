@@ -29,16 +29,6 @@ class ClassBind extends React.Component {
     render() {
       return (
         <div>
-
-            <button onclick={activeEvent()}>
-                Event Button
-            </button>
-
-            <button onClick={activeEvent}>
-                Event Button
-            </button>
-
-
             {/* <button onClick={printConsole}>printConsole</button> */}
             
             <button onClick={this.printConsole}>printConsole2</button>

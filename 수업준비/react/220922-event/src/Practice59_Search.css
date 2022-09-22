@@ -1,0 +1,10 @@
+select, input {
+    margin-right: 20px;
+}
+form {
+    margin-bottom: 30px;
+}
+table {
+    width: 500px;
+    margin-bottom: 10px;
+}
