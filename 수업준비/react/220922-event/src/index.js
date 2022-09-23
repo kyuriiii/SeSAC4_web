@@ -11,9 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <SyntheticEvent /> */}
-    {/* <ClassBind /> */}
-    <RepeatMap />
-    <RepeatMapClass />
+    <ClassBind />
+    {/* <RepeatMap />
+    <RepeatMapClass /> */}
     {/* <Search /> */}
     {/* <Test /> */}
   </React.StrictMode>

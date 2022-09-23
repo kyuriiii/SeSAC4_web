@@ -27,10 +27,13 @@ class ClassBind extends React.Component {
     }
   
     render() {
+        function test(){
+            console.log( "Test ");
+        }   
       return (
         <div>
             {/* <button onClick={printConsole}>printConsole</button> */}
-            
+            <button onClick={test}>test</button>
             <button onClick={this.printConsole}>printConsole2</button>
             <button onClick={this.handleButton}>handleButton</button>
 
