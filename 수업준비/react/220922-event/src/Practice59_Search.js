@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Practice59_Search.css';
 
 function Select() {
-    const [lists, setList] = useState([]);
+    const [lists, setList] = useState([{id: '', text: '', email:''}]);
     const [results, setResult] = useState([]);
 
     function writeList() {
