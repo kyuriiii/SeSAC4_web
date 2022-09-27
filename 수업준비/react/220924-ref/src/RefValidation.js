@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import './RefValidation.css';
 
 class RefValidation extends Component {
@@ -20,6 +20,12 @@ class RefValidation extends Component {
             validated: this.state.password === "0000"
         });
     }
+    
+    input2 = React.createRef();
+    checkInputValue = () => {
+        console.log( this.input.value );
+        console.log( this.input2.current.value );
+    }
 
     render() {
         return (
@@ -30,6 +36,8 @@ class RefValidation extends Component {
                     onChange={this.handleChange}
                     className={this.state.clicked ? (this.state.validated ? "success" : "failure") : ""}
                 />
+                <input type="text" ref={ (ref) => { this.input = ref } } onChange={this.checkInputValue}/>
+                <input type="text" ref={this.input2} onChange={this.checkInputValue}/>
 
                 <button onClick={this.handleButtonClick}>검증</button>
             </div>
