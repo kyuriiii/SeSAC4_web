@@ -1,0 +1,19 @@
+header {
+    background-color: beige;
+    display: flex;
+}
+
+header ul {
+	width:100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+    list-style: none;
+	align-items: center;
+}
+
+header ul > li {
+	font-size:20px;
+	height: 100%;
+	display: flex;
+}

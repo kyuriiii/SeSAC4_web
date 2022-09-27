@@ -1,10 +1,15 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useSearchParams } from 'react-router-dom';
-
+import { useLocation, useParams, useNavigate, useSearchParams } from 'react-router-dom';
 const RouteProduct = () => {
     const { id } = useParams();
+
+    const location = useLocation();
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const keyWords = searchParams;
+    const keyWord = searchParams.get("search");
+    
+    const navigate = useNavigate();
     
     return (
         <div>
