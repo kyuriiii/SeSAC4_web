@@ -1,0 +1,108 @@
+// 색상 변수 선언. scss에서 변수 선언할 때는 $가 붙어야 한다.
+$red: red;
+$orange: orange;
+$yellow: yellow;
+$green: green;
+$blue: blue;
+$indigo: indigo;
+$purple: purple;
+
+// 1차 기존 UseSass 이용
+// .UseSass {
+//     display: flex;
+//     // 일반 css에서 .UseSass .box 와 동일
+//     .box { 
+//         width: 100px;
+//         height: 100px;
+//         border: 1px solid black;
+//     }
+// }
+
+// 2차 .box.red 와 같이 같이 사용되는 클래스 이용
+// .UseSass {
+//     display: flex;
+//     background-color: pink;
+//     // 일반 css에서 .UseSass .box 와 동일
+//     .box { 
+//         width: 100px;
+//         height: 100px;
+//         border: 1px solid black;
+
+//         // 일반 css에서 .box.red 와 동일 ( 동일한 선상에 클래스가 같이 존재할 때 )
+//         &.red {
+//             background-color: $red;
+//         }
+//         &.orange {
+//             background-color: $orange;
+//         }
+//         &.yellow {
+//             background-color: $yellow;
+//         }
+//         &.green {
+//             background-color: $green;
+//         }
+//         &.blue {
+//             background-color: $blue;
+//         }
+//         &.indigo {
+//             background-color: $indigo;
+//         }
+//         &.purple {
+//             background-color: $purple;
+//         }
+//         &:hover { // 기존 css에서 .box:hover
+//             cursor: pointer;
+//         }
+//     }
+// }
+
+// 3차 mixin 사용하기
+// mixin은 재사용가능하게 묶어놓는 것, 실제로 사용할 때는 include로 사용한다.
+.UseSass {
+    display: flex;
+    background-color: pink;
+    @mixin boxSize($size) {
+        $calculated: 20px * $size;
+        width: 100px;
+        height: $calculated;
+    }
+    // 일반 css에서 .UseSass .box 와 동일
+    .box { 
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+
+        // 일반 css에서 .box.red 와 동일 ( 동일한 선상에 클래스가 같이 존재할 때 )
+        &.red {
+            background-color: $red;
+            @include boxSize(1);
+        }
+        &.orange {
+            background-color: $orange;
+            @include boxSize(2);
+        }
+        &.yellow {
+            background-color: $yellow;
+            @include boxSize(3);
+        }
+        &.green {
+            background-color: $green;
+            @include boxSize(4);
+        }
+        &.blue {
+            background-color: $blue;
+            @include boxSize(5);
+        }
+        &.indigo {
+            background-color: $indigo;
+            @include boxSize(6);
+        }
+        &.purple {
+            background-color: $purple;
+            @include boxSize(7);
+        }
+        &:hover { // 기존 css에서 .box:hover
+            cursor: pointer;
+        }
+    }
+}
