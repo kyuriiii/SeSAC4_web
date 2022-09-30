@@ -1,0 +1,62 @@
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
+
+$red: red;
+$orange: orange;
+$yellow: yellow;
+$green: green;
+$blue: blue;
+$indigo: indigo;
+$purple: purple;
+
+.SassModule {
+    display: flex;
+    // 배경색을 open-colors 팔레트 라이브러리에서 불러와서 설정하고, 화면 가로 크기가 768px 미만이 되면 배경색을 어둡게 바꿔준다.
+    background: $oc-gray-2; // 연한 gray
+    @include media('<768px') {
+        background: $oc-gray-9; // 진한 gray
+    }
+    @mixin boxSize($size) {
+        $calculated: 20px * $size;
+        width: 100px;
+        height: $calculated;
+    }
+
+    .box { 
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+
+        &.red {
+            background-color: $red;
+            @include boxSize(1);
+        }
+        &.orange {
+            background-color: $orange;
+            @include boxSize(2);
+        }
+        &.yellow {
+            background-color: $yellow;
+            @include boxSize(3);
+        }
+        &.green {
+            background-color: $green;
+            @include boxSize(4);
+        }
+        &.blue {
+            background-color: $blue;
+            @include boxSize(5);
+        }
+        &.indigo {
+            background-color: $indigo;
+            @include boxSize(6);
+        }
+        &.purple {
+            background-color: $purple;
+            @include boxSize(7);
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

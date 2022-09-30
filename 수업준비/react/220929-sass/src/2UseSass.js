@@ -1,4 +1,4 @@
-import './UseSass.scss';
+import './2UseSass.scss';
 
 const UseSass = () => {
     return (

@@ -1,4 +1,4 @@
-import './Origin.css';
+import './1Origin.css';
 const Origin = () => {
     return (
         <div className="Origin">
