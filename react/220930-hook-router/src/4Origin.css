@@ -1,0 +1,28 @@
+.Origin {
+    display: flex;
+}
+.Origin .box {
+    width: 100px;
+    height: 100px;
+}
+.Origin .red {
+    background: red;
+}
+.Origin .orange {
+    background: orange;
+}
+.Origin .yellow {
+    background: yellow;
+}
+.Origin .green {
+    background: green;
+}
+.Origin .blue {
+    background: blue;
+}
+.Origin .indigo {
+    background: indigo;
+}
+.Origin .purple {
+    background: purple;
+}

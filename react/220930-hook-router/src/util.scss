@@ -1,0 +1,13 @@
+$red: red;
+$orange: orange;
+$yellow: yellow;
+$green: green;
+$blue: blue;
+$indigo: indigo;
+$purple: purple;
+
+
+@mixin boxSize($size) {
+    width: 100px;
+    height: 20px * $size;
+}

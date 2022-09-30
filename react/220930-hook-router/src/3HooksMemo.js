@@ -1,5 +1,5 @@
 
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 
 function getAverage(list) {
     console.log( "getAverage");
@@ -13,6 +13,8 @@ function getAverage(list) {
 const Memo = () => {
     const [list, setList] = useState([]);
     const [num, setNum] = useState(0);
+
+    const input = useRef(null);
 
     // const onChange = e => {
     //     setNum(e.target.value);
@@ -29,6 +31,7 @@ const Memo = () => {
         const nextList = list.concat(parseInt(num));
         setList(nextList);
         setNum("");
+        input.current.focus();
     }, [num, list]);
 
     // const avg = useMemo(() => getAverage(list), [list]);
@@ -38,7 +41,7 @@ const Memo = () => {
     }, [list]);
     return (
         <div>
-            <input value={num} onChange={onChange} />
+            <input value={num} onChange={onChange} ref={input} />
             <button onClick={onInsert}>등록</button>
 
             <ul>

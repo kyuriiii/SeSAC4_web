@@ -1,0 +1,51 @@
+@import './util.scss';
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
+
+.UseSass {
+    display: flex;
+    background: $oc-gray-2;
+
+    @include media('<768px') {
+        background: $oc-gray-9;
+    }
+    .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        // .box.red 
+        &.red {
+            @include boxSize(1);
+            background: $red;
+        }
+        &.orange {
+            @include boxSize(2);
+            background: $orange;
+        }
+        &.yellow {
+            @include boxSize(3);
+            background: $yellow;
+        }
+        &.green {
+            @include boxSize(4);
+            background: $green;
+        }
+        &.blue {
+            @include boxSize(5);
+            background: $blue;
+        }
+        &.indigo {
+            @include boxSize(6);
+            background: $indigo;
+        }
+        &.purple {
+            @include boxSize(7);
+            background: $purple;
+        }
+
+        // .box:hover
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

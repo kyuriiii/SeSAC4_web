@@ -1,0 +1,11 @@
+.box1 {
+    background-color: yellow;
+    border: 3px solid orange;
+    color: green;
+    display: flex;
+    height: 150px;
+    align-items: center;
+}
+.center {
+    justify-content: center;
+}

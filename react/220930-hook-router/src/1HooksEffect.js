@@ -26,8 +26,8 @@ const Hook = () => {
         }
     }, [name]);
     return (
-        <div>
-            <div>
+        <div class="1HookEffect">
+            <div class="box">
                 <input value={name} onChange={changeName} />
                 <button onClick={changeCnt}>+1</button> 
             </div>
@@ -37,5 +37,8 @@ const Hook = () => {
         </div>
     )
 }
+// .1HookEffect .box {
+
+// }
 
 export default Hook;
