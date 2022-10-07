@@ -17,4 +17,4 @@ const Practice64Main = (props) => {
 	);
 };
 
-export default Practice64Main;
+export default Practice64Main;`
