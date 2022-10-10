@@ -28,6 +28,28 @@ router.post('/login', (req, res, next) => {
   })(req, res, next); // 미들웨어 내의 미들웨어에는 (req, res, next)를 붙입니다.
 });
 
+router.get('/google', passport.authenticate('google', {scope: ['profile','email']}));
+router.get(
+  'google/callback',
+  passport.authenticate('google', {
+    failureRedirect: '/',
+  }),
+  (req,res) => {
+    res.redirect('/');
+  }
+);
+
+router.get('/kakao', passport.authenticate('kakao', {scope: ['profile','email']}));
+router.get(
+  'kakao/callback',
+  passport.authenticate('kakao', {
+    failureRedirect: '/',
+  }),
+  (req,res) => {
+    res.redirect('/');
+  }
+);
+
 router.get('/logout', (req, res) => {
   req.logout();
   req.session.destroy();

@@ -1,4 +1,6 @@
 const passport = require('passport');
+const google = require('./googleStrategy');
+const kakao = require('./kakaoStrategy');
 const local = require('./localStrategy');
 
 let fakeUser = {
@@ -19,4 +21,5 @@ module.exports = () => {
   });
 
   local();
+  google();
 };
