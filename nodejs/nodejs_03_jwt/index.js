@@ -19,7 +19,7 @@ app.post('/make', (req,res) => {
         name: req.body.name,
         email: req.body.email
     }, secret, {
-        expiresIn: '10s', // 만료시간 15분
+        expiresIn: '15m', // 만료시간 15분
         issuer: '토큰발급자',
     });
     
