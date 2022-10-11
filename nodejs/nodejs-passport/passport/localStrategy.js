@@ -2,18 +2,17 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 let fakeUser = {
-  username: 'test',
+  name: 'test',
   password: '1234',
   email: 'test@test.test'
 }
 
-module.exports = () => {
-  passport.use(new LocalStrategy({
+module.exports = new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password',
   }, async (name, password, done) => {
     try {
-      if ( name == fakeUser.username ){
+      if ( name == fakeUser.name ){
         if ( password == fakeUser.password ) {
           console.log( "*****Login Success*****")
           done(null, fakeUser);
@@ -29,5 +28,4 @@ module.exports = () => {
       console.error(error);
       done(error);
     }
-  }));
-};
+  });

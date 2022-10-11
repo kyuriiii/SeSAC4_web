@@ -1,9 +1,10 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const passport = require('passport');
 
 const app = express();
-app.set('port', 8000);
+app.set('port', 3001);
 app.set("view engine", "ejs");
 
 app.use(express.json());
@@ -19,14 +20,11 @@ app.use(session({
   },
 }));
 
-const passport = require('passport');
-const passportConfig = require('./passport');
-passportConfig(); // 패스포트 설정
 app.use(passport.initialize());
 app.use(passport.session());
 
 const auth = require('./routes/auth');
-app.use('/', auth);
+app.use('/auth', auth);
 
 app.use((req, res, next) => {
   res.send(`${req.method} ${req.url} 라우터가 없습니다.`);

@@ -4,22 +4,22 @@ const kakao = require('./kakaoStrategy');
 const local = require('./localStrategy');
 
 let fakeUser = {
-  username: 'test',
+  name: 'test',
   password: '1234',
   email: 'test@test.test'
 }
 
-module.exports = () => {
-  passport.serializeUser((user, done) => {
-    console.log( 'user : ', user );
-    done(null, user.username);
-  });
+passport.serializeUser((user, done) => {
+  done(null, user.name);
+});
 
-  passport.deserializeUser((username, done) => {
-    // DB를 사용할 경우에는 여기서 serializeUser에서 받아온 username을 기반으로 db에서 검색하기
-    done(null, fakeUser);
-  });
+passport.deserializeUser((username, done) => {
+  // DB를 사용할 경우에는 여기서 serializeUser에서 받아온 username을 기반으로 db에서 검색하기
+  done(null, fakeUser);
+});
 
-  local();
-  google();
-};
+passport.use(local);
+passport.use(google);
+passport.use(kakao);
+
+module.exports = passport;

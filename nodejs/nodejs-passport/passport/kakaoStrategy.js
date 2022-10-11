@@ -7,14 +7,14 @@ let fakeUser = {
 
 module.exports = new KakaoStrategy(
   {
-    clientID: '카카오 ID',
-    callbackURL: '카카오 콜백 URL',
+    clientID: '카카오ID',
+    callbackURL: '/auth/kakao/callback',
   },
   async (accessToken, refreshToken, profile, done) => {
     console.info('___new KakaoStrategy()');
     try {
       if (fakeUser.email == (profile._json && profile._json.email)) {
-        console.log('___google exUser', fakeUser);
+        console.log('___kakao fakeUser1', fakeUser);
         done(null, fakeUser);
       } else {
         // DB에 사용자가 저장되어 있지 않으면 DB에 새로 저장
@@ -22,7 +22,7 @@ module.exports = new KakaoStrategy(
             email: profile._json && profile._json.email,
             name: profile.displayName
         }
-        console.log('___google fakeUser', fakeUser);
+        console.log('___kakao fakeUser2', fakeUser);
         done(null, fakeUser);
       }
     } catch (error) {
