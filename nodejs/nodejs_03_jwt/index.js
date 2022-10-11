@@ -11,7 +11,7 @@ app.get('/', (req,res) => {
     res.sendFile( __dirname + "/index.html" );
 });
 
-app.post('/login', (req,res) => {
+app.post('/make', (req,res) => {
     console.log('req.post : ', req.body);
 
     const token = jwt.sign({
@@ -19,7 +19,7 @@ app.post('/login', (req,res) => {
         name: req.body.name,
         email: req.body.email
     }, secret, {
-        expiresIn: '15m', // 만료시간 15분
+        expiresIn: '10s', // 만료시간 15분
         issuer: '토큰발급자',
     });
     

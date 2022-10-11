@@ -1,8 +1,64 @@
 <html>
     <head>
         <title> JWT 연습하기 </title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body>
-
+        <form id="form_input">
+            <input type="text" name="name" placeholder="이름">
+            <input type="text" name="email" placeholder="이메일">
+            <hr>
+            <button type="button" onclick="sendPost()">jwt토큰생성</button> 
+            <button type="button" onclick="verify1()">header없이 검증</button>
+            <button type="button" onclick="verify2()">header있이 검증</button>
+            <button type="button" onclick="verify3()">다른 토큰으로 검증</button>
+        </form> 
     </body>
+
+    <script>
+        function sendPost() {
+            var form = document.getElementById("form_input");
+            axios({
+                method: 'post',
+                url: '/make',
+                data: {
+                    name: form.name.value,
+                    email: form.email.value
+                }
+            })
+            .then((rep) => { return rep.data; })
+            .then((data) => {
+                localStorage.setItem('access_token', data.token);
+                alert(data.message);
+            });
+        }
+        function verify1() {
+            axios({
+                url: '/verify'
+            })
+            .then((rep) => { return rep.data; })
+            .then((data) => {
+                console.log( "verify1 : ", data );
+                alert(data.message);
+            })
+            .catch((err) => {
+                console.log( err.response );
+                alert(err.response.data.message);
+            });
+        }
+        function verify2() {
+            axios({
+                url: '/verify',
+                headers: {
+                    'Authorization': localStorage.getItem('access_token'),
+                }
+            }).then((rep) => { return rep.data; })
+            .then((data) => {
+                console.log( "verify2 : ", data );
+                alert(data.message);
+            }).catch((err) => {
+                alert(err.response.data.message);
+            });
+        }
+    </script>
 </html>
