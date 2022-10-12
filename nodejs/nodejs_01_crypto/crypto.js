@@ -22,6 +22,8 @@ console.log( createdHash("1234") );
 
 const result = createdHash("1234");
 console.log( result );
+const result2 = createdHash("qwer");
+console.log( result2 );
 
 console.log( "비밀번호 검증" );
 const verifyPassword = (password, salt, userPassword) => {
@@ -32,5 +34,9 @@ const verifyPassword = (password, salt, userPassword) => {
     if ( hashed === userPassword ) return true;
     return false;
 }
-console.log( verifyPassword("123", result.salt, result.hashed ) );
-console.log( verifyPassword("1234", result.salt, result.hashed) );
+console.log( "result 1 검증 : ", verifyPassword("123", result.salt, result.hashed ) );
+console.log( "result 1 검증 : ", verifyPassword("1234", result.salt, result.hashed) );
+console.log( "result 2 검증 : ", verifyPassword("qwer", result2.salt, result2.hashed) );
+console.log( "result 2 검증 : ", verifyPassword("qwertt", result2.salt, result2.hashed) );
+
+// bcrypt
