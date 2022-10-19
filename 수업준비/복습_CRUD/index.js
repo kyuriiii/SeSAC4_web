@@ -25,6 +25,12 @@ app.get("/", async (req,res) => {
     let users = await models.User.findAll();
     await res.render("index", { result: users });
 });
+app.get("/react", async (req,res) => {
+    console.log( "path : /react, method : get" );
+    // user 테이블에 존재하는 사용자들 가져와 index.ejs 로 전달하기
+    let users = await models.User.findAll();
+    await res.send({ result: users });
+});
 // async / await 가 아니라 promise - then/catch 이용하기
 app.post("/", (req,res) => {
     console.log( "path : /, method : post" );
