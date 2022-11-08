@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<h6>1. th:text 예시</h6>
+<span th:text="${hello}">message</span>
+<span>님 안녕하세요!</span>
+<br>
+
+<h6>2. th:utext 예시</h6>
+<th:block th:utext="${hello}">message</th:block>
+
+<br>
+
+<h6>3. th:value 예시</h6>
+<input th:value="${hello}" style="width: 100px; height:30px;">
+
+<h6>4. th:with 예시</h6>
+<div th:with="temp=${hello}" th:text="${temp}"></div>
+<br>
+
+<h6>5. th:switch 예시</h6>
+<div th:switch="${hello}">
+  <p th:case="'admin'">admin
+  <p th:case="#{hello}=='user'">User
+  <p th:case="*">*입니다
+</div>
+<br>
+
+<h6>6. th:if 예시</h6>
+<p th:if="${hello}=='web'" th:text="${hello}"></p>
+<p th:unless="${true}" th:text="${hello}">
+  unless 입니다
+</p>
+<br>
+
+<h6>7. th:each 예시</h6>
+<div class="btn-group" th:each="item:${itemList}">
+  <button class="btn btn-secondary" th:value="${item.landmarkSn}" th:text="${item.landmarkName}"
+          style="margin: 5px;"></button>
+</div>
+<br>
+</body>
+</html>

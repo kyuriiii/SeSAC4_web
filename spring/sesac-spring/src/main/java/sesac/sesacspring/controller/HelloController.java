@@ -3,8 +3,14 @@ package sesac.sesacspring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import sesac.sesacspring.domain.Board;
+import sesac.sesacspring.repository.BoardRepository;
+import sesac.sesacspring.repository.MemoryBoardRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class HelloController {
@@ -79,5 +85,40 @@ public class HelloController {
         public void setName(String name) {
             this.name = name;
         }
+    }
+
+
+
+    /**
+     * Notion : Spring/5. Thymeleaf 기본 문법
+     */
+    @GetMapping("thymeleaf")
+    public String getThymeleaf(Model model) {
+        model.addAttribute("name", "admin");
+        model.addAttribute("itemList", item);
+        return "Thymeleaf";
+    }
+
+    
+    /**
+     * Notion : Spring/* - 간단한 방명록 예제
+     */
+    final BoardRepository boardRepository = new MemoryBoardRepository();
+    @GetMapping("board-write")
+    public String getBoardWrite() {
+        return "Board-write";
+    }
+    @PostMapping("board-write")
+    public String postBoardWrite(@RequestParam("name") String name, @RequestParam("content") String content) {
+        Board board = new Board();
+        board.setName(name);
+        board.setContent(content);
+        boardRepository.save(board);
+        return "redirect:/board-view";
+    }
+    @GetMapping("board-view")
+    public String getBoardView(Model model) {
+        model.addAttribute("list", boardRepository.findAll());
+        return "Board-view";
     }
 }
