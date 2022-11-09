@@ -43,17 +43,17 @@ public class HelloController {
             Model model) {
         model.addAttribute("name", name);
         model.addAttribute("age", age);
-        return "API";
+        return "04_API";
     }
     @GetMapping("mvc-get2/{name}/{abc}")
     public String getMVCQuery(@PathVariable String name, @PathVariable("abc") int age, Model model) {
         model.addAttribute("name", name);
         model.addAttribute("age", age);
-        return "API";
+        return "04_API";
     }
     @GetMapping("mvc-post")
     public String getMVCPost() {
-        return "API-post";
+        return "04_API-post";
     }
     @PostMapping("mvc-post")
     public String postMVC(
@@ -62,7 +62,7 @@ public class HelloController {
             Model model) {
         model.addAttribute("name", name);
         model.addAttribute("age", age);
-        return "API";
+        return "04_API";
     }
     // ReponseBody
     @GetMapping("response-string")
@@ -94,9 +94,11 @@ public class HelloController {
      */
     @GetMapping("thymeleaf")
     public String getThymeleaf(Model model) {
-        model.addAttribute("name", "admin");
-        model.addAttribute("itemList", item);
-        return "Thymeleaf";
+        String[] names = {"kim", "lee", "hong", "park", "shin"};
+
+        model.addAttribute("hello", "admin");
+        model.addAttribute("names", names);
+        return "05_Thymeleaf";
     }
 
     

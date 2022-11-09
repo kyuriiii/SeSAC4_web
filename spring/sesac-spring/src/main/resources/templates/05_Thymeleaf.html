@@ -39,10 +39,14 @@
 <br>
 
 <h6>7. th:each 예시</h6>
-<div class="btn-group" th:each="item:${itemList}">
-  <button class="btn btn-secondary" th:value="${item.landmarkSn}" th:text="${item.landmarkName}"
-          style="margin: 5px;"></button>
-</div>
+<table border="1">
+  <tr>
+    <th>이름</th>
+  </tr>
+  <tr th:each="name:${names}">
+    <td th:text="${name}">이름</td>
+  </tr>
+</table>
 <br>
 </body>
 </html>
