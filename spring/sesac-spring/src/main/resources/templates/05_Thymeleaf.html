@@ -39,12 +39,19 @@
 <br>
 
 <h6>7. th:each 예시</h6>
+<ul>
+  <li th:each="name:${names}">
+    <span th:text="${name}">이름</span>
+  </li>
+</ul>
 <table border="1">
   <tr>
     <th>이름</th>
+    <th>나이</th>
   </tr>
-  <tr th:each="name:${names}">
-    <td th:text="${name}">이름</td>
+  <tr th:each="item:${listItem}">
+    <td th:text="${item.name}">이름</td>
+    <td th:text="${item.age}">나이</td>
   </tr>
 </table>
 <br>

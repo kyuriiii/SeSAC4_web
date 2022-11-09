@@ -8,16 +8,13 @@ import sesac.sesacspring.repository.BoardRepository;
 import sesac.sesacspring.repository.MemoryBoardRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 @Controller
 public class HelloController {
-
-    /**
-     * Notion : Spring/02.프로젝트 생성, 템플릿, 정적파일
-      */
     @GetMapping("hi")
     public String getHi(Model model) {
         model.addAttribute("msg", "hi~");
@@ -95,10 +92,35 @@ public class HelloController {
     @GetMapping("thymeleaf")
     public String getThymeleaf(Model model) {
         String[] names = {"kim", "lee", "hong", "park", "shin"};
-
-        model.addAttribute("hello", "admin");
         model.addAttribute("names", names);
         return "05_Thymeleaf";
+    }
+    @GetMapping("thymeleaf_practice1")
+    public String getThymeleafPractice1(Model model) {
+        model.addAttribute("age", "10");
+        return "05_Thymeleaf_practice1";
+    }
+    @GetMapping("people")
+    public String getThymeleafPractice2(Model model){
+        ArrayList<Person> list = new ArrayList<>();
+        String[] names = {"kim", "lee", "hong", "park", "shin"};
+        int[] ages = {10, 20, 30, 40, 50};
+        for ( int i = 0; i < 5; i++ ) {
+            Person person = new Person();
+            person.setName(names[i]);
+            person.setAge(ages[i]);
+            list.add(person);
+        }
+        model.addAttribute("listItem", list);
+        return "05_Thymeleaf";
+    }
+    static class Person {
+        private String name;
+        private int age;
+        public String getName(){ return name; }
+        public void setName(String name) { this.name = name; }
+        public int getAge() { return age; }
+        public void setAge(int age) { this.age = age; }
     }
 
     
