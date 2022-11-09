@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>practice30</title>
+</head>
+
+<body>
+<form action="/introduce4" method="POST">
+  <p>폼 전송 - 실습</p>
+
+  <fieldset>
+    이름 <input type="text" name="name" required> <br>
+    성별
+    <input type="radio" name="gender" value="남자" required>남자
+    <input type="radio" name="gender" value="여자">여자 <br>
+    생년월일
+    <select name="year">
+      <option th:each="num: ${#numbers.sequence(1950,2023)}" th:text="${num}"></option>
+    </select> 년
+    <select name="month">
+      <option th:each="num: ${#numbers.sequence(1,12)}" th:text="${num}"></option>
+    </select> 월
+    <select name="day">
+      <option th:each="num: ${#numbers.sequence(1,31)}" th:text="${num}"></option>
+    </select> 일
+    <br>
+    관심사
+    <input type="checkbox" name="interest" value="여행">여행
+    <input type="checkbox" name="interest" value="패션">패션
+    <input type="checkbox" name="interest" value="음식">음식
+  </fieldset>
+
+  <button>회원가입</button>
+</form>
+</body>
+</html>

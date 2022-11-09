@@ -33,6 +33,10 @@ public class HelloController {
     /**
      * Notion : Spring/04.Spring MVC - API
      */
+//    @GetMapping(url주소)
+//    public String 함수이름() {
+//        return 템플릿 파일 명;
+//    }
     @GetMapping("mvc-get1")
     public String getMVCParams(
             @RequestParam(value = "name", required = false) String name,
@@ -47,6 +51,38 @@ public class HelloController {
         model.addAttribute("name", name);
         model.addAttribute("age", age);
         return "04_API";
+    }
+    // mvc-get 실습
+    @GetMapping("introduce/{name}")
+    public String getIntroduce( @PathVariable String name, Model model ) {
+        model.addAttribute("name", name);
+        return "04_API_practice1_1";
+    }
+    @GetMapping("introduce2")
+    public String getIntroduce2( @RequestParam(value="name") String name, @RequestParam(value="age") int age, Model model ) {
+        model.addAttribute("name", name);
+        model.addAttribute("age", age);
+        return "04_API_practice1_2";
+    }
+    @GetMapping("introduce3")
+    public String getIntroduce3() {
+        return "04_API_practice1_3";
+    }
+    @PostMapping("introduce4")
+    public String getIntroduce4(
+            @RequestParam(value="name") String name,
+            @RequestParam(value="gender") String gender,
+            @RequestParam(value="year") int year,
+            @RequestParam(value="month") int month,
+            @RequestParam(value="day") int day,
+            @RequestParam(value="interest") String interest,
+            Model model
+            ) {
+        model.addAttribute("name", name);
+        model.addAttribute("gender", gender);
+        model.addAttribute("birth", year +"-" + month +"-" + day);
+        model.addAttribute("interest", interest);
+        return "04_API_practice1_4";
     }
     @GetMapping("mvc-post")
     public String getMVCPost() {
