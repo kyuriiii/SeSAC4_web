@@ -4,8 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sesac.sesacspring.domain.Board;
+import sesac.sesacspring.dto.IntroduceDTO;
 import sesac.sesacspring.repository.BoardRepository;
 import sesac.sesacspring.repository.MemoryBoardRepository;
+import sesac.sesacspring.vo.IntroduceVO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Array;
@@ -66,10 +68,11 @@ public class HelloController {
     }
     @GetMapping("introduce3")
     public String getIntroduce3() {
+        System.out.println("getIntroduce3");
         return "04_API_practice1_3";
     }
     @PostMapping("introduce4")
-    public String getIntroduce4(
+    public String postIntroduce4(
             @RequestParam(value="name") String name,
             @RequestParam(value="gender") String gender,
             @RequestParam(value="year") int year,
@@ -83,6 +86,21 @@ public class HelloController {
         model.addAttribute("birth", year +"-" + month +"-" + day);
         model.addAttribute("interest", interest);
         return "04_API_practice1_4";
+    }
+    @PostMapping("introduce5")
+    public String postIntroduce5(
+            IntroduceDTO introduceDTO,
+            Model model
+    ) {
+        model.addAttribute("name", introduceDTO.getName());
+        return "04_API_practice1_4";
+    }
+    @PostMapping("introduce6")
+    @ResponseBody
+    public String postIntroduce6(
+            @RequestBody  IntroduceVO introduceVO
+    ) {
+        return introduceVO.getName() + "회원가입 성공";
     }
     @GetMapping("mvc-post")
     public String getMVCPost() {

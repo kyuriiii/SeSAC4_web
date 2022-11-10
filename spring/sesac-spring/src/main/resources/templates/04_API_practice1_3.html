@@ -2,10 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>practice30</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+  <script>
+    function send(){
+    var form = document.getElementById("form_send");
+        axios.post("/introduce6", {
+            name: form.name.value,
+            gender: form.gender.value,
+            year: form.year.value,
+            month: form.month.value,
+            day: form.day.value,
+            interest: form.interest.value
+        }).then((res) => {
+          console.log( res.data );
+        });
+    }
+  </script>
 </head>
 
 <body>
-<form action="/introduce4" method="POST">
+<button type="button" onclick="send();">전송</button>
+<hr />
+<form action="/introduce5" method="POST" id="form_send">
   <p>폼 전송 - 실습</p>
 
   <fieldset>
