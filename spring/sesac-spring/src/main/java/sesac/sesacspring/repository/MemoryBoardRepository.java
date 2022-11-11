@@ -21,6 +21,7 @@ public class MemoryBoardRepository implements BoardRepository{
     public Optional<Board> findById(Long ID) {
         // store.get(ID); 로 꺼내면 되는데, 결과가 없으면 NULL이 나온다.
         // null 의 가능성이 있으면 Optional 로 보낸다.
+        // 즉, 정보의 유무에 상관없이 Optional이라는 같은 형태로 전송할 수 있다.
         return Optional.ofNullable(store.get(ID));
     }
 
