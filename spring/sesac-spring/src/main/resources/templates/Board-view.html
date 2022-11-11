@@ -5,6 +5,19 @@
     <title>Board-view</title>
 </head>
 <body>
+<table border="1">
+    <tr>
+        <th>번호</th>
+        <th>이름</th>
+        <th>방명록</th>
+    </tr>
+    <tr th:each="item:${list}">
+        <td th:text="${item.ID}">번호</td>
+        <td th:text="${item.name}">이름</td>
+        <td th:text="${item.content}">내용</td>
+    </tr>
+</table>
 
+<a href="/board-write">board-write</a>
 </body>
 </html>

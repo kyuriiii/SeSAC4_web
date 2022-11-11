@@ -176,27 +176,4 @@ public class HelloController {
         public int getAge() { return age; }
         public void setAge(int age) { this.age = age; }
     }
-
-    
-    /**
-     * Notion : Spring/* - 간단한 방명록 예제
-     */
-    final BoardRepository boardRepository = new MemoryBoardRepository();
-    @GetMapping("board-write")
-    public String getBoardWrite() {
-        return "Board-write";
-    }
-    @PostMapping("board-write")
-    public String postBoardWrite(@RequestParam("name") String name, @RequestParam("content") String content) {
-        Board board = new Board();
-        board.setName(name);
-        board.setContent(content);
-        boardRepository.save(board);
-        return "redirect:/board-view";
-    }
-    @GetMapping("board-view")
-    public String getBoardView(Model model) {
-        model.addAttribute("list", boardRepository.findAll());
-        return "Board-view";
-    }
 }
