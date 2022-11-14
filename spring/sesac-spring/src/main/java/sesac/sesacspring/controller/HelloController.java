@@ -93,14 +93,17 @@ public class HelloController {
             Model model
     ) {
         model.addAttribute("name", introduceDTO.getName());
+        model.addAttribute("gender", introduceDTO.getGender());
+        model.addAttribute("birth", introduceDTO.getYear() + "-" + introduceDTO.getMonth() + "-" + introduceDTO.getDay());
+        model.addAttribute("interest", introduceDTO.getInterest());
         return "04_API_practice1_4";
     }
     @PostMapping("introduce6")
     @ResponseBody
     public String postIntroduce6(
-            @RequestBody  IntroduceVO introduceVO
+            @RequestBody IntroduceVO introduceVO
     ) {
-        return introduceVO.getName() + "회원가입 성공";
+        return "이름 : " + introduceVO.getName() + "/n 성별 : " + introduceVO.getGender() + "/n 회원가입 성공!!";
     }
     @GetMapping("mvc-post")
     public String getMVCPost() {
