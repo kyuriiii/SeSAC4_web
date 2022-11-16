@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    function send_param(){
+    var form = document.getElementById("form_param");
+        axios.post("/form-param1", {
+            name: form.name.value,
+            gender: form.gender.value
+        }).then((res) => {
+          console.log( res.data );
+        });
+    }
+    function send_dto(){
+    var form = document.getElementById("form_dto");
+        axios.post("/form-dto1", {
+            name: form.name.value,
+            gender: form.gender.value
+        }).then((res) => {
+          console.log( res.data );
+        });
+    }
+    function send_vo(){
+    var form = document.getElementById("form_vo");
+        axios.post("/form-vo1", {
+            name: form.name.value,
+            gender: form.gender.value
+        }).then((res) => {
+          console.log( res.data );
+        });
+    }
+  </script>
+</head>
+<body>
+<h3>RequestParam</h3>
+<button type="button" onclick="send_param();">전송1</button>
+<form action="/form-param2" method="POST" id="form_param">
+  <p>폼 전송 - 실습3</p>
+
+  <fieldset>
+    이름 <input type="text" name="name" required> <br>
+    성별
+    <input type="radio" name="gender" value="남자" required>남자
+    <input type="radio" name="gender" value="여자">여자 <br>
+  </fieldset>
+
+  <button>회원가입</button>
+</form>
+
+<hr>
+<h3>DTO 이용</h3>
+<button type="button" onclick="send_dto();">전송2</button>
+<form action="/form-dto2" method="POST" id="form_dto">
+  <p>폼 전송 - 실습</p>
+  <fieldset>
+    이름 <input type="text" name="name" required> <br>
+    성별
+    <input type="radio" name="gender" value="남자" required>남자
+    <input type="radio" name="gender" value="여자">여자 <br>
+   </fieldset>
+  <button>회원가입</button>
+</form>
+<hr>
+<h3>VO 이용</h3>
+<button type="button" onclick="send_vo();">전송2</button>
+<form action="/form-vo2" method="POST" id="form_vo">
+  <p>폼 전송 - 실습</p>
+  <fieldset>
+    이름 <input type="text" name="name" required> <br>
+    성별
+    <input type="radio" name="gender" value="남자" required>남자
+    <input type="radio" name="gender" value="여자">여자 <br>
+  </fieldset>
+  <button>회원가입</button>
+</form>
+</body>
+</html>
