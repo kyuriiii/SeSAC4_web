@@ -6,5 +6,20 @@
 </head>
 <body>
 <h1 th:text="${text}">hi</h1>
+<h1 th:utext="${utext}">hi</h1>
+<input type="text" th:value="${text}">
+<div th:with="temp=${text}" th:text="${temp}"></div>
+<div th:switch="${text}">
+    <p th:case="'hi'">hi</p>
+    <p th:case="'hello'">hello</p>
+    <p th:case="*"> other </p>
+</div>
+<p th:if="${text}=='web'" th:text="${text}"></p>
+<p th:unless="${text}=='web'" th:text="'web이 아님'"></p>
+
+<ul>
+   <li th:each="name:${names}" th:text="${name}">
+   </li>
+</ul>
 </body>
 </html>

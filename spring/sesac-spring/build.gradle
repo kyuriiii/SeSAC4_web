@@ -24,6 +24,12 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// swagger 3.0.0. 버전
+	// implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+	// swagger 2.9.2 버전
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
 }
 
 tasks.named('test') {
