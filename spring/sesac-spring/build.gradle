@@ -30,6 +30,10 @@ dependencies {
 	// swagger 2.9.2 버전
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
+
+	// jpa와 mysql
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'mysql:mysql-connector-java'
 }
 
 tasks.named('test') {
