@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Board-view</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    function search(){
+        axios.post("/board-search2", {
+            name: document.getElementById("input_name").value
+        }).then((res) => {
+          console.log( res.data );
+          if ( res.data != null ) alert("내용 : " + res.data.content );
+        });
+    }
+  </script>
+</head>
+<body>
+<h3>방명록</h3>
+<table border="1">
+  <tr>
+    <th>번호</th>
+    <th>이름</th>
+    <th>방명록</th>
+  </tr>
+  <tr th:each="item:${list}">
+    <td th:text="${item.ID}">번호</td>
+    <td th:text="${item.name}">이름</td>
+    <td th:text="${item.content}">내용</td>
+  </tr>
+</table>
+
+<hr>
+<h3>방명록 검색</h3>
+이름 : <input type="text" id="input_name">
+<button type="button" onclick="search();">검색</button>
+
+<a href="/board-write2">board-write</a>
+</body>
+</html>
