@@ -1,21 +1,21 @@
 package sesac.sesacspring.service;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sesac.sesacspring.domain.Board;
 import sesac.sesacspring.repository.BoardRepository;
 import sesac.sesacspring.repository.JPABoardRepository;
-import sesac.sesacspring.repository.MemoryBoardRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 @Service
-@RequiredArgsConstructor
-public class BoardService {
-    private final MemoryBoardRepository boardRepository;
+@RequiredArgsConstructor // 생성자 축약
+public class BoardService2 {
+
+    private final JPABoardRepository boardRepository;
+
     /**
      * 방명록 작성
      * */

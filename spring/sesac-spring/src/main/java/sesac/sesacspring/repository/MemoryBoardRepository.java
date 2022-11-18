@@ -1,10 +1,12 @@
 package sesac.sesacspring.repository;
 
+import org.springframework.stereotype.Repository;
 import sesac.sesacspring.domain.Board;
 
 import java.sql.Array;
 import java.util.*;
 
+@Repository
 public class MemoryBoardRepository implements BoardRepository{
 
     private static Map<Long, Board> store = new HashMap<>(); // 저장소
