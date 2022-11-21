@@ -4,39 +4,46 @@
             .container {
                 border: 3px solid black;
                 padding: 10px;
+                width: 100px;
+                height: 100px;
             }
         </style>
     </head>
     <body>
-        <div id="red"></div>
-        <div id="green"></div>
+        <div id="red">
+            <div class="container" id="component_red">
+                <h1>red</h1>
+                <input type="button" value="실행" onclick="red()">
+            </div>
+        </div>
+        <div id="green">
+            <div class="container" id="component_green">
+                <h1>green</h1>
+                <input type="button" value="실행" onclick="green();">
+            </div>
+        </div>
+        <div id="yellow">
+            <div class="container" id="component_yellow">
+                <h1>yellow</h1>
+                <input type="button" value="실행" onclick="yellow();">
+            </div>
+        </div>
         <script>
             function red(){
-                document.querySelector("#red").innerHTML = `
-                    <div class="container" id="component_red">
-                        <h1>red</h1>
-                        <input type="button" value="fire" onclick="
-                            document.querySelector('#component_red').style.backgroundColor = 'red';
-                            document.querySelector('#component_green').style.backgroundColor = 'red';
-                        ">
-                    </div>
-                `;
-                return ;
+                document.querySelector('#component_red').style.backgroundColor = 'red';
+                document.querySelector('#component_green').style.backgroundColor = 'red';
+                document.querySelector('#component_yellow').style.backgroundColor = 'red';
             }
-            red();
             function green(){
-                document.querySelector("#green").innerHTML = `
-                    <div class="container" id="component_green">
-                        <h1>green</h1>
-                        <input type="button" value="fire" onclick="
-                            document.querySelector('#component_red').style.backgroundColor = 'green';
-                            document.querySelector('#component_green').style.backgroundColor = 'green';
-                        ">
-                    </div>
-                `;
-                return ;
+                document.querySelector('#component_red').style.backgroundColor = 'green';
+                document.querySelector('#component_green').style.backgroundColor = 'green';
+                document.querySelector('#component_yellow').style.backgroundColor = 'green';
             }
-            green();
+            function yellow(){
+                document.querySelector('#component_red').style.backgroundColor = 'yellow';
+                document.querySelector('#component_green').style.backgroundColor = 'yellow';
+                document.querySelector('#component_yellow').style.backgroundColor = 'yellow';
+            }
         </script>
     </body>
 </html>

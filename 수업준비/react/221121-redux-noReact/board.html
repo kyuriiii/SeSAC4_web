@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
+    </head>
+    
+    <body>
+        이름 : <input type="text" id="name"> <br />
+        내용 : <input type="text" id="content"> 
+        <input type="button" value="작성" onclick="writeBoard()">
+    
+        <hr>
+        
+        <table board="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <td>이름</td>
+                <td>내용</td>
+            </tr>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+        
+        <script>
+            function reducer(state, action){
+                if ( state === undefined ) {
+                    return { cnt: 0, boards: [] };
+                }
+                if ( action.type === 'WRITE' ) {
+                    let boards = Object.assign(state.boards);
+                    boards.push(action.payload);
+                    // Object.assign은 출처 객체들의 모든 열거 가능한 자체 속성을 복사해 대상 객체에 붙여넣습니다. 그 후 대상 객체를 반환합니다.
+                    return { cnt: ++state.cnt, boards};
+                }
+                
+            }
+            var store = Redux.createStore(reducer);
+            function writeBoard(){
+                let payload = {
+                    name: document.querySelector("#name").value,
+                    content: document.querySelector("#content").value
+                };
+                store.dispatch({type:'WRITE', payload});
+            }
+            function getData(){
+                var state = store.getState();
+                var text = "";
+                for ( board of state.boards ) {
+                    text +=
+                        `<tr>
+                            <td>${board.name}</td>
+                            <td>${board.content}</td>
+                        </tr>`;
+                }
+                document.querySelector("#tbody").innerHTML = text;
+            }
+            store.subscribe(getData);
+            getData();
+        </script>
+    </body>
+</html>

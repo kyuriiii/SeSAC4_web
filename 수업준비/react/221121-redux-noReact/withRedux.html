@@ -13,13 +13,35 @@
 
     
     <body>
-        <div id="red"></div>
-        <div id="green"></div>
+        <div id="red">
+            <div class="container" id="component_red">
+                <h1>red</h1>
+                <input type="button" value="실행" onclick="
+                    store.dispatch({type:'CHANGE', color: 'red'});
+                ">
+            </div>
+        </div>
+        <div id="green">
+            <div class="container" id="component_green">
+                <h1>green</h1>
+                <input type="button" value="실행" onclick="
+                   store.dispatch({type:'CHANGE', color: 'green'});
+                ">
+            </div>
+        </div>
+        <div id="yellow">
+            <div class="container" id="component_yellow">
+                <h1>yellow</h1>
+                <input type="button" value="실행" onclick="
+                   store.dispatch({type:'CHANGE', color: 'yellow'});
+                ">
+            </div>
+        </div>
         <script>
             function reducer(state, action){ // 최초 한 번은 무조건 실행 createStore 할 때
-                if ( state === undefined ) {
-                    return { color:'yellow' }; // state 가 없다는 것은 초기 state 값을 세팅하겠다.
-                }
+                // if ( state === undefined ) {
+                //     return { color:'yellow' }; // state 가 없다는 것은 초기 state 값을 세팅하겠다.
+                // }
                 if ( action.type === 'CHANGE' ) {
                     return { color: action.color };
                 }
@@ -28,32 +50,19 @@
             var store = Redux.createStore(reducer);
             function red(){
                 var state = store.getState();
-                document.querySelector("#red").innerHTML = `
-                    <div class="container" id="component_red" style="background-color:${state.color}">
-                        <h1>red</h1>
-                        <input type="button" value="fire" onclick="
-                           store.dispatch({type:'CHANGE', color: 'red'});
-                        ">
-                    </div>
-                `;
-                return ;
+                document.querySelector("#component_red").style.backgroundColor = state.color;
             }
             function green(){
                 var state = store.getState();
-                document.querySelector("#green").innerHTML = `
-                    <div class="container" id="component_green" style="background-color:${state.color}">
-                        <h1>green</h1>
-                        <input type="button" value="fire" onclick="
-                           store.dispatch({type:'CHANGE', color: 'green'});
-                        ">
-                    </div>
-                `;
-                return ;
+                document.querySelector("#component_green").style.backgroundColor = state.color;
+            }
+            function yellow(){
+                var state = store.getState();
+                document.querySelector("#component_yellow").style.backgroundColor = state.color;
             }
             store.subscribe(red); // 구독은 여러 개를 한 번에 시킬 수 있다.
             store.subscribe(green);
-            red();
-            green();
+            store.subscribe(yellow);
         </script>
     </body>
 </html>
