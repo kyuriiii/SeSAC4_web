@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
+        <style>
+            .container {
+                border: 3px solid black;
+                padding: 10px;
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+    </head>
+
+    
+    <body>
+        <div id="red"></div>
+        <div id="green"></div>
+        <script>
+            function reducer(state, action){ // 최초 한 번은 무조건 실행 createStore 할 때
+                if ( state === undefined ) {
+                    return { color:'yellow' }; // state 가 없다는 것은 초기 state 값을 세팅하겠다.
+                }
+                if ( action.type === 'CHANGE' ) {
+                    return { color: action.color };
+                }
+                
+            }
+            var store = Redux.createStore(reducer);
+            function red(){
+                var state = store.getState();
+                document.querySelector("#red").innerHTML = `
+                    <div class="container" id="component_red" style="background-color:${state.color}">
+                        <h1>red</h1>
+                        <input type="button" value="fire" onclick="
+                           store.dispatch({type:'CHANGE', color: 'red'});
+                        ">
+                    </div>
+                `;
+                return ;
+            }
+            function green(){
+                var state = store.getState();
+                document.querySelector("#green").innerHTML = `
+                    <div class="container" id="component_green" style="background-color:${state.color}">
+                        <h1>green</h1>
+                        <input type="button" value="fire" onclick="
+                           store.dispatch({type:'CHANGE', color: 'green'});
+                        ">
+                    </div>
+                `;
+                return ;
+            }
+            store.subscribe(red); // 구독은 여러 개를 한 번에 시킬 수 있다.
+            store.subscribe(green);
+            red();
+            green();
+        </script>
+    </body>
+</html>
