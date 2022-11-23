@@ -10,13 +10,14 @@
     
         <hr>
         
-        <table board="1" cellspacing="0" cellpadding="5">
+        <table border="1" cellspacing="0" cellpadding="5" width="50%">
             <tr>
+                <td>No.</td>
                 <td>이름</td>
                 <td>내용</td>
+                <td>삭제</td>
             </tr>
             <tbody id="tbody">
-
             </tbody>
         </table>
         
@@ -30,16 +31,28 @@
                     boards.push(action.payload);
                     // Object.assign은 출처 객체들의 모든 열거 가능한 자체 속성을 복사해 대상 객체에 붙여넣습니다. 그 후 대상 객체를 반환합니다.
                     return { cnt: ++state.cnt, boards};
+                } else if ( action.type === 'DELETE' ) {
+                    let boards = Object.assign(state.boards);
+                    boards = boards.filter(board => board.no != action.no);
+                    return { cnt: state.cnt, boards };
                 }
                 
             }
             var store = Redux.createStore(reducer);
+            
             function writeBoard(){
+                var state = store.getState();
+                console.log( state );
                 let payload = {
+                    no: state.cnt + 1,
                     name: document.querySelector("#name").value,
                     content: document.querySelector("#content").value
                 };
                 store.dispatch({type:'WRITE', payload});
+            }
+            function deleteBoard(no){
+                var state = store.getState();
+                store.dispatch({type:'DELETE', no});
             }
             function getData(){
                 var state = store.getState();
@@ -47,8 +60,12 @@
                 for ( board of state.boards ) {
                     text +=
                         `<tr>
+                            <td>${board.no}</td>
                             <td>${board.name}</td>
                             <td>${board.content}</td>
+                            <td>
+                                <button type="button" onclick="deleteBoard(${board.no});">삭제</button>
+                            </td>
                         </tr>`;
                 }
                 document.querySelector("#tbody").innerHTML = text;
