@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            div {
+                border: 3px solid black;
+                width: 150px;
+                height: 150px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="red">
+            <h1>red</h1>
+            <button type="button" onclick="red();">red</button>
+        </div>
+        <div id="green">
+            <h1>green</h1>
+            <button type="button" onclick="green();">green</button>
+        </div>
+        <div id="yellow">
+            <h1>yellow</h1>
+            <button type="button" onclick="yellow();">yellow</button>
+        </div>
+        <div id="blue">
+            <h1>blue</h1>
+            <button type="button" onclick="blue();">blue</button>
+        </div>
+
+        <script>
+            
+            function red(){
+                document.querySelector('#red').style.backgroundColor = 'red';
+                document.querySelector('#green').style.backgroundColor = 'red';
+                document.querySelector('#yellow').style.backgroundColor = 'red';
+                document.querySelector('#blue').style.backgroundColor = 'red';
+            }
+            function green(){
+                document.querySelector('#red').style.backgroundColor = 'green';
+                document.querySelector('#green').style.backgroundColor = 'green';
+                document.querySelector('#yellow').style.backgroundColor = 'green';
+            }
+            function yellow(){
+                document.querySelector('#red').style.backgroundColor = 'yellow';
+                document.querySelector('#green').style.backgroundColor = 'yellow';
+                document.querySelector('#yellow').style.backgroundColor = 'yellow';
+            }
+        </script>
+    </body>
+</html>
