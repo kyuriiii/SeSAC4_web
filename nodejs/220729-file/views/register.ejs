@@ -1,6 +1,27 @@
 <html>
     <head>
         <title>Index.ejs</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script>
+            function register(){
+                var form = document.getElementById("form_register");
+                var formData = new FormData(form);
+                formData.set("userfile", form.userfile.files[0]);
+                
+                axios({
+                    method: "post",
+                    url: "/register-axios",
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then((a) => { return a.data; })
+                .then((d) => {
+                    document.querySelector("img").src = d.path;
+                });
+            }
+        </script>
     </head>
 
     <body>
@@ -12,8 +33,24 @@
                 이름 : <input type="text" name="name"><br>
                 나이 : <input type="text" name="age"><br>
             </fieldset>
-            <input type="file" name="userfile">
+            <input type="file" name="userfile" id="userfile">
             <button>회원가입</button>
         </form>
+
+        <h5>동적회원가입</h5>
+        
+        <form id="form_register" enctype="multipart/form-data">
+            <fieldset style="width:300px;">
+                <legend> 개인 정보 </legend>
+                아이디 : <input type="text" name="id"><br>
+                비밀번호 : <input type="password" name="pw"><br>
+                이름 : <input type="text" name="name"><br>
+                나이 : <input type="text" name="age"><br>
+            </fieldset>
+            <input type="file" name="userfile">
+            <button type="button" onclick="register();">회원가입</button>
+        </form>
+        <br>
+        <img>
     </body>
 </html>

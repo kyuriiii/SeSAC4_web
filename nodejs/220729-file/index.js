@@ -1,14 +1,13 @@
 const express = require("express");
 const app = express();
 const port = 8080;
-const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 
 app.set("view engine", "ejs");
-app.use( express.static( "uploads" ) );
+app.use( "/uploads", express.static( "uploads" ) );
 app.use(express.urlencoded({extended: true}));
-app.use( bodyParser.json() );
+app.use(express.json());
 
 const upload = multer({
     storage: multer.diskStorage({
@@ -32,6 +31,11 @@ app.get("/register", function(req,res){
 })
 app.post("/register", upload.single('userfile'), function(req,res){
     res.render("result", { filename: req.file.filename } );
+})
+app.post("/register-axios", upload.single('userfile'), function(req,res){
+    console.log( req.body );
+    console.log( req.file );
+    res.send({path: req.file.path});
 })
 app.post("/upload", upload.single('userfile'), function(req,res) {
     res.send("Upload");
