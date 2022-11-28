@@ -2,8 +2,6 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  // 최상위에 있는 number을 Box3까지 전달하기 위해서는 props로 계속 전달해야 한다.
-  // 자식 요소가 많아질수록 props 지옥이 생겨난다.
   const [number, setNumber] = useState(0);
   return (
     <div id="app">
