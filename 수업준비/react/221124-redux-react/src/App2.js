@@ -1,4 +1,5 @@
 import './App.css';
+import { composeWithDevTools } from 'redux-devtools-extension'; // redux-store 개발자도구
 import { createStore } from 'redux';
 import {Provider, useSelector, useDispatch} from 'react-redux';
 // Provider : state를 어떤 컴포넌트들에게 전달할 것인지에 대해 가장 바깥쪽 울타리에 놓아야 하는 것ㄴ
@@ -13,6 +14,10 @@ function reducer(state, action){
     } // 현재 state 가 없으면 기본값
   }
   const newState = {...state}; // 현재 state의 복제본
+  // ... ( Spread 연산자 )나 Object.assign() 으로 기존 state를 복사해야 하는 이유는 state의 변경 여부를 state 객체의 주소로 비교하기 때문이다.
+  // 기존 state 주소를 이용하면 같은 주소 값을 가리키기 때문에 변경을 인지하지 못한다.
+  // state의 복제본을 만들어 반환해야만 이전의 state와 다른 주소 값을 가리키기 때문에 state가 변경되었다고 판단한다.
+  // 반대로 state를 복제하는 것이 아닌 속성만 수정해서 반환하면 기존의 state와 가리키는 주소 값이 같기 때문에 변경이 감지되지 않는다.
 
   if ( action.type === 'INCREASE' ) {
     newState.number++;
@@ -22,7 +27,7 @@ function reducer(state, action){
 
   return newState;
 }
-const store = createStore(reducer);
+const store = createStore(reducer, composeWithDevTools());
 
 function App() {
   return (
