@@ -1,0 +1,276 @@
+@font-face {
+  font-family: 'Pretendard-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GangwonEduPowerExtraBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #263343;
+}
+
+body{
+  font-family: 'Pretendard-Medium';
+  }
+
+/* 스크롤바 없애기 */
+/* body::-webkit-scrollbar { display:none; } */
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f4f5;
+  padding: 8px 12px;
+}
+
+.navbar_logo {
+  font-size: 24px;
+  font-family: 'GangwonEduPowerExtraBoldA';
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.navbar_menu li {
+  padding: 8px 12px;
+}
+
+.navbar_menu li:hover {
+  border-radius: 4px;
+  background-color: #daecf1;
+}
+
+.login_master{
+  position: relative;
+  top: 80px;
+}
+.grid-container{
+  display:grid;
+  grid-template-columns:  50% 50%;
+  margin : 0 auto;
+}
+.grid-item:nth-child(1n){
+  grid-row-start:1;
+  grid-row-end: 2;
+  margin : 30px;
+  height : 80vh;
+  max-height : 80vh;
+}
+.grid-item:nth-child(2n){
+  grid-column-start:2;
+  grid-column-end:3;
+  height: 80vh;
+  max-height : 80vh
+}
+.image-daily{
+  width: 100%;
+  height: 500px;
+  margin: 0px auto;
+  position: relative;
+  object-fit:cover;
+  
+
+}
+.image-daily1{
+  width: 600px;
+  height: 75vh;
+  left:100px;
+  object-fit:cover; 
+  position: relative;
+  
+}
+.image-daily2{
+  width:600px;
+  height: 75vh;
+  position: absolute;
+  left: 130px;
+  object-fit:cover; 
+  opacity: 0; 
+  transition: opacity 0.2s linear;
+  
+}
+.login_main{
+  height: 17vh;
+  max-width: 1000px;
+  min-width: 500px;
+  margin: 0vh;
+}
+.login_main > p{
+  text-align: center;
+  font-size: 30px;
+  margin: 2 vh;  
+}
+
+.input_id1{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+  box-sizing: border-box;
+}
+.input_id2 > p {
+  display:flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  width: 400px;
+  height: 0px;
+  font-size : 20px;
+  position: relative;
+  right: 0.8vw;
+}
+.input_id2 > input{
+  width: 400px;
+  max-width: 400px;
+  height: 48px;
+  line-height: 48px;
+  display: inline-block;
+  min-width: 100px;
+  padding: 0 15px;
+  color: #606060;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 8px;
+  border: 1px solid #EAEAEA;
+  background: #fff;
+  padding-left: 10px;
+}
+.input_pw1{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 110px;
+}
+.input_pw2 > p {
+  display:flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  width: 400px;
+  height: 0px;
+  font-size : 20px;
+  position: relative;
+  right: 0.8vw;
+}
+.input_pw2 > input {
+  width: 400px;
+  max-width: 400px;
+  height: 48px;
+  line-height: 48px;
+  display: inline-block;
+  min-width: 100px;
+  padding: 0 15px;
+  color: #606060;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 8px;
+  border: 1px solid #EAEAEA;
+  background: #fff;
+  padding-left: 10px;
+}
+input:focus {
+  outline: 1px solid #5DC8CD;
+}
+.login_btn1 {
+  width: auto;
+  height: 600px;
+  
+}
+.login_btn1 > button {
+  position: absolute;
+  left: 1120px;
+  bottom: 50px;
+  transform: translate(-50%,-50%);
+  width: 220px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #ccc;
+  border : none;
+  font-family: 'Pretendard-Medium';
+}
+.login_btn1 > button:before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #FF725E;
+  color: #fff;
+  transition: 0.5s;
+  transform-origin: bottom;
+  transform: translatey(-100%) rotatex(90deg);
+}
+.login_btn1 > button:hover:before
+{
+  transform: translatey(0) rotatex(0deg);
+}
+
+.login_btn1 > button:after{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: gray;
+  color: #fff;
+  transition: 0.5s;
+  transform-origin: top;
+  transform: translatey(0) rotatex(0deg);
+}
+.login_btn1 > button:hover:after
+{
+  transform: translatey(100%) rotatex(90deg);
+}
+
+ .login_btn1:hover .image-daily2{
+  opacity: 1
+}   
+
+#form_info1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: red;
+  position: absolute;
+  right: 175px;
+  
+  font-size: 18px;
+}
+
+.find_txt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width:600px;
+  position:absolute;
+  top: 480px;
+}

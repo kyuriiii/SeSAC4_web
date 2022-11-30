@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
+    <title>로그인 - 내가해냄</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <!-- css파일 -->
+    <link rel="stylesheet" href="/css/login.css" />
+    <!-- js파일 -->
+    <!-- <script src="/js/login.js"></script> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  </head>
+  <body>
+    <!-- 네비게이션 -->
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="navbar_logo">
+          <img src="/img/logo_500_black.png" class="logo_1" onclick="location.href ='/'">
+        </div>
+      </div>
+      <div class="nav-button-container">
+        <div class="nav-button nav-login" onclick="location.href ='/login'">
+          로그인
+        </div>
+        <div class="nav-button nav-register" onclick="location.href ='/signup'">
+          회원가입
+        </div>
+      </div>
+    </div>
+
+    
+      <!-- <nav class="navbar">
+        <div class="navbar_logo">
+          <a href="/">내가해냄</a>
+        </div>
+
+        <ul class="navbar_menu">
+          <li><a href="/login">로그인</a></li>
+          <li><a href="/signup">회원가입</a></li>
+        </ul>
+      </nav> -->
+
+      <div class="login_main">
+          <div class="login_left">
+            <img class="login_img" src="../img/login_img_grey.png">
+          </div>
+          <div class="login_right">
+            <div class="login_text">
+              <!-- 로그인페이지 글귀메인-->
+              <p>'내가해냄'에 오신걸 환영합니다!</p>
+            </div>
+            <form id="form_login" method="post">
+              <!-- 로그인페이지 ID,PW 입력창-->
+              <p>아이디</p>
+              <input type="text" id="id" name="id" placeholder="아이디를 입력해주세요." >
+              <p class="checkID"></p>  
+              <p>비밀번호</p>
+              <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." >
+              <p class="checkPW"></p>
+              <div class="login_btn">
+                  <button id="login_btn1" type="button" onclick="sendPost()" data-text="로그인"></button>
+              </div>
+              <ul class="find_txt">
+                  <a href="/signup">회원가입</a>｜
+                  <a href="/forgot/id">아이디 찾기</a>｜
+                  <a href="/forgot/pw">비밀번호 재설정</a>
+              </ul>
+            </form>
+          </div>
+      </div>
+    </div>
+          <%- include('footer.ejs')%>
+    <script>
+      function sendPost() {
+        var form = document.getElementById('form_login');
+            if ( !form.checkValidity() ) {
+              form.reportValidity();
+              console.log( "reportValidity" );
+              return false;
+            }
+
+        // 근영님 작성 axios 코드
+        axios({
+          method: 'post',
+          url: '/login',
+          data: {
+            id: form.id.value,
+            password: form.password.value,
+          },
+        })
+          .then((rep) => {
+            return rep.data;
+          })
+          .then((data) => {
+            if (data) {
+              swal({
+                  title: "성공!",
+                  text: "환영합니다!",
+                  icon: "success",
+                  button: "확인",
+              })
+              .then((success)=> {
+              form.action = "/dashboard";
+              form.submit();
+            });
+              
+            } else {
+              swal({
+                  title: "실패!",
+                  text: "아이디 및 비밀번호를 확인하세요!",
+                  icon: "error",
+                  button: "확인",
+                  dangerMode : true,
+
+              })
+            }
+          });
+
+        if ( $("#id").val().length == 0 ) {
+                  $(".checkID").css("color", "red");
+                  $(".checkID").text("아이디를 입력하세요.");
+                  $("#id").focus();
+                  return false;
+          }
+        else {
+                  $(".checkID").text("");
+                
+        }
+
+        if ( $("#password").val().length == 0 ) {
+                  $(".checkPW").css("color", "red");
+                  $(".checkPW").text("비밀번호를 입력하세요.");
+                  $("#password").focus();
+                  return false;
+          }
+          else {
+                  $(".checkPW").text("");
+                
+        }  
+      }
+
+      // 엔터 입력
+      var input = document.getElementById('form_login');
+
+      input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("login_btn1").click();
+          }
+      });
+
+
+
+        // 근영님 작성 axios 코드
+        // axios({
+        //   method: "post",
+        //   url: "http://localhost:8000/login",
+        //   data: {
+        //     id: form.id.value,
+        //     password: form.password.value,
+        //   },
+        // })
+        //   .then((rep) => {
+        //     return rep.data;
+        //   })
+        //   .then((data) => {
+        //     if (data) {
+        //       alert("로그인 성공");
+        //       form.submit();
+        //       //document.location.href = 'http://localhost:8080/userInfo';
+        //     } else {
+        //       alert("로그인 실패");
+        //       form.reset();
+        //     }
+        //   });
+
+        // 진세님 작성 코드
+        // axios({
+        //   method: "post",
+        //   url: "http://localhost:8000/login",
+        //   data: {
+        //     name: form.id.value,
+        //     pw: form.password.value,
+        //   },
+        // });
+        // .then((a) => {
+        //   return a.data;
+        // })
+        // .then((d) => {
+        //   if (d) {
+        //     $("#form_info").text("로그인 성공").css("color", "blue");
+        //   } else {
+        //     $("#form_info").text("로그인 실패").css("color", "red");
+        //   }
+        // });
+
+      $(document).ready(function(){
+                $("button").hover(function(){
+                    $(".login_img").attr("src","/img/login_img_pink.png")
+                },
+                function(){$(".login_img").attr("src","/img/login_img_grey.png")})
+            });
+    </script>
+  </body>
+</html>

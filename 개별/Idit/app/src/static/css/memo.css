@@ -1,0 +1,451 @@
+@font-face {
+  font-family: "Pretendard-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  } */
+
+.grid-wrapper {
+  display: grid;
+  grid-template-areas:
+    "nav container"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+}
+
+/* 네비게이션 */
+.logo-container {
+  margin: 13px 0 13px 13px;
+}
+
+.nav-container {
+  display: inline-block;
+  /* width: 25%; */
+  height: 100%;
+  font-size: 20px;
+  background-color: #ff725e;
+  grid-area: nav;
+}
+
+.nav-container ul {
+}
+
+.nav-container ul li {
+}
+
+.nav-container ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 20px;
+}
+
+.nav-container ul li a:hover {
+  background: #fff;
+  color: black;
+}
+
+.icon {
+  margin-right: 20px;
+}
+
+.dashboard-container {
+  background: #f8fafb;
+  padding: 25px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard-Medium";
+  /* position: relative; */
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-color: #f8fafb;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #ff725e;
+  box-shadow: 3px 0 #fafbfd;
+}
+
+main {
+  /* position: absolute; */
+  left: 180px;
+  /* display: flex; */
+  flex-direction: center;
+  width: calc(100vw - 180px);
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.left {
+  flex: 1;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* 메모 */
+.memo-calendar {
+  grid-area: container;
+}
+.memo_list {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.memo {
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px #cdcaca;
+  margin: 15px;
+  padding: 15px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.memo-container {
+  width: 100%;
+}
+
+.memo-container-date {
+  font-size: 50px;
+  border-bottom: 4px dotted #ff725e;
+  padding-bottom: 15px;
+  color: #ff725e;
+  margin-bottom: 15px;
+}
+
+.memo-title {
+  font-size: 25px;
+  color: #ff725e;
+  padding-bottom: 19px;
+  border-bottom: 3px dotted #ff725e;
+  margin-bottom: 20px;
+}
+
+.memo-date {
+  font-size: 3px;
+  padding-top: 5px;
+}
+.memo-content {
+  height: 150px;
+  overflow: auto;
+}
+.memo-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+.colorLogo {
+  color: #ff725e;
+}
+.memo-button {
+  background: #ff725e;
+  color: white;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  right: 13px;
+  bottom: 13px;
+  font-size: 12px;
+}
+.memo-edit {
+  right: 46px;
+}
+.memo-delete {
+}
+.writeBtn {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
+
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px #cdcaca;
+  /* border: 2px dashed #FF725E; */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#form_content {
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  margin: auto;
+}
+
+/* .alert {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: auto;
+      padding: 0;
+  } */
+
+.alignBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.sendBtn {
+  width: 15vw;
+  height: 5vh;
+  color: #fff;
+  /* font-family: 'GangwonEduPowerExtraBoldA'; */
+  font-size: 1.8rem;
+  border-radius: 5px;
+  /* padding: 10px 25px; */
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.btn-14 {
+  background: #ff725e;
+  border: none;
+  z-index: 1;
+}
+.btn-14:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  background-color: #ffab91;
+  background-image: linear-gradient(315deg, #ffab91 0%, #ffab91 74%);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.btn-14:hover {
+  color: #000;
+}
+.btn-14:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+.btn-14:active {
+  top: 2px;
+}
+
+/* 모달 */
+@keyframes moveToDown {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes moveToUp {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(900px);
+  }
+}
+.modal-close {
+  animation: moveToUp 0.5s ease-in-out !important;
+  animation-delay: 10ms !important;
+}
+
+.modal-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: none;
+}
+.modal-background {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
+  position: fixed;
+  cursor: pointer;
+}
+.modal-content-container {
+  position: fixed;
+  height: 100%;
+  width: 40%;
+  right: 0;
+  background: white;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  padding: 30px;
+  border-left: 3px solid #ff725e;
+  animation: moveToDown 0.5s ease-in-out;
+  animation-delay: 1ms;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.modal-content-title {
+  line-height: 100px;
+  font-size: 45px;
+  border-bottom: 6px dotted #ff725e;
+  color: #ff725e;
+}
+.modal-content-content {
+  margin-top: 30px;
+}
+
+/* 모달 메모용 커스텀 */
+
+.form-title-container {
+  color: #ff725e;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.form-title-container input {
+  border: none;
+  border-bottom: 1px solid #ff725e;
+  width: 100%;
+  color: black;
+}
+
+.form-title-container input:focus {
+  outline: none;
+}
+
+.form-date-container {
+  margin-bottom: 30px;
+  text-align: right;
+  color: #ff725e;
+  font-size: 20px;
+}
+
+.form-datepicker {
+  border: none;
+  color: black;
+}
+
+.form-datepicker:focus {
+  outline: none;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.footer {
+  width: 100%;
+  position: relative;
+  background-color: #f8fafb;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.footer_txt {
+  width: 100%;
+  height: 100%;
+  background-color: #f8fafb;
+  padding: 10px;
+}
+.footer > ul > div > a {
+  color: grey;
+  font-size: 13px;
+  margin: 2px;
+}
+
+.logo_1 {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  top: 5px;
+  cursor: pointer;
+}
+.logo_2 {
+  position: relative;
+  bottom: 50px;
+  text-align: center;
+}
+.logo_3 {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.memo_none {
+  width: 100%;
+  font-size: 50px;
+  color: #ff725e;
+  border-bottom: 4px dotted #ff725e;
+  padding-bottom: 30px;
+}

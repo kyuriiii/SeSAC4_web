@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Button from './Button';
+import Card from "./Card";
+import Card2 from "./Card2"; 
+import StateClass from "./StateClass";
+import StateFunc from "./StateFunc";
 
-function App() {
+const showAlert = (text:string) => {
+  alert(text);
+}
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Card name="내용"></Card>
+      <Card2 name="내용"></Card2>
+      <Button name="버튼" onAlert={showAlert} />
+
+      <StateClass />
     </div>
   );
 }

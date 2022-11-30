@@ -1,0 +1,253 @@
+@font-face {
+  font-family: "Pretendard-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* css 초기화 */
+@font-face {
+  font-family: "Pretendard-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Pretendard-Medium";
+  background: #f8fafb;
+}
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  height: 100vh;
+  grid-template-areas:
+    "nav container"
+    "footer footer";
+}
+
+/* 네비 */
+/* 네비게이션 */
+.logo-container {
+  margin: 13px 0 13px 13px;
+}
+
+.nav-container {
+  display: inline-block;
+  /* width: 25%; */
+  height: 100%;
+  font-size: 20px;
+  background-color: #ff725e;
+}
+
+.nav-container ul {
+}
+
+.nav-container ul li {
+}
+
+.nav-container ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 20px;
+}
+
+.nav-container ul li a:hover {
+  background: #fff;
+  color: black;
+}
+
+.icon {
+  margin-right: 20px;
+}
+.main-container {
+  width: 500px;
+  margin: 70px auto;
+}
+
+.line-doted {
+  border-bottom: 2px dotted #f1f0f0;
+  margin-bottom: 25px;
+}
+
+.title-container {
+  height: 70px;
+  line-height: 70px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.desc-box {
+  background: #f3f3f3;
+  border-radius: 5px;
+  padding: 20px;
+  height: 100px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #746f72;
+}
+
+.desc-container {
+  margin-bottom: 30px;
+}
+
+.input-container {
+  margin-bottom: 100px;
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+.input-title {
+  display: inline-block;
+  color: #7b7978;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 46px;
+  width: 20%;
+}
+
+.input-text {
+  height: 100%;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 7px;
+  color: black;
+}
+
+.input-text:disabled {
+  background-color: #ebebeb;
+  border: 2px solid #d4d4d4;
+  color: #c9cdd3;
+}
+
+.input-text-container {
+  height: 40px;
+  border-radius: 10px;
+  color: #c9cdd3;
+}
+
+.input-selector {
+  height: 40px;
+  border-radius: 10px;
+  width: 163px;
+}
+
+.edit-btn {
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  background: #6698f8;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.delete-btn {
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  background: #ff0002;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+.button-container {
+  text-align: center;
+}
+
+.footer {
+  /* display: grid; */
+  width: 100%;
+  /* height: 10%; */
+  position: relative;
+  background-color: #f0f4f5;
+  padding-left: 10px;
+  padding-right: 10px;
+  grid-area: footer;
+}
+.footer_txt {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f4f5;
+  padding: 10px;
+}
+.footer > ul > div > a {
+  color: grey;
+  font-size: 13px;
+  margin: 2px;
+}
+
+.footer {
+  width: 100%;
+  position: relative;
+  background-color: #f8fafb;
+  padding-left: 10px;
+  padding-right: 10px;
+  grid-area: footer;
+}
+.footer_txt {
+  width: 100%;
+  height: 100%;
+  background-color: #f8fafb;
+  padding: 10px;
+}
+.footer > ul > div > a {
+  color: grey;
+  font-size: 13px;
+  margin: 2px;
+}
+
+.logo_1 {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  top: 5px;
+  cursor: pointer;
+}
+.logo_2 {
+  position: relative;
+  bottom: 50px;
+  text-align: center;
+}
+.logo_3 {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.memo-no {
+  line-height: 50px;
+  color: #ff725e;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 50px;
+}

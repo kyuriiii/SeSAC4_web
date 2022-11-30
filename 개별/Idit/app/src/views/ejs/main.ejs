@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내가해냄</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+    </style>
+    
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <script src="/js/main.js"></script>
+    
+    
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></scriptrc></script> -->
+
+  </head>
+  <body>
+    <!-- 네비게이션 -->
+    <div class="nav-container">
+      <div class="nav-logo"><img src="/img/logo_500_black.png" class="logo_1" onclick="location.href ='/'"></div>
+      <div class="nav-button-container">
+        <div class="nav-button nav-login" onclick="location.href ='/login'">
+          로그인
+        </div>
+        <div class="nav-button nav-register" onclick="location.href ='/signup'">
+          회원가입
+        </div>
+      </div>
+    </div>
+    <!-- 메인 페이지 바디 -->
+    <div class="main-container">
+      <div class="slider-container">
+        <div class="slider-connect">
+          <div class="slider-items">
+            <div class="img_container">
+              <img src="/img/main_img_green.png" class="img_main">
+              <p>"내가해냄과 함께 당신의 하루를 완성해 보세요"</p>
+            </div>
+          </div>
+          <div class="slider-items">
+            <div class="img_container">
+              <img src="/img/calendar_img_blue.png" class="img_main">
+              <p>"오늘의 일정을 기록하고 실천해 보세요"</p>
+            </div>
+          </div>
+          <div class="slider-items">
+            <div class="img_container">
+              <img src="/img/memo_img_puple.png" class="img_main">
+              <p>"메모 기능으로 중요한 순간을 기록해 보세요"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="start-button-container">
+        <button class="main-start-button" onclick="location.href ='/login'" data-text="시작하기">
+          시작하기
+        
+      </div>
+    </div>
+
+    <%- include('footer.ejs')%>
+
+  </body>
+</html>

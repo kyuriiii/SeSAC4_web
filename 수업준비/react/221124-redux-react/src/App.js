@@ -15,7 +15,6 @@ const Box1 = (props) =>{
   console.log('Box1');
   return (
     <div>
-      <h2>Box1 컴포넌트 number : {props.number}</h2>
       <Box2 number={props.number} onIncrease={props.onIncrease} onDecrease={props.onDecrease} />
     </div>
   )
@@ -25,7 +24,6 @@ const Box2 = (props) =>{
   console.log('Box2');
   return (
     <div>
-      <h3>Box2 컴포넌트 number : {props.number}</h3>
       <Box3 number={props.number} onIncrease={props.onIncrease} onDecrease={props.onDecrease} />
     </div>
   )
@@ -42,3 +40,20 @@ const Box3 = (props) =>{
 }
 
 export default App;
+
+function a(etc){
+  b(etc);
+}
+function b(etc){
+  return c(etc);
+}
+function c(etc){
+  return d(etc);
+}
+function d(etc){
+  return etc + "!";
+}
+
+console.log( a(123) );
+
+console.log( d(123) );

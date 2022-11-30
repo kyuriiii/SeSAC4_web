@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
+    <title>비밀번호 재설정 - 내가해냄</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <!-- css파일 -->
+    <link rel="stylesheet" href="/css/pw_modify.css" />
+    <!-- js파일 -->
+    <script src="/js/pw_forgot_modify.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+  </head>
+  <body>
+    <!-- 네비게이션 -->
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="navbar_logo">
+          <img src="/img/logo_black.png" class="logo_1" onclick="location.href ='/'">
+        </div>
+      </div>
+      <div class="nav-button-container">
+        <div class="nav-button nav-login" onclick="location.href ='/login'">
+          로그인
+        </div>
+        <div class="nav-button nav-register" onclick="location.href ='/signup'">
+          회원가입
+        </div>
+      </div>
+    </div>
+      <div class="login_main">
+          <div class="login_left">
+            <img class="login_img" src="../../img/pw_modify_grey.png">
+          </div>
+          <div class="login_right">
+            <div class="login_text">
+              <!-- 로그인페이지 글귀메인-->
+              <p>비밀번호 재설정</p>
+            </div>
+            <form id="form_login" action="/" method="post">
+              <!-- 로그인페이지 ID,PW 입력창-->
+              <p>새 비밀번호</p>
+              <input type="password" id="password" placeholder="새 비밀번호 입력" required >
+              <p>새 비밀번호 확인</p>
+              <input type ="password" id="password_check" placeholder="새 비밀번호 다시 입력해주세요." onkeyup="checkPassword( this );" required >
+              <span class="checkPassword"></span>
+              <div class="login_btn">
+                  <button type="button" onclick="resetting()" data-text="비빌번호 재설정"></button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+    <div class="footer">
+      <ul class="footer_txt">
+          <div>
+              <img class="logo_3" src="../../img/logo_black_black.png">
+          </div>
+          <div class="logo_2">
+              <a>이용약관 ｜</a>
+              <a>개인정보처리방침｜</a>
+              <a>주소 : (03925) 서울특별시 마포구 월드컵북로 400 (상암동) ｜</a>
+              <a>전화번호 : (영등포)02-3667-7304 (금천)02-6673-1804 ｜</a>
+              <a>Email : sesac@sba.seoul.kr</a><br>
+              <a>구성원 : 염시온,김예은,송진세,이수림,장근영 ｜</a>
+              <a>Copyright (c) "SeSSAC 4기 4조 내가해냄" All Rights Reserved.</a>
+          </div>
+      </ul>
+    </div>  
+  </body>
+</html>

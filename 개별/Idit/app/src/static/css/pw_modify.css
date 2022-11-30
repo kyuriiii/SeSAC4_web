@@ -1,0 +1,310 @@
+@font-face {
+  font-family: "Pretendard-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #263343;
+}
+
+body {
+  font-family: 'Pretendard-Medium';
+  height: 90vh;
+  width: 100%;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+img{
+  width: 100%;
+}
+
+.main{
+  width:100%;
+  height:90vh;
+}
+
+/* 네비게이션 시온 작성 */
+.nav-container {
+  position: fixed;
+  width: 100%;
+  height: 75px;
+  vertical-align: middle;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.nav-button {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.nav-logo {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin-right: 12px;
+}
+
+.nav-button-container {
+  float: right;
+  margin-top: 12px;
+  margin-right: 12px;
+}
+/*  */
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f4f5;
+  padding: 8px 12px;
+}
+
+.navbar_logo {
+ 
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.navbar_menu li {
+  padding: 8px 12px;
+}
+
+.navbar_menu li:hover {
+  border-radius: 4px;
+  background-color: #daecf1;
+}
+
+.login_main{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.login_left{
+  display:flex;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_right{
+  width: 50%;
+  height: 100%;
+}
+.login_img{
+  position:relative;
+  bottom: -50px;
+}
+
+.footer{
+  width: 100%;
+  height: 15%;
+  position: relative;
+  background-color: #f0f4f5;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+.footer_txt{
+  width:100%;
+  height:100%;
+  background-color: #f0f4f5;
+  padding: 10px;
+}
+.footer > ul > div > a {
+  color:grey;
+  font-size: 13px;
+  margin: 2px;
+}
+
+.navbar_main{
+  position: relative;
+  height: 60px;
+} 
+
+.login_text{
+  display : flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40%;
+  text-align: center;
+}
+.login_text > p{
+  font-size : 40px;
+}
+#form_login{
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 50%;
+}
+#form_login > p{
+  text-align: left;
+  width: 100%;
+  height: 4vh;
+
+}
+#form_login > input{
+  display : flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  height: 5vh;
+  padding: 10px;
+  height: 48px;
+  line-height: 48px;
+  display: inline-block;
+  min-width: 100px;
+  padding: 0 15px;
+  color: #606060;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 8px;
+  border: 1px solid #EAEAEA;
+  background: #fff;
+  margin-bottom: 20px;
+}
+.login_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+}
+.login_btn > button {
+  transform: translate(0,0);
+  width: 220px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #ccc;
+  border : none;
+  font-family: 'Pretendard-Medium';
+}
+.login_btn > button:before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #FF725E;
+  color: #fff;
+  transition: 0.5s;
+  transform-origin: bottom;
+  transform: translatey(-100%) rotatex(90deg);
+}
+.login_btn > button:hover:before
+{
+  transform: translatey(0) rotatex(0deg);
+}
+
+.login_btn > button:after{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: gray;
+  color: #fff;
+  transition: 0.5s;
+  transform-origin: top;
+  transform: translatey(0) rotatex(0deg);
+}
+.login_btn > button:hover:after
+{
+  transform: translatey(100%) rotatex(90deg);
+}
+
+.find_txt{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  text-align: center;
+}
+.logo_1{
+  position: relative;
+  width: 70px;
+  height: 70px;
+  top: 5px;
+  cursor: pointer;
+}
+.logo_2{
+  position: relative;
+  bottom: 50px;
+  text-align: center;
+}
+.logo_3{
+  position: relative;
+  width: 70px;
+  height: 70px;
+  top: 5px;
+  cursor: pointer;
+}
+@media only screen and (max-width:1000px){
+  img{
+    display:none;
+  }
+  .login_left{
+    display:none;
+  }
+  .login_right{
+    width: 100%;
+  }
+  .login_text{
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+    text-align: center;
+  }
+  .login_text > p{
+    font-size : 35px;
+  }
+  .footer{
+    display:none;
+  }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
+    <title>- 내가해냄</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <!-- css파일 -->
+    <link rel="stylesheet" href="/css/forgot.css" />
+    <!-- js파일 -->
+    <script src="/src/"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+      function sendGet() {
+        var form = document.getElementById("form_info");
+
+        axios({
+          method: "post",
+          url: "/receive",
+          data: {
+            name: form.loginId.value,
+            pw: form.loginPw.value,
+          },
+        })
+          .then((a) => {
+            return a.data;
+          })
+          .then((d) => {
+            document.getElementById("form_info1").textContent = d;
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <form id="form_info" action="receive" method="POST">
+      <nav class="navbar">
+        <div class="navbar_logo">
+          <a href="#">내가해냄</a>
+        </div>
+
+        <ul class="navbar_menu">
+          <li><a href="#">로그인</a></li>
+          <li><a href="#">회원가입</a></li>
+        </ul>
+      </nav>
+
+      <section class="login_master">
+        <div class="grid-container">
+          <!-- 최상위-->
+          <div class="grid-item">
+            <div class="login_btn1">
+              <!-- 로그인페이지 로그인버튼-->
+              <button
+                type="button"
+                onclick="sendGet()"
+                data-text="비밀번호 찾기"
+              ></button>
+              <img alt="" class="image-daily1" src="/img/forgot_pw_grey.png" />
+              <img alt="" class="image-daily2" src="/img/forgot_pw_pink.png" />
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div class="login_main">
+              <!-- 로그인페이지 글귀메인-->
+              <p>비밀번호를 잊으셨나요?</p>
+
+              <p>이메일주소로 비밀번호를 보내드립니다.</p>
+            </div>
+            <div class="input_id1">
+              <!-- 로그인페이지 ID 입력창-->
+              <div class="input_id2">
+                <p>아이디</p>
+              </div>
+              <div class="input_id2">
+                <input
+                  type="text"
+                  name="id"
+                  placeholder="아이디를 입력하세요"
+                />
+              </div>
+            </div>
+            <div class="input_id1">
+              <!-- 로그인페이지 ID 입력창-->
+              <div class="input_id2">
+                <p>이름</p>
+              </div>
+              <div class="input_id2">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="이름을 입력하세요"
+                />
+              </div>
+            </div>
+            <div class="input_pw1">
+              <!-- 로그인페이지 PW 입력창-->
+              <div class="input_pw2">
+                <p>이메일 주소</p>
+              </div>
+              <div class="input_pw2">
+                <input
+                  type="password"
+                  name="email"
+                  placeholder="이메일 주소를 입력해주세요"
+                />
+              </div>
+              <div class="input_pw2">
+                <p id="form_info1"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
+  </body>
+</html>

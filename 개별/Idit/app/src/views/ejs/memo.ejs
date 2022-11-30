@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메모 - 내가해냄</title>
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <script
+      src="https://kit.fontawesome.com/fbfe3f8f60.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 메모 css, script -->
+    <!-- <link rel="stylesheet" href="../../static/css/reset.css"> -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <script src="/js/memo.js"></script>
+    <link rel="stylesheet" href="css/memo.css" />
+    <script></script>
+  </head>
+  <body>
+    <div class="grid-wrapper">
+      <%- include('main_nav.ejs')%>
+      <div class="memo-calendar">
+        <section class="left">
+          <!-- 메모 담는 컨테이너 -->
+          <div class="memo_list"></div>
+        </section>
+        <section class="right">
+          <div class="writeBtn" onclick="openModal()">
+            <i class="fa-solid fa-pen-to-square fa-xl fa-fade colorLogo"></i>
+          </div>
+        </section>
+      </div>
+      <%- include('footer.ejs')%>
+    </div>
+
+    <div class="modal-container">
+      <div class="modal-background" onclick="closeModal();"></div>
+      <div class="modal-content-container">
+        <!-- 모달 제목 -->
+        <div class="modal-content-title">메모 작성</div>
+        <!-- 모달 내용 -->
+        <div class="modal-content-content">
+          <div class="form-title-container">
+            제목 <input id="form-title" type="text" />
+          </div>
+          <div class="form-date-container">
+            날짜
+            <input
+              class="form-datepicker"
+              type="date"
+              id="form-date"
+              value="2022-01-01"
+            />
+          </div>
+          <form id="form_content">
+            <input type="hidden" id="memo-no" value="" />
+            <textarea id="summernote" name="content"></textarea>
+            <span class="alert"></span>
+            <div class="alignBtn">
+              <button
+                type="button"
+                class="sendBtn btn-14"
+                onclick="sendForm();"
+              >
+                저장
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입 - 내가해냄</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/css/signup.css" />
+    <!-- <script src="../js/signup.js" defer></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      function signup() {
+        let form = document.getElementById('form_signup');
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          console.log('reportValidity');
+
+          return false;
+        }
+        // 아이디 중복 확인을 하지 않을 경우
+        if ($('input[name=hiddenID]').val() == '') {
+          swal({
+            title: '실패!',
+            text: '아이디 중복 확인을 해주세요',
+            icon: 'warning',
+            button: '확인',
+            dangerMode: true,
+          });
+          return false;
+        }
+
+        // 이메일 중복 확인을 하지 않을 경우
+        if ($('input[name=hiddenEmail]').val() == '') {
+          swal({
+            title: '실패!',
+            text: '이메일 중복 확인을 해주세요',
+            icon: 'warning',
+            button: '확인',
+            dangerMode: true,
+          });
+          return false;
+        }
+
+        // 닉네임 중복 확인을 하지 않을 경우
+        if ($('input[name=hiddenNickname]').val() == '') {
+          swal({
+            title: '실패!',
+            text: '닉네임 중복 확인을 해주세요',
+            icon: 'warning',
+            button: '확인',
+            dangerMode: true,
+          });
+          return false;
+        }
+        // 성별 체크 안했을 경우
+        if (
+          $("input[type='radio'][name='gender']:checked").val() === undefined
+        ) {
+          swal({
+            title: '실패!',
+            text: '성별을 체크해주세요!',
+            icon: 'warning',
+            button: '확인',
+            dangerMode: true,
+          });
+          return false;
+        }
+
+        if (form.password.value === form.password2.value) {
+          let user = {
+            id: form.id.value,
+            password: form.password.value,
+            name: form.name.value,
+            email: form.email.value,
+            gender: $("input[type='radio'][name='gender']:checked").val(),
+            nickname: form.nickname.value,
+            phone_number: form.phone_number.value,
+          };
+          axios({
+            method: 'post',
+            url: '/signup',
+            data: user,
+          })
+            .then((rep) => {
+              return rep.data;
+            })
+            .then((rep) => {
+              return rep.data;
+            })
+            .then((data) => {
+              swal({
+                title: '회원가입 성공!',
+                icon: 'success',
+                button: '확인',
+              }).then((success) => {
+                // form.action = "/login";
+                // form.submit();
+                document.location.href = '/login';
+              });
+            });
+        } else {
+          swal({
+            title: '실패!',
+            text: '비밀번호를 확인해주세요!',
+            icon: 'warning',
+            button: '확인',
+            dangerMode: true,
+          });
+          return false;
+        }
+      }
+
+      function checkID() {
+        let form = document.getElementById('form_signup');
+        let user_id = form.id.value;
+        if (user_id.length === 0) {
+          // 아이디를 입력하지 않을 경우
+          $('.checkID').css('color', 'red');
+          $('.checkID').text('아이디를 입력하세요.');
+          $('#id').focus();
+          return false;
+        } else {
+          // 아이디를 입력했을 경우
+          axios({
+            method: 'post',
+            url: 'http://localhost:8000/signUp',
+            data: { id: user_id },
+          })
+            .then((rep) => {
+              return rep.data;
+            })
+            .then((data) => {
+              if (data === true) {
+                // 아이디가 없을 경우 true를 반환
+                // 성공 alert가 떠야 함
+                $('.checkID').text('');
+                swal({
+                  title: '성공!',
+                  text: '사용할 수 있는 아이디입니다.',
+                  icon: 'success',
+                  button: '확인',
+                }).then((success) => {
+                  $('input[name=hiddenID]').val('y');
+                });
+              } else {
+                // 아이디가 있을 경우 false를 반환
+                // 실패 alert가 떠야 함
+                $('.checkID').text('');
+                swal({
+                  title: '실패!',
+                  text: '사용할 수 없는 아이디입니다. 다시 입력해 주세요.',
+                  icon: 'error',
+                  button: '확인',
+                  dangerMode: true,
+                }).then((fail) => {
+                  $('#id').focus();
+                });
+              }
+            });
+        }
+      }
+      function checkPassword(obj) {
+        if (obj.value != $('#password').val()) {
+          $('.checkPassword').css('color', 'red');
+          $('.checkPassword').text(
+            '비밀번호가 일치하지 않습니다. 다시 입력해 주세요.'
+          );
+          $('#password2').focus();
+        } else {
+          $('.checkPassword').css('color', 'blue');
+          $('.checkPassword').text('비밀번호가 일치합니다.');
+        }
+      }
+
+      function checkEmail() {
+        let form = document.getElementById('form_signup');
+        let user_email = form.email.value;
+        if (user_email.length === 0) {
+          // 이메일을 입력하지 않을 경우
+          $('.checkEmail').css('color', 'red');
+          $('.checkEmail').text('이메일을 입력하세요.');
+          $('#email').focus();
+          return false;
+        } else {
+          // 이메일을 입력했을 경우
+          var reg_email =
+            /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+          if (!reg_email.test($('#email').val())) {
+            $('.checkEmail').css('color', 'red');
+            $('.checkEmail').text(
+              '이메일 형식이 올바르지 않습니다. 다시 입력해 주세요.'
+            );
+            $('#email').focus();
+            return false;
+          } else {
+            axios({
+              method: 'post',
+              url: '/signup/checkEmail',
+              data: { email: user_email },
+            })
+              .then((rep) => {
+                return rep.data;
+              })
+              .then((data) => {
+                if (data === true) {
+                  // 이메일 없을 경우 true를 반환
+                  // 성공 alert가 떠야 함
+                  $('.checkEmail').text('');
+                  swal({
+                    title: '성공!',
+                    text: '사용할 수 있는 이메일입니다.',
+                    icon: 'success',
+                    button: '확인',
+                  }).then((success) => {
+                    $('input[name=hiddenEmail]').val('y');
+                  });
+                } else {
+                  // 이메일 있을 경우 false를 반환
+                  // 실패 alert가 떠야 함
+                  $('.checkEmail').text('');
+                  swal({
+                    title: '실패!',
+                    text: '사용할 수 없는 이메일입니다. 다시 입력해 주세요.',
+                    icon: 'error',
+                    button: '확인',
+                    dangerMode: true,
+                  }).then((fail) => {
+                    $('#email').focus();
+                  });
+                }
+              });
+          }
+        }
+      }
+      function checkNickname() {
+        let form = document.getElementById('form_signup');
+        let user_nickname = form.nickname.value;
+        if (user_nickname.length === 0) {
+          // 닉네임을 입력하지 않을 경우
+          $('.checkNickname').css('color', 'red');
+          $('.checkNickname').text('닉네임을 입력하세요.');
+          $('#nickname').focus();
+          return false;
+        } else {
+          // 닉네임을 입력했을 경우
+          axios({
+            method: 'post',
+            url: '/signup/checkNickname',
+            data: { nickname: user_nickname },
+          })
+            .then((rep) => {
+              return rep.data;
+            })
+            .then((data) => {
+              if (data === true) {
+                // 닉네임이 없을 경우 true를 반환
+                // 성공 alert가 떠야 함
+                $('.checkNickname').text('');
+                swal({
+                  title: '성공!',
+                  text: '사용할 수 있는 닉네임입니다.',
+                  icon: 'success',
+                  button: '확인',
+                }).then((success) => {
+                  $('input[name=hiddenNickname]').val('y');
+                });
+              } else {
+                // 닉네임이 있을 경우 false를 반환
+                // 실패 alert가 떠야 함
+                $('.checkNickname').text('');
+                swal({
+                  title: '실패!',
+                  text: '사용할 수 없는 닉네임입니다. 다시 입력해 주세요.',
+                  icon: 'error',
+                  button: '확인',
+                  dangerMode: true,
+                }).then((fail) => {
+                  $('#nickname').focus();
+                });
+              }
+            });
+        }
+      }
+      $(document).ready(function () {
+        $('button').hover(
+          function () {
+            $('.sign_img').attr('src', '/img/signup_img_orange.png');
+          },
+          function () {
+            $('.sign_img').attr('src', '/img/signup_img_gray.png');
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <!-- 네비게이션 -->
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="navbar_logo">
+          <img
+            src="/img/logo_500_black.png"
+            class="logo_1"
+            onclick="location.href ='/'"
+          />
+        </div>
+      </div>
+      <div class="nav-button-container">
+        <div class="nav-button nav-login" onclick="location.href ='/login'">
+          로그인
+        </div>
+        <div class="nav-button nav-register" onclick="location.href ='/signup'">
+          회원가입
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section class="left">
+        <img src="/img/signup_img_gray.png" class="sign_img" />
+      </section>
+      <section class="right">
+        <form id="form_signup" method="post">
+          <legend class="titDep">회원가입</legend>
+          <label for="id" class="titLab">아이디</label>
+          <div class="inp_dup">
+            <input
+              type="text"
+              class="inpL"
+              name="id"
+              id="id"
+              placeholder="아이디를 입력하세요"
+              required
+            />
+            <a
+              href="javascript:;"
+              role="button"
+              class="btnDefault btnL btnLineP"
+              id="btnID"
+              onclick="checkID();"
+              >중복확인</a
+            >
+            <input type="hidden" name="hiddenID" />
+          </div>
+          <span class="checkID"></span>
+
+          <label for="password" class="titLab">비밀번호</label>
+          <input
+            type="password"
+            class="inpL"
+            name="password"
+            id="password"
+            placeholder="비밀번호를 입력하세요"
+            required
+          />
+
+          <label for="password2" class="titLab">비밀번호 확인</label>
+          <input
+            type="password"
+            class="inpL"
+            name="password2"
+            id="password2"
+            placeholder="확인을 위해 한번 더 입력하세요"
+            onkeyup="checkPassword( this );"
+            required
+          />
+          <span class="checkPassword"></span>
+
+          <label for="email" class="titLab">이메일</label>
+          <div class="inp_dup">
+            <input
+              type="email"
+              class="inpL"
+              name="email"
+              id="email"
+              placeholder="이메일을 입력하세요"
+              required
+            />
+            <a
+              href="javascript:;"
+              role="button"
+              class="btnDefault btnL btnLineP"
+              id="btnEmail"
+              onclick="checkEmail();"
+              disabled="true"
+              >중복확인</a
+            >
+            <input type="hidden" name="hiddenEmail" />
+          </div>
+          <span class="checkEmail"></span>
+
+          <label for="name" class="titLab">이름</label>
+          <input
+            type="text"
+            class="inpL"
+            name="name"
+            id="name"
+            placeholder="이름을 입력하세요"
+            required
+          />
+
+          <label for="phone_number" class="titLab">전화번호</label>
+          <input
+            type="text"
+            class="inpL"
+            name="phone_number"
+            id="phone_number"
+            placeholder="- 없이 번호만 입력하세요"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            required
+          />
+
+          <label for="nickname" class="titLab">닉네임</label>
+          <div class="inp_dup">
+            <input
+              type="text"
+              class="inpL"
+              name="nickname"
+              id="nickname"
+              placeholder="닉네임을 입력하세요"
+              required
+            />
+            <a
+              href="javascript:;"
+              role="button"
+              class="btnDefault btnL btnLineP"
+              id="btnNickname"
+              onclick="checkNickname();"
+              disabled="true"
+              >중복확인</a
+            >
+            <input type="hidden" name="hiddenNickname" />
+          </div>
+          <span class="checkNickname"></span>
+
+          <span class="titLab">성별</span>
+          <div class="radFrm">
+            <input type="radio" id="male" name="gender" value="남자" />
+            <label for="male">남자</label>
+
+            <input type="radio" id="female" name="gender" value="여자" />
+            <label for="female">여자</label>
+          </div>
+
+          <div class="signup_btn">
+            <button
+              type="button"
+              onclick="signup()"
+              data-text="회원가입"
+            ></button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <%- include('footer.ejs')%>
+  </body>
+</html>

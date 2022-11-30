@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보변경 - 내가해냄</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/e13a984139.js" crossorigin="anonymous"></script>
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/modify.css">
+    <script src="/js/modify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="grid-wrapper">
+        <%- include('main_nav.ejs')%>
+        <div class="main-container">
+            <div class="title-container">
+                회원정보변경
+            </div>
+            <div class="line-doted"></div>
+            <div class="desc-container">
+                <div class="desc-box">
+                    가입 시 입력한 회원정보를 다시 한번 확인해주세요.
+                </div>
+            </div>
+            <div class="input-container">
+                <!-- 아이디 -->
+                <!-- data.name, id, nickname, phonenumber, gender -->
+                <div class="input-box">
+                    <div class="input-title">아이디</div>
+                    <div class="input-text-container">
+                        <input class="input-text" value="<%=data.id%>" disabled></input>    
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-title">이름</div>
+                    <div class="input-text-container">
+                        <input class="input-text" value="<%=data.name%>" disabled></input>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-title">이메일</div>
+                    <div class="input-text-container">
+                        <input class="input-text" value="<%=data.email%>"></input>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-title">닉네임</div>
+                    <div class="input-text-container">
+                        <input class="input-text" value="<%=data.nickname%>"></input>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-title">휴대전화</div>
+                    <div class="input-text-container">
+                        <input class="input-text" value="<%=data.phone_number%>"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <input type="button" class="edit-btn" value="변경" onclick="edit();">
+                <input type="button" class="delete-btn" value="탈퇴" onclick="deleteUser('<%=data.id%>');">
+            </div>
+        </div>
+        <%- include('footer.ejs')%>
+    </div>
+
+</body>
+</html>
