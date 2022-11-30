@@ -18,7 +18,13 @@ function func1(a:string, b:number):string{
     return 'func1';
 }
 let result1 = func1('a',1);
-console.log(result1);
+const func2 = (a:string, b:number): string => {
+    console.log( 'func2 - a : ', a);
+    console.log('func2 - b : ', b);
+    return 'func2';
+}
+let result2 = func2('a',1);
+console.log(result2);
 
 /********************/
 // interface 사용법
