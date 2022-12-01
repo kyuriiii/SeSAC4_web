@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from './Button';
-import Card from "./Card";
-import Card2 from "./Card2"; 
-import StateClass from "./StateClass";
-import StateFunc from "./StateFunc";
+import Card from "./03_react_typescript/Card";
+import Card2 from "./03_react_typescript/Card2"; 
+import StateClass from "./04_State/StateClass";
+import StateFunc from "./04_State/StateFunc";
 
 const showAlert = (text:string) => {
   alert(text);
