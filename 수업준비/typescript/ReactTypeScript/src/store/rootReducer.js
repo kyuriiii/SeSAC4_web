@@ -7,5 +7,3 @@ const rootReducer = combineReducers({
     diaries: diaryReducer
 });
 export default rootReducer;
-
-
