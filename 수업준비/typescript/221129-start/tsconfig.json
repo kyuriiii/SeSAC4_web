@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
-    "target": "ES6",
-    "sourceMap": true
+    "target": "ES6"
   },
   "include": ["*.ts"],
   "exclude": ["node_nodules"]

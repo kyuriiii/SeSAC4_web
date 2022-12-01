@@ -23,19 +23,12 @@ class Developer2 {
 let developer2 = new Developer2('codingon');
 developer2.getName();
 
-/* NO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// 추상화 클래스 ( Abstract Class )
-// 추상 클래스는 인터페이스와 비슷한 역할을 하면서도 조금 다른 특징을 갖고 있다.
-// 추상 클래스는 특정 클래스의 상속 대상이 되는 클래스이며 좀 더 상위 레벨에서 속성, 메서드의 모양을 정의한다.
-abstract class Developer3 {
-    abstract coding(): void;
+// instanceof
+// instanceof는 클래스의 타입을 감지하는 역할을 하고, 모든 클래스의 기본 클래스인 Object에는 모두 true가 나온다.
+// instanceof로는 primitive 타입에 대한 것은 비교할 수 없다. primitive 타입은 typeof 로 비교할 것!
+if ( developer2 instanceof Developer1 ) {
+    console.log( "developer2 is Developer1" );
+} else if ( developer2 instanceof Developer2 ) {
+    console.log( 'developer2 is Developer2' );
 }
-class FrontDeveloper extends Developer3 {
-    coding(): void {
-        console.log( '웹을 개발합니다.' );
-    }
-    debugging(): void {
-        console.log( 'debug 합니다.');
-    }
-}
-*/
+

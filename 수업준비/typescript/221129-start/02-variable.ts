@@ -11,6 +11,13 @@ console.log('num : ', num);
 //// Boolean
 let flag: boolean = true;
 console.log('flag : ', flag);
+//// Union
+let age: number | string;
+
+age = 10;
+age = '15';
+
+// if ( 변수명 instanceof 타입 )
 
 /* Object */
 //// Array
