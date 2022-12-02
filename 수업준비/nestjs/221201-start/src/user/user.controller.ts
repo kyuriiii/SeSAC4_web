@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Req, Render } from '@nestjs/common';
 import { Request } from 'express';
 import { createUserDTO } from 'src/dto/createUserDTO';
+import { User } from './user.interface';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -20,8 +21,12 @@ export class UserController {
 	}
     @Post()
     create(@Body() userDTO: createUserDTO) {
-        console.log( 'user name : ', userDTO.name );
-        return 'Create Complete!';
+        this.userService.create(userDTO);
+        return "Create Success";
+    }
+    @Get('list')
+    findAll(): User[] {
+        return this.userService.findAll();
     }
 
 }
