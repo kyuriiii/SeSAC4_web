@@ -6,6 +6,7 @@ services:
       - ./:/app/
     build: 
       context: .
+      # dockerfile: Dockerfile22
     ports:
       - "8000:8000"
   node:
