@@ -1,0 +1,12 @@
+{
+  "name": "221206-init",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
