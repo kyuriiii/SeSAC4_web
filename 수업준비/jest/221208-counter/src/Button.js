@@ -1,8 +1,8 @@
 function CountButton({ increase, decrease }) {
     return (
       <div>
-        <button onClick={increase}> + </button>
-        <button onClick={decrease}> - </button>
+        <button onClick={increase} data-testid='increaseBtn'> + </button>
+        <button onClick={decrease} data-testid='decreaseBtn'> - </button>
       </div>
     );
   }
