@@ -1,0 +1,49 @@
+.successSignUpWrapper {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  flex-direction: column;
+  width: 30rem;
+  height: 36rem;
+  align-items: center;
+
+  .successSignUpSection {
+    display: inline-block;
+    width: 30rem;
+    height: 36rem;
+    background-color: rgba(147, 147, 147, 0.1);
+    border-radius: 15px 15px / 15px 15px;
+  }
+  .successSignUpTextBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .successSignupText2 {
+      font-size: 1.2rem;
+    }
+  }
+  .successSignUpText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .successSignUpImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    height: 5rem;
+    margin: 5vh 0vw 5vh 0vw;
+    box-sizing: border-box;
+  }
+  .successSignUpImg > img {
+    width: 20rem;
+  }
+}

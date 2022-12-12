@@ -1,0 +1,288 @@
+.mainBackWrapper {
+  padding-top: 5rem;
+
+  .Main_wrapper {
+    width: 70rem;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+
+    .mainArrow {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      top: -5px;
+      transform: rotate(45deg) translateX(-50%);
+    }
+  }
+
+  .Main_container {
+    display: flex;
+    width: 70rem;
+    height: 100%;
+    justify-content: center;
+  }
+  .Main_box {
+    display: flex;
+    flex-direction: column;
+    width: 80rem;
+    max-width: 902px;
+    border-radius: 0px 0px 15px 0px / 0px 0px 15px 0px;
+    border-left: 1px solid #f4f3f3;
+
+    .Diary_selector_box {
+      padding-left: 50px;
+      padding-top: 25px;
+    }
+  }
+
+  .Diary_main_box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Categorybar_box {
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin: 0px;
+    justify-content: space-between;
+    min-height: 619px;
+  }
+
+  .Main_container_top {
+    display: flex;
+    width: 100%;
+    height: 4rem;
+    justify-content: center;
+  }
+
+  .Planet_name_box {
+    display: flex;
+    width: 17.9rem;
+    border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #f4f3f3;
+    border-right: 1px solid #f4f3f3;
+  }
+
+  .Modify_title_box {
+    display: flex;
+    width: 56.3rem;
+    border-radius: 0px 15px 0px 0px / 0px 15px 0px 0px;
+    align-items: center;
+    padding: 0px 62px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f4f3f3;
+    justify-content: space-between;
+  }
+}
+
+.dairyPaginationWrapper {
+  padding: 20px;
+}
+
+@media (max-width: 1150px) {
+  .mainBackWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+
+    .Main_wrapper {
+      width: 50rem;
+      background-color: #fff;
+      border-radius: 15px;
+      margin: 0 auto;
+      position: relative;
+
+      .mainArrow {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top: -5px;
+        transform: rotate(45deg) translateX(-50%);
+      }
+    }
+
+    .Main_container {
+      display: flex;
+      width: 50rem;
+      height: 73rem;
+      justify-content: center;
+    }
+    .Main_box {
+      display: flex;
+      flex-direction: column;
+      width: 80rem;
+      max-width: 902px;
+      border-radius: 0px 0px 15px 0px / 0px 0px 15px 0px;
+      border-left: 1px solid #f4f3f3;
+
+      .Diary_selector_box {
+        width: 200px;
+        padding-left: 50px;
+        padding-top: 25px;
+      }
+    }
+
+    .Diary_main_box {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+    }
+
+    .Categorybar_box {
+      justify-content: space-between;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 40rem;
+      margin: 0px;
+      justify-content: space-between;
+      height: 70rem;
+    }
+
+    .Main_container_top {
+      display: flex;
+      width: 50rem;
+      height: 4rem;
+      justify-content: center;
+    }
+
+    .Planet_name_box {
+      display: flex;
+      width: 23.2rem;
+      border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #f4f3f3;
+      border-right: 1px solid #f4f3f3;
+    }
+
+    .Modify_title_box {
+      display: flex;
+      width: 50rem;
+      border-radius: 0px 15px 0px 0px / 0px 15px 0px 0px;
+      align-items: center;
+      padding: 0px 62px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #f4f3f3;
+      justify-content: space-between;
+    }
+  }
+
+  .dairyPaginationWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 40rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .mainBackWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+
+    .Main_wrapper {
+      width: 40rem;
+      background-color: #fff;
+      border-radius: 15px;
+      margin: 0 auto;
+      position: relative;
+
+      .mainArrow {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top: -5px;
+        transform: rotate(45deg) translateX(-50%);
+      }
+    }
+
+    .Main_container {
+      display: flex;
+      flex-direction: column;
+      width: 40rem;
+      height: 100%;
+      justify-content: center;
+    }
+    .Main_box {
+      display: flex;
+      border: none;
+      flex-direction: column;
+      width: 50rem;
+      border-radius: 0px 0px 15px 0px / 0px 0px 15px 0px;
+      .Diary_selector_box {
+        display: flex;
+        justify-content: end;
+        width: 35rem;
+      }
+    }
+
+    .Diary_main_box {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 40rem;
+    }
+
+    .Categorybar_box {
+      justify-content: start;
+      display: flex;
+      flex-direction: column;
+      width: 40rem;
+      margin: 0px;
+      height: 10%;
+      padding-top: 1rem;
+      box-sizing: border-box;
+    }
+
+    .Main_container_top {
+      display: none;
+    }
+
+    .Planet_name_box {
+      display: flex;
+      width: 23.2rem;
+      border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #f4f3f3;
+      border-right: 1px solid #f4f3f3;
+    }
+
+    .Modify_title_box {
+      display: flex;
+      width: 50rem;
+      border-radius: 0px 15px 0px 0px / 0px 15px 0px 0px;
+      align-items: center;
+      padding: 0px 62px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #f4f3f3;
+      justify-content: space-between;
+    }
+  }
+
+  .dairyPaginationWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+}

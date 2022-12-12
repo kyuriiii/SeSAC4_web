@@ -1,0 +1,39 @@
+.signUpPwInputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 25rem;
+  height: 3.5rem;
+  border-radius: 15px 15px / 15px 15px;
+  border: #fff solid 0.2rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+
+  .signUpPwInputTitle {
+    display: inline-block;
+    width: 3rem;
+    margin: 0.5rem;
+    color: #fff;
+    font-size: 0.8rem;
+  }
+
+  .signUpPwInput {
+    border: none;
+    width: 16rem;
+    height: 2rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 1rem;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+}
+
+.errorMessageWrap {
+  text-align: center;
+  width: 39rem;
+  height: 2rem;
+  font-size: 1rem;
+  color: rgb(182, 19, 19);
+  font-weight: 700;
+}

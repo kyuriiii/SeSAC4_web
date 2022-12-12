@@ -1,0 +1,125 @@
+.albumWrapper {
+  border: 1px solid #d9d9d9;
+  padding: 30px;
+  .albumTitle {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .albumCount {
+    font-size: 12px;
+  }
+  .albumSliderWrapper {
+    max-width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+
+    .sliderContainer {
+      .slick-prev:before,
+      .slick-next:before {
+        color: black;
+      }
+      .content {
+        width: 150px !important;
+        height: 150px;
+        background-color: black;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .albumWrapper {
+    border: 1px solid #d9d9d9;
+    padding: 30px;
+    .albumTitle {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .albumCount {
+      font-size: 12px;
+    }
+    .albumSliderWrapper {
+      max-width: 80vw;
+      margin: 0 auto;
+      text-align: center;
+
+      .sliderContainer {
+        .slick-prev:before,
+        .slick-next:before {
+          color: black;
+        }
+        .content {
+          width: 100px !important;
+          height: 100px;
+          background-color: black;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .albumWrapper {
+    border: 1px solid #d9d9d9;
+    padding: 50px;
+    .albumTitle {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .albumCount {
+      font-size: 12px;
+    }
+    .albumSliderWrapper {
+      max-width: 80vw;
+      margin: 0 auto;
+      text-align: center;
+
+      .sliderContainer {
+        .slick-prev:before,
+        .slick-next:before {
+          color: black;
+        }
+        .content {
+          width: 10px !important;
+          height: 30px;
+          background-color: black;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .albumWrapper {
+    border: 1px solid #d9d9d9;
+    padding: 30px;
+    .albumTitle {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .albumCount {
+      font-size: 12px;
+    }
+    .albumSliderWrapper {
+      max-width: 80vw;
+      margin: 0 auto;
+      text-align: center;
+
+      .sliderContainer {
+        .slick-prev:before,
+        .slick-next:before {
+          color: black;
+        }
+        .content {
+          width: 50px !important;
+          height: 50px;
+          background-color: black;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

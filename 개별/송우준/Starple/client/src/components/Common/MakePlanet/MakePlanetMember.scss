@@ -1,0 +1,33 @@
+.makePlanetMemberBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  margin-bottom: 1rem;
+  margin: 0.5rem;
+}
+
+.makeplanetMemberAccount_Box {
+  width: 15%;
+}
+
+@media (max-width: 787px) {
+  .makePlanetMemberBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+    width: 80%;
+    .makePlanetMemberAccount_Box {
+      height: 20rem;
+    }
+  }
+
+  .makePlanetMeberAccount {
+    width: 10%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,17 @@
+.writer_wrapper {
+  height: 100%;
+  .ck-editor__editable_inline {
+    min-height: 600px;
+    max-height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .ck-content {
+    max-height: 600px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .ck-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+}

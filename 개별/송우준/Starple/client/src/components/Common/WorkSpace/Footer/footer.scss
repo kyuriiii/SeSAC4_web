@@ -1,0 +1,28 @@
+.workspaceFooterWrapper {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  border-top: 0.5px solid #fff;
+  max-width: 90vw;
+  margin: 0 auto;
+
+  .btnContainer {
+    padding-bottom: 10px;
+    ul {
+      list-style: none;
+      li {
+        float: left;
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 27px;
+      }
+    }
+  }
+  .text {
+    font-size: 12px;
+  }
+}

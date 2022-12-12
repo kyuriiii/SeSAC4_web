@@ -1,0 +1,35 @@
+.newPlanetBtnWrapper {
+  background: linear-gradient(#fff 0 0) var(--p, 0) / var(--p, 0) no-repeat;
+  transition: 0.4s, background-position 0s;
+  border-radius: 50%;
+  color: white;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  top: 3vh;
+  left: 6vw;
+  position: absolute;
+
+  .img {
+    font-size: 150px;
+    line-height: 150px;
+    height: 150px;
+  }
+  .text {
+    font-size: 27px;
+    font-weight: bold;
+    .date {
+      font-size: 13px;
+      text-align: center;
+    }
+  }
+}
+.newPlanetBtnWrapper:hover {
+  --p: 100%;
+  color: #000;
+}

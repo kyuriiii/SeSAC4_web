@@ -1,0 +1,314 @@
+.frameBackWrapper {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.wrapper {
+  width: 70rem;
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 0 auto;
+  position: relative;
+
+  .arrow {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: -5px;
+    transform: rotate(45deg) translateX(-50%);
+  }
+
+  .top {
+    display: flex;
+    width: 100%;
+    height: 71px;
+    justify-content: center;
+
+    .planetName {
+      display: flex;
+      width: 200px;
+      border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #f4f3f3;
+      border-right: 1px solid #f4f3f3;
+    }
+
+    .titleWrapper {
+      display: flex;
+      width: 902px;
+      border-radius: 0px 15px 0px 0px / 0px 15px 0px 0px;
+      align-items: center;
+      padding: 0px 62px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #f4f3f3;
+      justify-content: space-between;
+    }
+  }
+
+  .mainContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+
+    .categoryWrapper {
+      justify-content: space-between;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      margin: 0px;
+      justify-content: space-between;
+      min-height: 619px;
+    }
+
+    .contentWrapper {
+      display: flex;
+      flex-direction: column;
+      width: 902px;
+      max-width: 902px;
+      border-radius: 0px 0px 15px 0px / 0px 0px 15px 0px;
+      border-left: 1px solid #f4f3f3;
+      padding: 20px 30px;
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .frameBackWrapper {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .wrapper {
+    width: 50rem;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+
+    .arrow {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      top: -5px;
+      transform: rotate(45deg) translateX(-50%);
+    }
+
+    .top {
+      display: flex;
+      width: 100%;
+      height: 71px;
+      justify-content: center;
+
+      .planetName {
+        display: flex;
+        width: 200px;
+        border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #f4f3f3;
+        border-right: 1px solid #f4f3f3;
+      }
+
+      .titleWrapper {
+        display: flex;
+        width: 902px;
+        border-radius: 0px 15px 0px 0px / 0px 15px 0px 0px;
+        align-items: center;
+        padding: 0px 62px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #f4f3f3;
+        justify-content: space-between;
+      }
+    }
+
+    .mainContainer {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+
+      .categoryWrapper {
+        justify-content: space-between;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        margin: 0px;
+        justify-content: space-between;
+        min-height: 619px;
+      }
+
+      .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 40rem;
+        max-width: 902px;
+        border-radius: 0px 0px 15px 0px / 0px 0px 15px 0px;
+        border-left: 1px solid #f4f3f3;
+        padding: 20px 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .frameBackWrapper {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .wrapper {
+    width: 35rem;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+
+    .arrow {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      top: -5px;
+      transform: rotate(45deg) translateX(-50%);
+    }
+
+    .top {
+      display: flex;
+      width: 100%;
+      height: 71px;
+      justify-content: center;
+
+      .planetName {
+        display: flex;
+        width: 200px;
+        border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #f4f3f3;
+        border-right: 1px solid #f4f3f3;
+      }
+
+      .titleWrapper {
+        display: flex;
+        width: 902px;
+        border-radius: 0px 15px 0px 0px / 0px 15px 0px 0px;
+        align-items: center;
+        padding: 0px 62px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #f4f3f3;
+        justify-content: space-between;
+      }
+    }
+
+    .mainContainer {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+
+      .categoryWrapper {
+        justify-content: space-between;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        margin: 0px;
+        justify-content: space-between;
+        min-height: 619px;
+      }
+
+      .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 25rem;
+        max-width: 902px;
+        border-radius: 0px 0px 15px 0px / 0px 0px 15px 0px;
+        border-left: 1px solid #f4f3f3;
+        padding: 20px 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .frameBackWrapper {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .wrapper {
+    width: 30rem;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+
+    .arrow {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      top: -5px;
+      transform: rotate(45deg) translateX(-50%);
+    }
+
+    .top {
+      display: none;
+
+      .planetName {
+        display: flex;
+        width: 200px;
+        border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #f4f3f3;
+        border-right: 1px solid #f4f3f3;
+      }
+
+      .titleWrapper {
+        display: flex;
+        width: 902px;
+        border-radius: 0px 15px 0px 0px / 0px 15px 0px 0px;
+        align-items: center;
+        padding: 0px 62px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #f4f3f3;
+        justify-content: space-between;
+      }
+    }
+
+    .mainContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+
+      .categoryWrapper {
+        justify-content: start;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0px;
+        min-height: 619px;
+      }
+
+      .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 30rem;
+        max-width: 902px;
+        border-radius: 0px 0px 15px 0px / 0px 0px 15px 0px;
+        border-left: 1px solid #f4f3f3;
+        padding: 20px 30px;
+      }
+    }
+  }
+}

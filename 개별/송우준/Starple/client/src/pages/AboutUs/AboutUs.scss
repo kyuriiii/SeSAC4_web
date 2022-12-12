@@ -1,0 +1,45 @@
+.aboutUsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60rem;
+  .aboutUstitleBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    .aboutUsTitle {
+      color: #fff;
+      font-size: 30px;
+      font-weight: 700;
+    }
+  }
+
+  .aboutUsTextBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50rem;
+    margin-top: 2rem;
+
+    .aboutUsText1 {
+      color: #fff;
+      font-size: 18px;
+    }
+    .aboutUsText2 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 5rem;
+    }
+  }
+
+  .aboutUsBtnContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}

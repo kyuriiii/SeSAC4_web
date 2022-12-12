@@ -1,0 +1,13 @@
+div {
+  .memberbox_wrapper {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    .memberbox_space {
+      height: 50px;
+    }
+  }
+  .memberbox_wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+}

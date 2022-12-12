@@ -1,0 +1,28 @@
+.resetPw1IdInputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 25rem;
+  height: 3.5rem;
+  border-radius: 15px 15px / 15px 15px;
+  border: #fff solid 0.2rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  .idInputTitle {
+    display: inline-block;
+    width: 3rem;
+    margin: 0.5rem;
+    color: #fff;
+    font-size: 0.8rem;
+  }
+  .idInput {
+    border: none;
+    width: 16rem;
+    height: 2rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 1rem;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+}

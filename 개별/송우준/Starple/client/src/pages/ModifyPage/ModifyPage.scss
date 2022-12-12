@@ -1,0 +1,49 @@
+.modifyLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30rem;
+  height: 8rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  img {
+    width: 15rem;
+  }
+}
+
+.modifyWrapper {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  flex-direction: column;
+  width: 30rem;
+  height: 36rem;
+  align-items: center;
+  .modifySection {
+    display: inline-block;
+    width: 30rem;
+    height: 36rem;
+    background-color: rgba(147, 147, 147, 0.1);
+    border-radius: 15px 15px / 15px 15px;
+  }
+  .modifyTextBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modifyTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .modifyButtonBox {
+    display: flex;
+    flex-direction: row;
+  }
+}

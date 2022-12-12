@@ -1,0 +1,14 @@
+.ContactFieldBox {
+  display: flex;
+  width: 30rem;
+  height: 20rem;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  .ContactFieldText {
+    border: solid black 2px;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+  }
+}

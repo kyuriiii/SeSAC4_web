@@ -1,0 +1,47 @@
+.starMap_wrap {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  #starMap {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+  }
+}
+
+@media (max-width: 1150px) {
+  .starMap_wrap {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    #starMap {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+    }
+  }
+}
+@media (max-width: 787px) {
+  .starMap_wrap {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    #starMap {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+    }
+  }
+}

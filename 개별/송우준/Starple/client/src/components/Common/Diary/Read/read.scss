@@ -1,0 +1,321 @@
+.mainBackWrapper {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  .mainWrapper {
+    width: 70rem;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+
+    .mainArrow {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      top: -5px;
+      transform: rotate(45deg) translateX(-50%);
+    }
+    .MainContainerTop {
+      display: flex;
+      width: 70rem;
+      height: 4rem;
+      justify-content: center;
+      .Planet_name_box {
+        width: 17.9rem;
+      }
+    }
+    .Main_container {
+      display: flex;
+      width: 70rem;
+      height: 73rem;
+      justify-content: center;
+      .Categorybar_box {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 22rem;
+        margin: 0px;
+        justify-content: space-between;
+        min-height: 619px;
+      }
+      .Main_box {
+        width: 100%;
+        .diaryReaderWrapper {
+          padding: 57px 77px;
+          overflow: auto;
+          .diaryReaderTopContainer {
+            .diaryReaderChoiced {
+              font-size: 15px;
+            }
+            .diaryReaderTitle {
+              font-size: 30px;
+            }
+          }
+          .diaryReaderWriterWrapper {
+            padding-top: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #d3d3d3;
+            display: flex;
+            span {
+              display: flex;
+            }
+          }
+          .diaryReaderContent {
+            min-height: 400px;
+            padding: 20px;
+          }
+          .diaryReaderCommentWrapper {
+            .diaryReaderCommentTitle {
+              font-size: 20px;
+              font-weight: 500;
+              padding-bottom: 11px;
+              border-bottom: 1px solid #d3d3d3;
+            }
+            .diaryReaderCommentContainer {
+              padding: 26px;
+              .diaryReaderCommentBox {
+                padding-bottom: 20px;
+                .diaryReaderCommentWriter {
+                  font-size: 15px;
+                  font-weight: bold;
+                }
+                .diaryReaderCommentContent {
+                  font-size: 13px;
+                  padding-top: 10px;
+                  padding-left: 15px;
+                  padding-bottom: 10px;
+                  border-bottom: 1px solid #d3d3d3;
+                }
+              }
+            }
+          }
+          .diaryReaderEditorWrapper {
+            padding: 20px;
+            .diaryReaderBtnWrapper {
+              padding-top: 20px;
+              display: flex;
+              justify-content: end;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .mainBackWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+
+    .mainWrapper {
+      width: 50rem;
+      background-color: #fff;
+      border-radius: 15px;
+      margin: 0 auto;
+      position: relative;
+      padding-bottom: 5rem;
+      .mainArrow {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top: -5px;
+        transform: rotate(45deg) translateX(-50%);
+      }
+      .MainContainerTop {
+        display: flex;
+        width: 50rem;
+        height: 4rem;
+        justify-content: center;
+        .Planet_name_box {
+          width: 23.2rem;
+        }
+      }
+      .Main_container {
+        display: flex;
+        width: 44.95rem;
+        height: 70rem;
+        justify-content: center;
+        .Categorybar_box {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          width: 40rem;
+          margin: 0px;
+          justify-content: space-between;
+          min-height: 619px;
+        }
+        .Main_box {
+          display: flex;
+          width: 30rem;
+          .diaryReaderWrapper {
+            width: 35rem;
+            padding: 57px 77px;
+            .diaryReaderTopContainer {
+              .diaryReaderChoiced {
+                font-size: 15px;
+              }
+              .diaryReaderTitle {
+                font-size: 30px;
+              }
+            }
+            .diaryReaderWriterWrapper {
+              padding-top: 30px;
+              padding-bottom: 20px;
+              border-bottom: 1px solid #d3d3d3;
+            }
+            .diaryReaderContent {
+              min-height: 400px;
+              padding: 20px;
+            }
+            .diaryReaderCommentWrapper {
+              .diaryReaderCommentTitle {
+                font-size: 20px;
+                font-weight: 500;
+                padding-bottom: 11px;
+                border-bottom: 1px solid #d3d3d3;
+              }
+              .diaryReaderCommentContainer {
+                padding: 26px;
+                .diaryReaderCommentBox {
+                  padding-bottom: 20px;
+                  .diaryReaderCommentWriter {
+                    font-size: 15px;
+                    font-weight: bold;
+                  }
+                  .diaryReaderCommentContent {
+                    font-size: 13px;
+                    padding-top: 10px;
+                    padding-left: 15px;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #d3d3d3;
+                  }
+                }
+              }
+            }
+            .diaryReaderEditorWrapper {
+              padding: 20px;
+              .diaryReaderBtnWrapper {
+                padding-top: 20px;
+                display: flex;
+                justify-content: end;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .mainBackWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    .mainWrapper {
+      width: 40rem;
+
+      background-color: #fff;
+      border-radius: 15px;
+      margin: 0 auto;
+      position: relative;
+
+      .mainArrow {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top: -5px;
+        transform: rotate(45deg) translateX(-50%);
+      }
+      .MainContainerTop {
+        display: none;
+      }
+      .Main_container {
+        display: flex;
+        width: 40rem;
+        height: 100%;
+        justify-content: center;
+        .Categorybar_box {
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          width: 40rem;
+          margin: 0px;
+          height: 10%;
+          padding-top: 1rem;
+          box-sizing: border-box;
+        }
+        .Main_box {
+          display: flex;
+          flex-direction: column;
+          width: 40rem;
+          .diaryReaderWrapper {
+            width: 40rem;
+            height: 100%;
+            padding: 57px 77px;
+            .diaryReaderTopContainer {
+              .diaryReaderChoiced {
+                font-size: 15px;
+              }
+              .diaryReaderTitle {
+                font-size: 30px;
+              }
+            }
+            .diaryReaderWriterWrapper {
+              padding-top: 30px;
+              padding-bottom: 20px;
+              border-bottom: 1px solid #d3d3d3;
+            }
+            .diaryReaderContent {
+              min-height: 400px;
+              padding: 20px;
+            }
+            .diaryReaderCommentWrapper {
+              .diaryReaderCommentTitle {
+                font-size: 20px;
+                font-weight: 500;
+                padding-bottom: 11px;
+                border-bottom: 1px solid #d3d3d3;
+              }
+              .diaryReaderCommentContainer {
+                padding: 26px;
+                .diaryReaderCommentBox {
+                  padding-bottom: 20px;
+                  .diaryReaderCommentWriter {
+                    font-size: 15px;
+                    font-weight: bold;
+                  }
+                  .diaryReaderCommentContent {
+                    font-size: 13px;
+                    padding-top: 10px;
+                    padding-left: 15px;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #d3d3d3;
+                  }
+                }
+              }
+            }
+            .diaryReaderEditorWrapper {
+              padding: 20px;
+              .diaryReaderBtnWrapper {
+                padding-top: 20px;
+                display: flex;
+                justify-content: end;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

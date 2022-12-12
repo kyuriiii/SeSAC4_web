@@ -1,0 +1,23 @@
+.albumTitleWrapper {
+  .titleTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .wrap {
+      display: flex;
+      .albumTitle {
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .albumCount {
+        font-size: 15px;
+        display: flex;
+        align-items: flex-end;
+        padding-left: 10px;
+        color: #848484;
+      }
+    }
+    .albumTitleBtn {
+    }
+  }
+}

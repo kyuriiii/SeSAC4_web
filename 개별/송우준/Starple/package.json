@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "server": "cd server && nodemon src",
+    "client": "cd client && npm start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "@material-ui/styles": "^4.11.5",
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.20"
+  }
+}

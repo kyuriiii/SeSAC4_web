@@ -1,0 +1,17 @@
+.section {
+  display: flex;
+}
+#fullpage {
+  // background-image: url("../../assets/img//LandingPage/fullimage.png");
+  // background-position: center;
+  // background-size: cover;
+
+  //   background-size: 100vw 100vh;
+  background-color: #000;
+  .background {
+    position: absolute;
+    width: 100%;
+    transform: scale(1.5);
+    top: 75vh;
+  }
+}

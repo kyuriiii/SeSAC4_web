@@ -1,0 +1,44 @@
+.signUpLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30rem;
+  height: 8rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  img {
+    width: 15rem;
+    cursor: pointer;
+  }
+}
+
+.signUpWrapper {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  flex-direction: column;
+  width: 30rem;
+  height: 36rem;
+  align-items: center;
+
+  .signUpSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    height: 36rem;
+    border-radius: 15px 15px / 15px 15px;
+    background: rgba(147, 147, 147, 0.1);
+  }
+
+  .signUp {
+    display: flex;
+    width: 30rem;
+    height: 5rem;
+    border-radius: 15px 15px / 15px 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+}

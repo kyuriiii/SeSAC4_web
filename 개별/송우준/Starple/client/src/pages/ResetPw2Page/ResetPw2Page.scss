@@ -1,0 +1,63 @@
+.resetPw2LogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30rem;
+  height: 8rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+
+  img {
+    width: 15rem;
+    cursor: pointer;
+  }
+}
+
+.resetPw2Wrapper {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  flex-direction: column;
+  width: 30rem;
+  height: 36rem;
+  align-items: center;
+
+  .resetPw2Section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    height: 36rem;
+    background-color: rgba(147, 147, 147, 0.1);
+    border-radius: 15px 15px / 15px 15px;
+  }
+  .resetPw2HeaderSection {
+    display: flex;
+    width: 30rem;
+    height: 5rem;
+    margin: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .resetPw2Header {
+    color: #fff;
+    font-size: 2rem;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .errorMessageWrapper {
+    text-align: center;
+  }
+
+  .resetPw2Text {
+    color: #fff;
+    font-size: 1rem;
+    margin: 0.7rem;
+  }
+  .btnBox {
+    margin: 20px;
+  }
+}

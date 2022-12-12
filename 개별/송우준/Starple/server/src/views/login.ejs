@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Passport 연습</title>
+</head>
+
+<body>
+    <h2>Local Login</h2>
+    <form action="/auth/login" method="post">
+        <label>UserName</label>
+        <input type="text" name="username">
+        <br>
+        <label>Password</label>
+        <input type="password" name="password">
+        <br>
+        <button id="login" type="submit">로그인</button>
+    </form>
+
+    <hr>
+    <div id="google">
+        <a class="social_btn google_btn" href="/auth/google">구글 로그인</a>
+    </div>
+    <div id="kakao">
+        <a class="social_btn kakao_btn" href="/auth/kakao">카카오 로그인</a>
+    </div>
+</body>
+
+</html>

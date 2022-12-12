@@ -1,0 +1,80 @@
+.dairyHeaderWrapper {
+  width: 100%;
+  height: 70px;
+  background: transparent;
+  border-bottom: 1px solid #cccaca;
+  // position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+
+  .dairyHeaderContainer {
+    width: 1102px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    .dairyHeaderLogoContainer {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .dairyHeaderSearchbarContainer {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .dairyHeaderBtnContainer {
+      display: flex;
+      align-items: center;
+      .btn {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .dairyHeaderWrapper {
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    border-bottom: 1px solid #cccaca;
+    // position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    .dairyHeaderContainer {
+      width: 80%;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      .dairyHeaderLogoContainer {
+        display: flex;
+        align-items: center;
+      }
+      .dairyHeaderSearchbarContainer {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .dairyHeaderBtnContainer {
+        display: flex;
+        align-items: center;
+        .btn {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
