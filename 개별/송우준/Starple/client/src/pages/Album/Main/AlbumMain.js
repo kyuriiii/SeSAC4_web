@@ -8,11 +8,13 @@ import Frame from "../../../components/Common/Frame/Frametitle";
 import Main from "../../../components/Common/Album/Main/Main";
 
 const AlbumMain = () => {
+  let metaData = localStorage.getItem("userInfo");
+  let userInfo = JSON.parse(metaData);
   return (
     <div className="back">
       <StarMap />
       <Header />
-      <Frame planetTitle={"sion"} content={<Main />} />
+      <Frame planetTitle={userInfo.username} content={<Main />} />
     </div>
   );
 };

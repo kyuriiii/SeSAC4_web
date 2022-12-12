@@ -107,6 +107,7 @@ router.post("/create", async (req, res) => {
     const exMember = await User.find({ userID: member });
     // 해당 멤버의 id 배열로 저장
     const memberIdArr = await exMember.map((row) => row.id);
+    console.log( "memberIdArr : ", memberIdArr );
     // 행성 생성 모델 작성
     const newPlanet = await new Planet({
       name: name,
@@ -153,9 +154,15 @@ router.put("/:_id", (req, res) => {
 });
 
 // 행성 삭제
-router.delete("/:_id", (req, res) => {
-  const _id = req.params._id;
-  Planet.deleteOne({ _id })
+router.delete("/:user/:planet", (req, res) => {
+  const { user, planet } = req.params;
+
+  const _ID = user;
+  const _Planet = planet;
+
+  const userInfo = User.findOne({ userID: _ID });
+
+  Planet.deleteOne({ name: _Planet, member: userInfo.id })
     .then((r) => {
       res.status(200).send({ success: true, msg: r });
     })

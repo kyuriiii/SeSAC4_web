@@ -7,15 +7,26 @@ export default function MakePlanetMember({ text, value, onChange }) {
       <div className="makeplanetMemberAccount_Box">
         <div className="makePlanetMemberAccount">{text}</div>
       </div>
-      <TextField
-        id="outlined-search"
-        label="유저 아이디를 입력해주세요 "
-        type="search"
-        style={{
-          width: "100%",
-        }}
-        onChange={onChange}
-      />
+      { value != "" ? (
+        <TextField
+          style={{
+            width: "100%",
+          }}
+          value={value}
+          readonly
+          disabled
+        />
+      ) : (
+        <TextField
+          id="outlined-search"
+          label="유저 아이디를 입력해주세요 "
+          type="search"
+          style={{
+            width: "100%",
+          }}
+          onChange={onChange}
+        />
+      )}
     </div>
   );
 }

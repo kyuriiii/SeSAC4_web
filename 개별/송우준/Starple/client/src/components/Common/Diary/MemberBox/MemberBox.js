@@ -18,8 +18,10 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import Avatar from "@mui/material/Avatar";
 
 import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
 const MemberBox = () => {
+  const params = useParams();
   const [open, setOpen] = useState(true);
   const [userArr, setUserArr] = useState([]);
   const handleClick = () => {
@@ -43,7 +45,7 @@ const MemberBox = () => {
         })
         .catch((err) => console.log(err.response.data));
     }
-    getMember("새행성");
+    getMember(params.planet);
   }, []);
 
   return (

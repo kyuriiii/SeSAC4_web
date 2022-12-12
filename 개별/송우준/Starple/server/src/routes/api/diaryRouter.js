@@ -68,13 +68,11 @@ router.get("/getPosts/:planet/:category", async (req, res) => {
   try {
     //   행성 ObjectId 값
     const planetForId = await Planet.findOne({ name: _Planet });
-    console.log(planetForId.id);
+    console.log(planetForId.member);
     // 행성 ObjectId, 카테고리 filter
     const diaries = await Diary.find({
       $and: [{ _planet: planetForId, _category: _Category }],
     }).populate("_user");
-
-    console.log( "diaries : ", diaries );
 
     res.status(200).send({ diaries: diaries });
   } catch (error) {

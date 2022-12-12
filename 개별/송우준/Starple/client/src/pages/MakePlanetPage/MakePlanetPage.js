@@ -17,11 +17,13 @@ import axios from "axios";
 axios.defaults.headers.common["Authorization"] = localStorage.getItem("token");
 
 const MakePlanetPage = () => {
+  let metaData = localStorage.getItem("userInfo");
+  let userInfo = JSON.parse(metaData);
   const [planetName, setplanetName] = useState("");
   // 멤버 input 관리
   const navigate = useNavigate();
   const [user, setUser] = useState({
-    user_1: "",
+    user_1: userInfo.userID,
     user_2: "",
     user_3: "",
     user_4: "",
@@ -137,9 +139,6 @@ const MakePlanetPage = () => {
             text={"멤버1"}
             name={user.user_1}
             value={user.user_1}
-            onChange={(e) => {
-              setUser({ ...user, user_1: e.target.value });
-            }}
           />
 
           <MakePlanetMember
