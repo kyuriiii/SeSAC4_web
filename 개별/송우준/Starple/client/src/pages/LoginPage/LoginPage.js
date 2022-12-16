@@ -46,6 +46,8 @@ const LoginPage = observer(() => {
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
         userClass.setUserInfo(JSON.stringify(userInfo));
         localStorage.setItem("token", token);
+        console.log( 'setItem is complete' );
+        return "";
       })
       .then(() => {
         navigate("/workspace/main");

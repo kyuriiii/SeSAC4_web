@@ -73,9 +73,10 @@ router.get("/getPosts/:planet/:category", async (req, res) => {
     const diaries = await Diary.find({
       $and: [{ _planet: planetForId, _category: _Category }],
     }).populate("_user");
-
+    console.log('1');
     res.status(200).send({ diaries: diaries });
   } catch (error) {
+    console.log('2');
     console.log(error);
     res.status(500).send("Server Error");
   }

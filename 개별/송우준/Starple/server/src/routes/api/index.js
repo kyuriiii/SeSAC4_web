@@ -11,9 +11,13 @@ router.use("/planet", require("./planetRouter"));
 //& JWT verify
 router.all("*", (req, res, next) => {
   console.log("passport-jwt");
+  console.log("req : ", req );
+  console.log("req.header : ", req.header );
   passport.authenticate("jwt", { session: false }, (err, user, info) => {
-
-    if (err | !user) res.status(400).json({ errors: info.message });
+    if (err | !user) {
+      // res.status(400).json({ errors: info.message });
+      // return false;
+    }
     next();
   })(req, res, next); // 미들웨어 내의 미들웨어
 });

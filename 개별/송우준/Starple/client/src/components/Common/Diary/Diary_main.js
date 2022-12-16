@@ -35,6 +35,7 @@ const Diary_main = ({ planetTitle }) => {
     _DATA.jump(p);
   };
   useEffect(() => {
+    console.log( "token22 : ", localStorage.getItem("token"));
     axios({
       method: "get",
       url: `${process.env.REACT_APP_URL}/api/diary/getPosts/${planet}/${category}`,
@@ -44,6 +45,7 @@ const Diary_main = ({ planetTitle }) => {
       },
     })
       .then((res) => {
+        console.log( 'useEffect' );
         setData(res.data.diaries);
       })
       .catch((err) => console.log(err.response.data));
