@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  sesac-user:
+    depends_on:
+      - sesac-mysql
+    volumes: 
+      - /app/node_modules
+      - ./:/app/
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+  sesac-mysql:
+    image: mysql:5.7
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+      - ./utf8.cnf:/etc/mysql/conf.d/utf8.cnf
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+    ports:
+      - 3331:3306
+    environment:
+      MYSQL_DATABASE: sesac
+      MYSQL_ROOT_PASSWORD: sesac
+      MYSQL_USER: sesac
+      MYSQL_PASSWORD: sesac
+      TZ: Asia/Seoul
+    command:  >
+        bash -c "chmod 644 /etc/mysql/conf.d/*.cnf && /entrypoint.sh mysqld"

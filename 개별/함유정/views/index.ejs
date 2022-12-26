@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title> CRUD 복습하기</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            function sendPost(){
+                var form = document.getElementById("form_axios_post");
+                var data = {
+                    name: form.name.value,
+                    pw: form.pw.value
+                };
+
+                axios({ 
+                    url: '/',
+                    method: 'post',
+                    data: data
+                }).then((rep) => { return rep.data; })
+                .then((data) => {
+                    // data에 서버의 응답이 전달이 되었고, 이때 return이 true냐 false냐에 따라 달라진다.
+                    if ( data.return ) {
+                        alert( "새로운 사용자의 ID는 ", data.user.id , "입니다." );
+                        let html = "<tr id='tr_" + data.user.id + "'><td>" + data.user.id + "</td><td>" + form.name.value + "</td><td>" + form.pw.value + "</td></tr>";
+
+                        $( "table" ).append(html);
+                    } else {
+                        alert( data.msg );
+                    }
+                    form.reset();
+                });
+            }
+
+            function patchUpdate(){
+                var form = document.getElementById("form_axios_update");
+                axios({
+                    method: 'patch',
+                    url: '/',
+                    data: {
+                        id : form.id.value,
+                        name : form.name.value,
+                        pw : form.pw.value
+                    }
+                }).then((rep) => { return rep.data; })
+                .then((data) => {
+                    // data에 서버의 응답이 전달이 되었고, 이때 return이 true냐 false냐에 따라 달라진다.
+                    if ( data.return ) {
+                        alert( "수정 성공" );
+                        
+                        var tr = document.getElementById("tr_" + form.id.value);
+                        var children = tr.children;
+
+                        $( children[1] ).text( form.name.value );
+                        $( children[2] ).text( form.pw.value );
+                    } else {
+                        alert( data.msg );
+                    }
+                    form.reset();
+                });
+            }
+            function deleteUser(){
+                var form = document.getElementById("form_axios_delete");
+                axios({
+                    method: 'delete',
+                    url: '/',
+                    data: { id: form.id.value }
+                }).then((rep) => { return rep.data; } )
+                .then((data) => { 
+                    if ( data.return ) {
+                        alert( "삭제 성공" );
+                        var tr = document.getElementById("tr_" + form.id.value);
+                        $( tr ).remove();
+                    } else {
+                        alert( data.msg );
+                    }
+                    form.reset();
+                });
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div style="display: flex;">
+            <fieldset style="width: 280px;">
+                <legend>Axios로 POST 보내기</legend>
+                <form id="form_axios_post">
+                    <label>이름 : </label>
+                    <input type="text" name="name"> <br>
+                    <label>비밀번호 : </label>
+                    <input type="password" name="pw">
+                    <button type="button" onclick="sendPost();">axios로 POST</button>
+                </form>
+            </fieldset>
+            <fieldset style="width: 280px;">
+                <legend>Form 전송으로 POST 보내기</legend>
+                <form method="POST" action="/form">
+                    <label>이름 : </label>
+                    <input type="text" name="name"> <br>
+                    <label>비밀번호 : </label>
+                    <input type="password" name="pw">
+                    <button type="submit">form전송으로 POST</button>
+                </form>
+            </fieldset>
+            <fieldset style="width: 280px;">
+                <legend>Axios로 UPDATE</legend>
+                <form id="form_axios_update">
+                    <label>수정할 ID : </label>
+                    <input type="text" name="id"> <br>
+                    <label>이름 : </label>
+                    <input type="text" name="name"> <br>
+                    <label>비밀번호 : </label>
+                    <input type="password" name="pw">
+                    <button type="button" onclick="patchUpdate();">axios로 PATCH</button>
+                </form>
+            </fieldset>
+            <fieldset style="width: 280px;">
+                <legend>Axios로 UPDATE</legend>
+                <form id="form_axios_delete">
+                    <label>삭제할 ID : </label>
+                    <input type="text" name="id">
+                    <button type="button" onclick="deleteUser();">axios로 DELETE</button>
+                </form>
+            </fieldset>
+        </div>
+        <table border="1" style="margin-top: 10px;">
+            <tr>
+                <td>ID</td>
+                <td>이름</td>
+                <td>비밀번호</td>
+            </tr>
+            <%
+                for ( let i = 0; i < result.length; i++ ) {
+            %>
+                <tr id="tr_<%=result[i].id%>">
+                    <td><%=result[i].id%></td>
+                    <td><%=result[i].name%></td>
+                    <td><%=result[i].pw%></td>
+                </tr>
+            <%
+                }
+            %>
+        </table>
+    </body>
+</html>
