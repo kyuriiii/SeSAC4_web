@@ -27,6 +27,14 @@
                     return { cnt: 0, boards: [] };
                 }
                 if ( action.type === 'WRITE' ) {
+                    /*
+                        state.boards.push(action.payload);
+                        return state;
+
+                        위와 같이 코드를 작성할 경우 변경된 state가 반영되지 않는다.
+                        객체는 복사를 했을 때 "값"이 아닌 주소" 가 복사되기 때문에 객체 자체를 변경하고 싶다면 새로운 객체로 만들어줘야 한다.
+                        그 방법 중 하나가 Object.assign
+                    */
                     let boards = Object.assign(state.boards);
                     boards.push(action.payload);
                     // Object.assign은 출처 객체들의 모든 열거 가능한 자체 속성을 복사해 대상 객체에 붙여넣습니다. 그 후 대상 객체를 반환합니다.

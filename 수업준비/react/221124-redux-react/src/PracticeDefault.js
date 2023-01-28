@@ -1,3 +1,5 @@
+// 코딩온 은행 시스템에 redux 적용하기
+// redux 로 관리해야 하는 상태는 "잔액"
 
 function PracticeDefault() {
   return (
