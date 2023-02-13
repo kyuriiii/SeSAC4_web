@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get</title>
+</head>
+<body>
+    <div style="display: flex">
+        <form action="/get/response1" method="get" style="margin-right: 20px;">
+            <h3>Get 전송 ( required = true )</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            <button type="submit">Get 전송</button>
+        </form>
+        <form action="/get/response2" method="get" style="margin-right: 20px;">
+            <h3>Get 전송 ( required = false )</h3>
+            <button type="submit">Get 전송</button>
+        </form>
+        <div style="margin-right: 20px;">
+            <h3>Get 전송 - ~/{value}</h3>
+            <a href="/get/response3/이름/나이">
+                get/response3/이름/나이
+            </a>
+        </div>
+        <div>
+            <h3>Get 전송 - ~/{value}</h3>
+            <a href="/get/response4/이름">
+                get/response4/이름
+            </a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div style="display: flex">
+        <form action="/post/response1" method="post" style="margin-right: 20px;">
+            <h3>Post 전송 ( required = true )</h3>
+            <input type="text" name="name">
+            <br>
+            <button type="submit">Post 전송</button>
+        </form>
+        <form action="/post/response2" method="post" style="margin-right: 20px;">
+            <h3>Post 전송 ( required = false )</h3>
+            <input type="text" name="name">
+            <br>
+            <button type="submit">Post 전송</button>
+        </form>
+        <form action="/post/response3" method="post" style="margin-right: 20px;">
+            <h3>Post 전송 ( ResponseBody )</h3>
+            <input type="text" name="name">
+            <br>
+            <button type="submit">Post 전송</button>
+        </form>
+    </div>
+
+    <br>
+    <hr>
+    <h2>DTO 이용하기</h2>
+    <div style="display: flex">
+        <form action="/dto/response1" method="get" style="margin-right: 20px;">
+            <h3>Get - DTO</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="submit">GET 전송</button>
+        </form>
+        <form action="/dto/response2" method="post" style="margin-right: 20px;">
+            <h3>Post - DTO</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="submit">Post 전송 ( RequestBody x )</button>
+        </form>
+        <form action="/dto/response3" method="post" style="margin-right: 20px;">
+            <h3>Post - DTO</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="submit">Post 전송 ( RequestBody O )</button>
+        </form>
+    </div>
+
+    <br>
+    <hr>
+    <h2>DTO 이용하기 - axios</h2>
+    <div style="display: flex">
+        <form action="/axios/response1" method="get" style="margin-right: 20px;">
+            <h3>Get ( 일반 ) - axios</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="submit">GET 전송</button>
+        </form>
+        <form action="/axios/response2" method="get" style="margin-right: 20px;">
+            <h3>Get ( DTO ) - axios</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="submit">GET 전송</button>
+        </form>
+        <form action="/axios/response3" method="post" style="margin-right: 20px;">
+            <h3>Post ( 일반 ) - axios</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="submit">Post 전송</button>
+        </form>
+        <form action="/axios/response4" method="post" style="margin-right: 20px;">
+            <h3>Post ( DTO ) - axios</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="submit">Post 전송 ( RequestBody X )</button>
+        </form>
+        <form action="/axios/response5" method="post" style="margin-right: 20px;">
+            <h3>Post ( DTO ) - axios</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="submit">Post 전송 ( RequestBody O )</button>
+        </form>
+    </div>
+</body>
+</html>
