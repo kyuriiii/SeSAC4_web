@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Get</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div style="display: flex">
@@ -85,47 +86,166 @@
 
     <br>
     <hr>
-    <h2>DTO 이용하기 - axios</h2>
+    <h2>VO 이용하기</h2>
     <div style="display: flex">
-        <form action="/axios/response1" method="get" style="margin-right: 20px;">
-            <h3>Get ( 일반 ) - axios</h3>
+        <form action="/vo/response1" method="get" style="margin-right: 20px;">
+            <h3>Get - VO</h3>
             이름 : <input type="text" name="name">
             <br>
             나이 : <input type="text" name="age">
             <br>
             <button type="submit">GET 전송</button>
         </form>
-        <form action="/axios/response2" method="get" style="margin-right: 20px;">
-            <h3>Get ( DTO ) - axios</h3>
+        <form action="/vo/response2" method="post" style="margin-right: 20px;">
+            <h3>Post - VO</h3>
             이름 : <input type="text" name="name">
             <br>
             나이 : <input type="text" name="age">
             <br>
-            <button type="submit">GET 전송</button>
+            <button type="submit">Post 전송 ( RequestBody x )</button>
         </form>
-        <form action="/axios/response3" method="post" style="margin-right: 20px;">
-            <h3>Post ( 일반 ) - axios</h3>
-            이름 : <input type="text" name="name">
-            <br>
-            나이 : <input type="text" name="age">
-            <br>
-            <button type="submit">Post 전송</button>
-        </form>
-        <form action="/axios/response4" method="post" style="margin-right: 20px;">
-            <h3>Post ( DTO ) - axios</h3>
-            이름 : <input type="text" name="name">
-            <br>
-            나이 : <input type="text" name="age">
-            <br>
-            <button type="submit">Post 전송 ( RequestBody X )</button>
-        </form>
-        <form action="/axios/response5" method="post" style="margin-right: 20px;">
-            <h3>Post ( DTO ) - axios</h3>
+        <form action="/vo/response3" method="post" style="margin-right: 20px;">
+            <h3>Post - VO</h3>
             이름 : <input type="text" name="name">
             <br>
             나이 : <input type="text" name="age">
             <br>
             <button type="submit">Post 전송 ( RequestBody O )</button>
+        </form>
+    </div>
+
+    <script>
+        function dtoResponse1() {
+            var form = document.getElementById('form_dto1');
+            axios.get(`/axios/response1?name=${form.name.value}&age=${form.age.value}`)
+            .then((res)=>{
+                console.log( res );
+                console.log( 'dtoResponse1 : ', res.data );
+            });
+        }
+        function dtoResponse2() {
+            var form = document.getElementById('form_dto1');
+            axios.get(`/axios/response2?name=${form.name.value}&age=${form.age.value}`)
+            .then((res)=>{
+                console.log( res );
+                console.log( 'dtoResponse2 : ', res.data );
+            });
+        }
+        function dtoResponse3() {
+            var form = document.getElementById('form_dto2');
+            axios.post(`/axios/response3`, {name: form.name.value, age: form.age.value})
+            .then((res)=>{
+                console.log( res );
+                console.log( 'dtoResponse3 : ', res.data );
+            });
+        }
+        function dtoResponse4() {
+            var form = document.getElementById('form_dto2');
+            axios.post(`/axios/response4`, {name: form.name.value, age: form.age.value})
+            .then((res)=>{
+                console.log( res );
+                console.log( 'dtoResponse1 : ', res.data );
+            });
+        }
+        function dtoResponse5() {
+            var form = document.getElementById('form_dto2');
+            axios.post(`/axios/response5`, {name: form.name.value, age: form.age.value})
+            .then((res)=>{
+                console.log( res );
+                console.log( 'dtoResponse5 : ', res.data );
+            });
+        }
+    </script>
+
+    <br>
+    <hr>
+    <h2>DTO 이용하기 - axios</h2>
+    <div style="display: flex">
+        <form action="/axios/response1" method="get" style="margin-right: 20px;" id="form_dto1">
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="button" onclick="dtoResponse1();">GET ( 일반 ) - axios</button>
+            <button type="button" onclick="dtoResponse2();">Get ( DTO ) - axios</button>
+        </form>
+        <form action="/axios/response3" method="post" style="margin-right: 20px;" id="form_dto2">
+            <h3>Post ( 일반 ) - axios</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="button" onclick="dtoResponse3();">Post ( 일반 ) - axios</button>
+            <button type="button" onclick="dtoResponse4();">Post ( DTO ) - axios ( RequestBody X )</button>
+            <button type="button" onclick="dtoResponse5();">Post ( DTO ) - axios ( RequestBody O )</button>
+        </form>
+    </div>
+
+    <script>
+        function voResponse1() {
+            var form = document.getElementById('form_vo1');
+            axios.get(`/axios/vo/response1?name=${form.name.value}&age=${form.age.value}`)
+            .then((res)=>{
+                console.log( res );
+                console.log( 'dtoResponse1 : ', res.data );
+            });
+        }
+        function voResponse2() {
+            var form = document.getElementById('form_vo1');
+            axios.get(`/axios/vo/response2?name=${form.name.value}&age=${form.age.value}`)
+            .then((res)=>{
+                console.log( res );
+                console.log( 'voResponse2 : ', res.data );
+            });
+        }
+        function voResponse3() {
+            var form = document.getElementById('form_vo2');
+            axios.post(`/axios/vo/response3`, {name: form.name.value, age: form.age.value})
+            .then((res)=>{
+                console.log( res );
+                console.log( 'voResponse3 : ', res.data );
+            });
+        }
+        function voResponse4() {
+            var form = document.getElementById('form_vo2');
+            axios.post(`/axios/vo/response4`, {name: form.name.value, age: form.age.value})
+            .then((res)=>{
+                console.log( res );
+                console.log( 'voResponse4 : ', res.data );
+            });
+        }
+        function voResponse5() {
+            var form = document.getElementById('form_vo2');
+            axios.post(`/axios/vo/response5`, {name: form.name.value, age: form.age.value})
+            .then((res)=>{
+                console.log( res );
+                console.log( 'voResponse5 : ', res.data  );
+            });
+        }
+    </script>
+
+    <br>
+    <hr>
+    <h2>VO 이용하기 - axios</h2>
+    <div style="display: flex">
+        <form id="form_vo1" style="margin-right: 20px;">
+            <h3>Get ( 일반 ) - axios</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="button" onclick="voResponse1();">GET ( 일반 ) - axios</button>
+            <button type="button" onclick="voResponse2();">Get ( VO ) - axios</button>
+        </form>
+        <form id="form_vo2" style="margin-right: 20px;">
+            <h3>Post ( 일반 ) - axios</h3>
+            이름 : <input type="text" name="name">
+            <br>
+            나이 : <input type="text" name="age">
+            <br>
+            <button type="button" onclick="voResponse3();">Post ( 일반 ) - axios</button>
+            <button type="button" onclick="voResponse4();">Post ( VO ) - axios ( RequestBody X )</button>
+            <button type="button" onclick="voResponse5();">Post ( VO ) - axios ( RequestBody O )</button>
         </form>
     </div>
 </body>

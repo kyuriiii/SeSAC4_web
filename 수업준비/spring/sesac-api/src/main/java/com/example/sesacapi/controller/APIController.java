@@ -1,6 +1,8 @@
 package com.example.sesacapi.controller;
 
 import com.example.sesacapi.dto.UserDTO;
+import com.example.sesacapi.vo.UserVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -75,6 +77,91 @@ public class APIController {
     @ResponseBody
     public String dtoAPI3(@RequestBody  UserDTO userDTO) {
         String msg = "이름 : " + userDTO.getName() + "\n나이 : " + userDTO.getAge();
+        return msg;
+    }
+
+    // VO
+    @GetMapping("/vo/response1")
+    @ResponseBody
+    public String voAPII1(UserVO userVO) {
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
+        return msg;
+    }
+    @PostMapping("/vo/response2")
+    @ResponseBody
+    public String voAPI2(UserVO userVO) {
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
+        return msg;
+    }
+    @PostMapping("/vo/response3")
+    @ResponseBody
+    public String voAPI3(@RequestBody  UserVO userVO) {
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
+        return msg;
+    }
+
+
+    // DTO - axios
+    @GetMapping("/axios/response1")
+    @ResponseBody
+    public String axiosAPI1(@RequestParam(value="name") String name, @RequestParam(value="age") String age) {
+        String msg = "이름 : " + name + "\n나이 : " + age;
+        return msg;
+    }
+    @GetMapping("/axios/response2")
+    @ResponseBody
+    public String axiosAPI2(UserDTO userDTO) {
+        String msg = "이름 : " + userDTO.getName() + "\n나이 : " + userDTO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/response3")
+    @ResponseBody
+    public String axiosAPI3(@RequestParam(value="name") String name, @RequestParam(value="age") String age) {
+        String msg = "이름 : " + name + "\n나이 : " + age;
+        return msg;
+    }
+    @PostMapping("/axios/response4")
+    @ResponseBody
+    public String axiosAPI4(UserDTO userDTO) {
+        String msg = "이름 : " + userDTO.getName() + "\n나이 : " + userDTO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/response5")
+    @ResponseBody
+    public String axiosAPI5(@RequestBody  UserDTO userDTO) {
+        String msg = "이름 : " + userDTO.getName() + "\n나이 : " + userDTO.getAge();
+        return msg;
+    }
+
+    // VO - axios
+    @GetMapping("/axios/vo/response1")
+    @ResponseBody
+    public String axiosvoAPI1(@RequestParam(value="name") String name, @RequestParam(value="age") String age) {
+        String msg = "이름 : " + name + "\n나이 : " + age;
+        return msg;
+    }
+    @GetMapping("/axios/vo/response2")
+    @ResponseBody
+    public String axiosvoAPI2(UserVO userVO) {
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/vo/response3")
+    @ResponseBody
+    public String axiosvoAPI3(@RequestParam(value="name") String name, @RequestParam(value="age") String age) {
+        String msg = "이름 : " + name + "\n나이 : " + age;
+        return msg;
+    }
+    @PostMapping("/axios/vo/response4")
+    @ResponseBody
+    public String axiosvoAPI4(UserVO userVO) {
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/vo/response5")
+    @ResponseBody
+    public String axiosvoAPI5(@RequestBody UserVO userVO) {
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
         return msg;
     }
 }
