@@ -16,4 +16,7 @@ public class MainService {
 	public List<User> getUserList(){
 		return mainMapper.retrieveAll();
 	}
+	public void addUser(User user){
+		mainMapper.insertUser(user);
+	}
 }
