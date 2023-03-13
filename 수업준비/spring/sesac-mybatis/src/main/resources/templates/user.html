@@ -6,8 +6,19 @@
 </head>
 <body>
   <h5>users</h5>
-  <ul th:each="user:${list}">
-    <li th:text="${user.getName}">이름</li>
-  </ul>
+  <table>
+    <tr>
+      <th>No.</th>
+      <th>ID</th>
+      <th>이름</th>
+      <th>닉네임</th>
+    </tr>
+    <tr th:each="user:${list}">
+      <td th:text="${user.getNo()}">번호</td>
+      <td th:text="${user.getId()}">ID</td>
+      <td th:text="${user.getName()}">이름</td>
+      <td th:text="${user.getNickname()}">닉네임</td>
+    </tr>
+  </table>
 </body>
 </html>

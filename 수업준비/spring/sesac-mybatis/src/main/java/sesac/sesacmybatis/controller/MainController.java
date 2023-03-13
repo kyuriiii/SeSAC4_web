@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import sesac.sesacmybatis.domain.User;
+import sesac.sesacmybatis.dto.UserDTO;
 import sesac.sesacmybatis.service.MainService;
 
 @Controller
@@ -19,7 +20,7 @@ public class MainController {
 
 	@GetMapping("/users")
 	public String getUsers(Model model) {
-		ArrayList<User> userList = (ArrayList<User>) mainService.getUserList();
+		ArrayList<UserDTO> userList = (ArrayList<UserDTO>) mainService.getUserList();
 		model.addAttribute("list", userList);
 		return "user";
 	}
