@@ -3,6 +3,7 @@ package sesac.sesacjpa.controller;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import dto.UserDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,7 +50,7 @@ public class MainController {
 
 	@GetMapping("/users")
 	public String getUsers(Model model) {
-		ArrayList<UserEntity> userList = (ArrayList<UserEntity>) mainService.getUserList();
+		ArrayList<UserDTO> userList = (ArrayList<UserDTO>) mainService.getUserList();
 		model.addAttribute("list", userList);
 		return "user";
 	}
