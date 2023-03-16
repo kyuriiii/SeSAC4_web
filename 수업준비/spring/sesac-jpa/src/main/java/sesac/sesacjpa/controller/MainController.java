@@ -1,17 +1,16 @@
 package sesac.sesacjpa.controller;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
-import dto.UserDTO;
-import lombok.AllArgsConstructor;
+import sesac.sesacjpa.dto.UserDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
-import sesac.sesacjpa.domain.User;
+
 import sesac.sesacjpa.domain.UserEntity;
 import sesac.sesacjpa.service.MainService;
 

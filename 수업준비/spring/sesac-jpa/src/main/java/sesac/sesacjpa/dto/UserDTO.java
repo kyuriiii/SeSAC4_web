@@ -1,4 +1,4 @@
-package dto;
+package sesac.sesacjpa.dto;
 
 public class UserDTO {
 

@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import dto.UserDTO;
+import sesac.sesacjpa.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import sesac.sesacjpa.domain.User;
 import sesac.sesacjpa.domain.UserEntity;
-import sesac.sesacjpa.mapper.MainMapper;
 import sesac.sesacjpa.repository.UserRepository;
 
 @Service
