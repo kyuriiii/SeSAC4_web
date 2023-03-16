@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        function login(){
+            var form = document.getElementById('form_login');
+            var data = {
+                id: form.id.value,
+                pw: form.pw.value
+            }
+            axios.post(`/login`, data)
+            .then((res)=>{
+                if ( res.data != "" ) {
+                    alert('로그인 성공!' );
+                    form.action = "/info";
+                    form.method = "post";
+                    form.submit();
+                } else {
+                    alert('로그인 실패!');
+                    form.reset();
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+  <form id="form_login">
+    <input type="text" placeholder="id" name="id">
+    <br>
+    <input type="password" name="pw">
+    <br>
+  <button type="button" onclick="login();">로그인</button>
+  </form>
+</body>
+</html>
