@@ -33,8 +33,19 @@ public class MainService {
 		}
 		return users;
 	}
-	public Optional<UserEntity> getUserName(String name){
-		return userRepository.findByName(name);
+	public ArrayList<UserDTO> getUserName(String name){
+		Optional<UserEntity> user = userRepository.findByName(name);
+		ArrayList<UserDTO> userList = new ArrayList<>();
+
+		if ( user.isPresent() ) {
+			UserDTO dto = new UserDTO();
+			dto.setId(user.get().getId());
+			dto.setNo(0);
+			dto.setName(user.get().getName());
+			dto.setNickname(user.get().getNickname());
+			userList.add(dto);
+		}
+		return userList;
 	}
 	public void addUser(UserEntity user){
 		userRepository.save(user);

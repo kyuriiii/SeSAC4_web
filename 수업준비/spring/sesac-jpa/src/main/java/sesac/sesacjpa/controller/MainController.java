@@ -20,6 +20,32 @@ public class MainController {
 	@Autowired
 	MainService mainService;
 
+	@GetMapping("/users")
+	public String getUsers(Model model) {
+		ArrayList<UserDTO> userList = (ArrayList<UserDTO>) mainService.getUserList();
+		model.addAttribute("list", userList);
+		return "user";
+	}
+	@GetMapping("/user")
+	public String getUser(@RequestParam String name, Model model) {
+		ArrayList<UserDTO> userList = mainService.getUserName(name);
+
+		model.addAttribute("list", userList);
+		return "user";
+	}
+
+	@GetMapping("/user/insert")
+	public String getInsertUser(@RequestParam String name, @RequestParam String nickname, Model model) {
+		UserEntity user = new UserEntity();
+		user.setName(name);
+		user.setNickname(nickname);
+
+		mainService.addUser(user);
+
+		model.addAttribute("list", null);
+		return "user";
+	}
+
 //	@GetMapping("/users")
 //	public String getUsers(Model model) {
 //		ArrayList<User> userList = (ArrayList<User>) mainService.getUserList();
@@ -48,31 +74,4 @@ public class MainController {
 //		return "user";
 //	}
 
-	@GetMapping("/users")
-	public String getUsers(Model model) {
-		ArrayList<UserDTO> userList = (ArrayList<UserDTO>) mainService.getUserList();
-		model.addAttribute("list", userList);
-		return "user";
-	}
-	@GetMapping("/user")
-	public String getUser(@RequestParam String name, Model model) {
-		Optional<UserEntity> user = mainService.getUserName(name);
-		ArrayList<UserEntity> userList = new ArrayList<>();
-		if ( user.isPresent() ) userList.add(user.get());
-
-		model.addAttribute("list", userList);
-		return "user";
-	}
-
-	@GetMapping("/user/insert")
-	public String getInsertUser(@RequestParam String name, @RequestParam String nickname, Model model) {
-		UserEntity user = new UserEntity();
-		user.setName(name);
-		user.setNickname(nickname);
-
-		mainService.addUser(user);
-
-		model.addAttribute("list", null);
-		return "user";
-	}
 }
