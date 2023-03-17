@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+<button type="button" onclick="document.location.href='/write'">작성</button>
+<br>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>바로가기</th>
+  </tr>
+  <tr th:each="board:${list}">
+    <td th:text="${board.getNo()}">번호</td>
+    <td th:text="${board.getTitle()}">ID</td>
+    <td th:text="${board.getWriter()}">이름</td>
+    <td>
+      <a th:href="'/board/'+${board.getID()}">바로가기</a>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
